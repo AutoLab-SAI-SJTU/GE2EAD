@@ -24,9 +24,8 @@ Collects papers on autonomous driving E2E learning and VLM/VLA, with organized r
 - [Dataset](#dataset)
     - [Normal Dataset](#normal-dataset)
     - [Vision Language Dataset](#vision-language-dataset)
-- [License](#License)
+- [License](#license)
 - [Citation](#citation)
-- [Contact](#contact)
 
 ## Mindmap, Top Methods
 
@@ -53,9 +52,11 @@ Collects papers on autonomous driving E2E learning and VLM/VLA, with organized r
 </div>
 
 ## Papers
-### Conventional End-to-End Methods
 <details open>
 <summary> Conventional End-to-End Methods </summary>
+
+### Conventional End-to-End Methods
+
 
 <details open>
 <summary>2025</summary>
@@ -381,10 +382,11 @@ Collects papers on autonomous driving E2E learning and VLM/VLA, with organized r
 <p align="right">(<a href="#top">back to top</a>)</p>    
 </details>
 
-
-### VLM-Centric End-to-End Methods
 <details open>
 <summary>VLM-Centric End-to-End Methods</summary>
+
+
+### VLM-Centric End-to-End Methods
 
 <details open>
 <summary>2025</summary>
@@ -814,9 +816,11 @@ Collects papers on autonomous driving E2E learning and VLM/VLA, with organized r
 <p align="right">(<a href="#top">back to top</a>)</p> 
 </details>
 
-### Hybrid End-to-End Methods
 <details open>
 <summary> Hybrid End-to-End Methods </summary>
+
+### Hybrid End-to-End Methods
+
 
 <details open>
 <summary>2025</summary>
@@ -905,16 +909,19 @@ Collects papers on autonomous driving E2E learning and VLM/VLA, with organized r
     Summary: Propose VLP, a Vision Language Planning model, which is composed of novel components ALP and SLP, aiming to improve the ADS from self-driving BEV reasoning and self-driving decision-making aspects, respectively.
 
 </details>
-<p align="right">(<a href="#top">back to top</a>)</p> 
+
 </details>
+<p align="right">(<a href="#top">back to top</a>)</p> 
+
+
 
 ## Dataset
-<details open>
-<summary>Dataset</summary>
 
-### Normal Dataset
 <details open>
 <summary>Normal Dataset</summary>
+
+### Normal Dataset
+
 
 - **KITTI**: Are We Ready for Autonomous Driving? The KITTI Vision Benchmark Suite CVPR 2012 [[Paper](https://ieeexplore.ieee.org/document/6248074)][[Dataset](https://www.cvlibs.net/datasets/kitti/)]
   
@@ -965,7 +972,8 @@ Collects papers on autonomous driving E2E learning and VLM/VLA, with organized r
 
 </details>
 
-<p align="right">(<a href="#top">back to top</a>)</p>   
+<details open>
+<summary>Vision Language Dataset</summary>
 
 ### Vision Language Dataset
 <details open>
@@ -1159,9 +1167,9 @@ Collects papers on autonomous driving E2E learning and VLM/VLA, with organized r
 
 </details>
 
-<p align="right">(<a href="#top">back to top</a>)</p>   
 
 </details>
+<p align="right">(<a href="#top">back to top</a>)</p>  
 
 ## License
 
@@ -1177,11 +1185,6 @@ If you find this project useful in your research, please consider citing:
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>    
-
-## Contact
-
-<p align="right">(<a href="#top">back to top</a>)</p>    
-
 
 <!-- links -->
 [your-project-path]:AutoLab-SAI-SJTU/GE2EAD
