@@ -1,6 +1,6 @@
 <div id="top">
 
-# GE2EAD
+# Awesome-GE2EAD
 
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
