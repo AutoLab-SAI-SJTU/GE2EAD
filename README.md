@@ -44,6 +44,8 @@ If you find this project useful in your research, please consider citing:
 
 ## 📌 Milestones
 
+- 🚀 **2025-12-24**: We organize the list of papers in a completely new tabular format.
+
 - 🚀 **2025-12-13**: Added the latest newly published papers to the survey repository and updated the overall organization.
 
 - 🚀 **2025-12-10**: The paper *“Survey of General End-to-End Autonomous Driving: A Unified Perspective”* was released, and this repository was made publicly available.
@@ -94,378 +96,120 @@ If you find this project useful in your research, please consider citing:
 
 ### Conventional End-to-End Methods
 
-
 <details open>
 <summary>2025</summary>
 
-<!-- | 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
 |---|---|---|---|---|---|
-| **DiffusionDriveV2**<br><sub>DiffusionDriveV2: Reinforcement Learning-Constrained Truncated Diffusion Modeling in End-to-End Autonomous Driving</sub> | 2025 | `Diffusion` · `RL` | [![arXiv](https://img.shields.io/badge/arXiv-2512.07745-b31b1b?style=flat-square)](https://arxiv.org/abs/2512.07745) | [![Stars](https://img.shields.io/github/stars/hustvl/DiffusionDriveV2?style=social)](https://github.com/hustvl/DiffusionDriveV2) | — | -->
-
-
-
-
-- **DiffusionDriveV2**: DiffusionDriveV2: Reinforcement Learning-Constrained Truncated Diffusion Modeling in End-to-End Autonomous Driving [[Paper](https://www.arxiv.org/pdf/2512.07745)] [[Code](https://github.com/hustvl/DiffusionDriveV2)]
-  
-  Summary: DiffusionDriveV2 enhances diffusion-based trajectory planning by combining truncated diffusion modeling with reinforcement learning. It uses scale-adaptive multiplicative noise to promote broad exploration, and designs intra-anchor GRPO to optimize samples within the same intention anchor plus inter-anchor truncated GRPO to compare advantages across anchors in a controlled way, suppressing low-quality modes while preserving multimodal, intention-diverse trajectories.
-
-- **SIMSCALE**: SimScale: Learning to Drive via Real-World Simulation at Scale [[Paper](https://www.arxiv.org/pdf/2511.23369)] [[Code](https://github.com/OpenDriveLab/SimScale)]
-  
-  Summary: SimScale is a scalable real-world–conditioned simulation framework that augments driving logs with massive, diverse, safety-critical scenarios. It uses neural rendering with a reactive environment to generate multi-view observations along perturbed ego trajectories, then synthesizes pseudo-expert trajectories for those new states; policies are cotrained on both real and simulated data, yielding improved robustness and generalization that scale with simulation data volume.
-
-- **LAP**: LAP: Fast Latent Diffusion Planner with Fine-Grained Feature Distillation for Autonomous Driving [[Paper](https://arxiv.org/pdf/2512.00470)] [[Code](https://github.com/jhz1192/Latent-Planner)]
-  
-  Summary: LAP is a latent-space diffusion planner that decouples high-level driving intents from low-level kinematics using a VAE-learned latent representation. Trajectories are generated via diffusion in this latent space, while a fine-grained feature distillation mechanism tightly fuses the latent planner with vectorized scene context, enabling high-quality, multimodal plans in as few as a single denoising step and significantly reducing inference latency.
-
-
-- **GuideFlow**: GuideFlow: Constraint-Guided Flow Matching for Planning in End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2511.18729)] [[Code](https://github.com/liulin815/GuideFlow)]
-  
-  Summary: GuideFlow is a generative planner that uses constrained flow matching to generate diverse yet constraint-satisfying trajectories. It explicitly models the flow matching process, jointly trains with an Energy-Based Model to enforce physical and safety constraints during generation, and parameterizes driving aggressiveness as a control signal to modulate trajectory style.
-
-- **DiffRefiner**: DiffRefiner: Coarse to Fine Trajectory Planning via Diffusion Refinement with Semantic Interaction for End to End Autonomous Driving [[Paper](https://arxiv.org/pdf/2511.17150)] [[Code](https://github.com/nullmax-vision/DiffRefiner)]
-  
-  Summary: DiffRefiner adopts a two-stage coarse-to-fine trajectory planning framework where a transformer-based proposal decoder first regresses coarse trajectories from sensor inputs using predefined anchors, and a diffusion refiner then iteratively denoises and refines these proposals. A fine-grained denoising decoder with semantic interaction improves scene compliance, yielding more accurate and environment-aligned trajectories.
-
-- **ResAD**: ResAD: Normalized Residual Trajectory Modeling for End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2510.08562)] [[Code](https://github.com/Duckyee728/ResAD-released)]
-  
-  Summary: ResAD reframes end-to-end trajectory prediction as normalized residual modeling around a deterministic inertial reference path. The model predicts deviations from this inertial prior instead of absolute trajectories and applies point-wise normalization to reweight residuals across time, reducing the dominance of uncertain long-horizon errors and focusing learning on necessary, context-driven corrections that improve near-term safety.
-
-
-- **SeerDrive**: Future-Aware End-to-End Driving: Bidirectional Modeling of Trajectory Planning and Scene Evolution, **NeurIPS 2025** [[Paper](https://arxiv.org/pdf/2510.11092)] [[Code](https://github.com/LogosRoboticsGroup/SeerDrive)]
-  
-  Summary: SeerDrive jointly models future scene evolution and trajectory planning in a closed-loop manner. It first predicts future BEV representations to anticipate scene dynamics, then injects these future-aware features into the trajectory planner, and iteratively refines both future scene prediction and trajectory generation through collaborative optimization.
-
-- **DriveDPO**: DriveDPO: Policy Learning via Safety DPO For End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2509.17940)]
-  
-  Summary: DriveDPO learns an end-to-end driving policy by directly aligning it with safety-aware preferences instead of pure imitation. It first distills a unified policy distribution that combines human imitation similarity and rule-based safety scores, then performs iterative Direct Preference Optimization at the trajectory level to align the policy with safer driving behaviors.
-
-- **AnchDrive**: AnchDrive: Bootstrapping Diffusion Policies with Hybrid Trajectory Anchors for End-to-End Driving [[Paper](https://arxiv.org/pdf/2509.20253)]
-  
-  Summary: AnchDrive accelerates diffusion-based planners by bootstrapping from hybrid trajectory anchors instead of pure noise. It constructs anchors from a static vocabulary of general driving priors and dynamic context-aware trajectories decoded from dense and sparse perception features, then uses a diffusion model to predict offset distributions that refine these anchors into diverse, high-quality trajectories.
-
-- **AdaThinkDrive**: AdaThinkDrive: Adaptive Thinking via Reinforcement Learning for Autonomous Driving [[Paper](https://arxiv.org/pdf/2509.13769)]
-  
-  Summary: AdaThinkDrive is an end-to-end framework with a dual-mode “fast/slow thinking” mechanism that adaptively decides whether to use Chain-of-Thought reasoning. The model is pretrained on QA and trajectory data to acquire driving knowledge, then supervised with mixed fast-answering and CoT-style slow-thinking data, and finally optimized with an Adaptive Think Reward and GRPO to learn when CoT reasoning improves trajectory quality versus when it is unnecessary.
-
-
-- **VeteranAD**: Perception in Plan: Coupled Perception and Planning for End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2508.11488)] [[Code](https://github.com/LogosRoboticsGroup/VeteranAD)]
-  
-  Summary: The method proposes a “perception-in-plan” framework that tightly couples perception with planning by using multi-mode anchored trajectories as planning priors. The perception module is guided to collect traffic elements specifically along these priors, and an autoregressive planner progressively predicts future trajectories while repeatedly focusing perception on the most relevant regions, leading to targeted, planning-driven perception and trajectory generation.
-
-* ​**EvaDrive**​: Evolutionary Adversarial Policy Optimization for End-to-End Autonomous Driving [[Paper](https://www.arxiv.org/pdf/2508.09158)] 
-    
-
-    Summary: This paper integrates trajectory generation and evaluation into a closed-loop system through an innovative multi-objective reinforcement learning framework and adversarial strategy optimization, significantly enhancing the robustness and flexibility of autonomous driving planning. It also supports diverse driving styles and has broad application potential.
-* ​**ReconDreamer-RL**​: Enhancing Reinforcement Learning via Diffusion-based Scene Reconstruction [[Paper](https://arxiv.org/pdf/2508.08170)] [[Code](https://github.com/GigaAI-research/ReconDreamer-RL)] 
-    
-
-    Summary: ReconDreamer-RL is a framework that enhances end-to-end reinforcement learning through scene reconstruction and video diffusion technologies, aiming to optimize the training performance of autonomous driving models, especially in handling complex scenes and corner cases in closed-loop environments.
-* ​**GMF-Drive**​: Gated Mamba Fusion with Spatial-Aware BEV Representation for End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2508.06113)] 
-    
-
-    Summary: GMF-Drive significantly enhances the efficiency of multimodal fusion and the performance of autonomous driving through innovative ​geometrically enhanced representations and spatially aware state-space models​.
-* ​**DistillDrive**​: End-to-End Multi-Mode Autonomous Driving Distillation by Isomorphic Hetero-Source Planning Model [[Paper](https://www.arxiv.org/pdf/2508.05402)] [[Code](https://github.com/YuruiAI/DistillDrive)] 
-    
-
-    Summary: This paper employs a multimodal decoupling planning model based on structured scene representation as the teacher model, guiding the student model to learn ​multimodal motion features through distillation​, in order to address the limitations of existing end-to-end models in single-objective imitation learning.
-* ​**GEMINUS**​: Dual-aware Global and Scene-Adaptive Mixture-of-Experts for End-to-End Autonomous Driving [[Paper](https://www.arxiv.org/pdf/2507.14456)] [[Code](https://github.com/newbrains1/GEMINUS)] 
-    
-
-    Summary: GEMINUS effectively combines global experts with scene-adaptive expert groups through dual-sensing routers, achieving a balance between adaptability and robustness in complex and diverse traffic scenarios.
-* ​**DiVER**​: Breaking Imitation Bottlenecks: Reinforced Diffusion Powers Diverse Trajectory Generation [[Paper](https://arxiv.org/pdf/2507.04049)] 
-    
-
-    Summary: DiVER is an end-to-end driving framework that integrates reinforcement learning with diffusion-based generation to produce diverse and feasible trajectories, effectively addressing the mode collapse problem inherent in imitation learning.
-* ​**World4Drive**​: End-to-End Autonomous Driving via Intention-aware Physical Latent World Model, **ICCV 2025** [[Paper](https://arxiv.org/pdf/2507.00603)] [[Project](https://github.com/ucaszyp/World4Drive)] 
-    
-
-    Summary: By simulating the evolution process of the ​physical world under different driving intentions​, the generation and evaluation of multimodal trajectories are achieved, which is close to the decision-making logic of human drivers.
-* ​**FocalAD**​: Local Motion Planning for End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2506.11419)] 
-    
-
-    Summary: FocalAD refines planning by focusing on critical local neighbors and enhancing local motion representations.
-* ​**GaussianFusion**​: Gaussian-Based Multi-Sensor Fusion for End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2506.00034)] [[Code](https://github.com/Say2L/GaussianFusion)] 
-    
-
-    Summary: Utilizing intuitive and compact Gaussian representations as intermediate carriers, GaussianFusion iteratively refine trajectory predictions through interactions with the rich spatial and semantic information within these Gaussians.
-* ​**CogAD**​: Cognitive-Hierarchy Guided End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2505.21581)] 
-    
-
-    Summary: CogAD implements dual hierarchical mechanisms: global-to-local context processing for human-like perception and intent-conditioned multi-mode trajectory generation for cognitively-inspired planning.
-
-* ​**DiffE2E**​: Rethinking End-to-End Driving with a Hybrid Action Diffusion and Supervised Policy [[Paper](https://arxiv.org/pdf/2505.19516)] [[Project](https://infinidrive.github.io/DiffE2E/)] 
-    
-
-    Summary: DiffE2 integrates a Transformer-based hybrid diffusion-supervised decoder and introduces a collaborative training mechanism, which effectively combines the advantages of diffusion and supervision strategies.
-* ​**TransDiffuser**​: End-to-end Trajectory Generation with Decorrelated Multi-modal Representation for Autonomous Driving [[Paper](https://arxiv.org/pdf/2505.09315)] 
-    
-
-    Summary: TransDiffuser, an end-to-end generative trajectory model for autonomous driving based on "encoder-decoder", and introduces a multimodal representation decorrelation optimization mechanism to encourage sampling of more diverse trajectories from continuous space.
-* ​**MomAD**​: Don’t Shake the Wheel: Momentum-Aware Planning in End-to-End Autonomous Driving, **CVPR 2025** [[Paper](https://arxiv.org/pdf/2503.03125)] [[Code](https://github.com/adept-thu/MomAD)] 
-    
-
-    Summary: MomAD effectively alleviates the key challenges of trajectory mutation and perception instability in end-to-end autonomous driving through the ​momentum mechanism​. Trajectory momentum aims to stabilize and optimize trajectory prediction by keeping candidate trajectories aligned with historical trajectories.
-* ​**Consistency**​: Predictive Planner for Autonomous Driving with Consistency Models [[Paper](https://arxiv.org/pdf/2502.08033)] 
-    
-
-    Summary: Consistency leverage the consistency model to build a predictive planner that samples from a joint distribution of ego and surrounding agents, conditioned on the ego vehicle’s navigational goal.
-* ​**ARTEMIS**​: Autoregressive End-to-End Trajectory Planning with Mixture of Experts for Autonomous Driving [[Paper](https://arxiv.org/abs/2504.19580)] 
-    
-
-    Summary: Using the hybrid expert model MoE to improve E2E, the autoregressive planning module with MOE gradually generates trajectory waypoints through a sequential decision process, while dynamically selecting the expert network that best suits the current driving scenario.
-* ​**TTOG**​: Two Tasks, One Goal: Uniting Motion and Planning for Excellent End To End Autonomous Driving Performance [[Paper](https://arxiv.org/pdf/2504.12667)] 
-    
-
-    Summary: TTOG introduces a new method to ​unify motion and planning tasks​, allowing the planning task to benefit from motion data, significantly improving the performance and generalization ability of the planning task.
-* ​**DiffusionDrive**​: Truncated Diffusion Model for End-to-End Autonomous Driving, **CVPR 2025** [[Paper](https://arxiv.org/pdf/2411.15139)] [[Code](https://github.com/hustvl/DiffusionDrive)] 
-    
-
-    Summary: For the first time, the diffusion model was introduced into the field of end-to-end autonomous driving, and a truncated diffusion strategy was proposed, which solved the problems of mode collapse and excessive computation when the traditional diffusion strategy was applied in traffic scenarios.
-* ​**WoTE**​: End-to-End Driving with Online Trajectory Evaluation via BEV World Model [[Paper](https://arxiv.org/pdf/2504.01941)] [[Code](https://github.com/liyingyanUCAS/WoTE)] 
-    
-
-    Summary: The BEV world model is used to predict the future state of BEVs for trajectory evaluation. Compared with the image-level world model, the proposed BEV world model has lower latency and can be seamlessly supervised using an off-the-shelf BEV spatial traffic simulator.
-* ​**DMAD**​: Divide and Merge: Motion and Semantic Learning in End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2502.07631)] [[Code](https://github.com/shenyinzhe/DMAD)] 
-    
-
-    Summary: A novel parallel detection, tracking, and prediction method that ​separates semantic learning from motion learning​. This architecture separates the gradient backpropagation between the two types of tasks to eliminate negative transfer, and merges similar tasks to exploit the correlation between tasks and promote positive transfer.
-* ​**Centaur**​: Robust End-to-End Autonomous Driving with Test-Time Training [[Paper](https://arxiv.org/abs/2503.11650)] 
-    
-
-    Summary: Application of **Test-Time Training (TTT)** in End-to-End Autonomous Driving to enhance robustness.
-* ​**Drive in Corridors**​: Enhancing the Safety of End-to-end Autonomous Driving via Corridor Learning and Planning [[Paper](https://arxiv.org/abs/2504.07507)] 
-    
-
-    Summary: The concept of a safe corridor in the field of robot planning is introduced into end-to-end autonomous driving as an explicit spatiotemporal constraint to enhance safety.
-* ​**BridgeAD**​: Bridging Past and Future: End-to-End Autonomous Driving with Historical Prediction and Planning, **CVPR 2025** [[Paper](https://arxiv.org/pdf/2503.14182v1)] [[Code](https://github.com/fudan-zvg/BridgeAD)] 
-    
-
-    Summary: End-to-end autonomous driving is enhanced by incorporating historical predictions of the current frame into the perception module, and incorporating historical predictions and planning of future frames into the motion planning module.
-* ​**Hydra-MDP++**​: Advancing End-to-End Driving via Expert-Guided Hydra-Distillation [[Paper](https://arxiv.org/pdf/2503.12820)] [[Code](https://github.com/NVlabs/Hydra-MDP)] 
-    
-
-    Summary: Hydra-MDP++ introduces a new teacher-student knowledge distillation framework with a multi-head decoder that can learn from human demonstrations and rule-based experts.
-* ​**DiffAD**​: A Unified Diffusion Modeling Approach for Autonomous Driving [[Paper](https://arxiv.org/pdf/2503.12170)] 
-    
-
-    Summary: DiffAD redefines autonomous driving as a ​conditional image generation task​. By rasterizing heterogeneous targets onto a unified bird’s-eye view (BEV) and modeling their latent distribution, DiffAD unifies various driving objectives and jointly optimizes all driving tasks in a single framework.
-* ​**GoalFlow**​: Goal-Driven Flow Matching for Multimodal Trajectories Generation in End-to-End Autonomous Driving, **CVPR 2025** [[Paper](https://arxiv.org/pdf/2503.05689)] [[Code](https://github.com/YvanYin/GoalFlow)] 
-    
-
-    Summary: It has come up with an end-to-end autonomous driving method called GoalFlow, which generates high-quality multimodal trajectories by introducing target points to constrain the generation process using flow matching.
-* ​**HiP-AD**​: Hierarchical and Multi-Granularity Planning with Deformable Attention for Autonomous Driving in a Single Decoder, **ICCV 2025** [[Paper](https://arxiv.org/pdf/2503.08612)] [[Code](https://github.com/nullmax-vision/HiP-AD)] 
-    
-
-    Summary: A unified decoder is designed to take as input hybrid task queries (detection, map understanding, planning), allowing planning and perception tasks to exchange information in BEV space and planning queries to interact with image space.
-* ​**LAW**​: Enhancing End-to-End Autonomous Driving with Latent World Model, **ICLR 2025** [[Paper](https://arxiv.org/pdf/2406.08481)] [[Code](https://github.com/BraveGroup/LAW)] 
-    
-
-    Summary: This paper proposes a self-supervised learning method based on the LAtent World Model (LAW) to optimize the scene feature representation and future trajectory prediction.
-* ​**DriveTransformer**​: Unified Transformer for Scalable End-to-End Autonomous Driving, **ICLR 2025** [[Paper](https://arxiv.org/pdf/2503.07656)] [[Code](https://github.com/Thinklab-SJTU/DriveTransformer)] 
-    
-
-    Summary: A unified architecture without BEV is designed with a Decoder as the core, featuring task parallelism, sparse representation (task queries interact directly with raw sensor features), and stream processing.
-* ​**UncAD**​: Towards Safe End-to-end Autonomous Driving via Online Map Uncertainty, **ICRA 2025** [[Paper](https://arxiv.org/pdf/2504.12826)] [[Code](https://github.com/pengxuanyang/UncAD)] 
-    
-
-    Summary: UncAD effectively utilize the map uncertainty to produce robust and safe planning results via Uncertainty-Guided Planning strategy and Uncertainty-Collision-Aware Planning Selection module.
-* ​**RAD**​: Training an End-to-End Driving Policy via Large-Scale 3DGS-based Reinforcement Learning [[Paper](https://arxiv.org/pdf/2502.13144)] [[Project](https://hgao-cv.github.io/RAD/)] 
-    
-
-    Summary: Establish a closed-loop reinforcement learning (RL) training paradigm based on 3DGS to build a realistic digital replica of the real physical world, enabling AD policies to explore the state space and handle out-of-distribution (OOD) scenarios.
-* ​**OAD**​: Trajectory Offset Learning: A Framework for Enhanced End-to-End Autonomous Driving [[Paper](https://www.researchgate.net/publication/388891609_Trajectory_Offset_Learning_A_Framework_for_Enhanced_End-to-End_Autonomous_Driving)] [[Code](https://github.com/wzn-cv/OAD)] 
-    
-
-    Summary: OAD enhanced framework built upon the VAD architecture, which introduces a novel paradigm shift from direct trajectory prediction to ​trajectory offset learning​. Leverage trajectory vocabulary to learn offsets instead of learning trajectories directly.
+| **DiffusionDriveV2**<br><sub>DiffusionDriveV2: Reinforcement Learning-Constrained Truncated Diffusion Modeling in End-to-End Autonomous Driving</sub> | 2025 | `Diffusion` · `RL` | [![arXiv](https://img.shields.io/badge/arXiv-2512.07745-b31b1b?style=flat-square)](https://arxiv.org/abs/2512.07745) | [![Stars](https://img.shields.io/github/stars/hustvl/DiffusionDriveV2?style=social)](https://github.com/hustvl/DiffusionDriveV2) | — |
+| **SIMSCALE**<br><sub>SimScale: Learning to Drive via Real-World Simulation at Scale</sub> | 2025 | `Simulation` · `Data Gen` | [![arXiv](https://img.shields.io/badge/arXiv-2511.23369-b31b1b?style=flat-square)](https://arxiv.org/abs/2511.23369) | [![Stars](https://img.shields.io/github/stars/OpenDriveLab/SimScale?style=social)](https://github.com/OpenDriveLab/SimScale) | — |
+| **LAP**<br><sub>LAP: Fast Latent Diffusion Planner with Fine-Grained Feature Distillation for Autonomous Driving</sub> | 2025 | `Latent Diffusion` · `Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2512.00470-b31b1b?style=flat-square)](https://arxiv.org/abs/2512.00470) | [![Stars](https://img.shields.io/github/stars/jhz1192/Latent-Planner?style=social)](https://github.com/jhz1192/Latent-Planner) | — |
+| **GuideFlow**<br><sub>GuideFlow: Constraint-Guided Flow Matching for Planning in End-to-End Autonomous Driving</sub> | 2025 | `Generative` · `Flow Matching` | [![arXiv](https://img.shields.io/badge/arXiv-2511.18729-b31b1b?style=flat-square)](https://arxiv.org/abs/2511.18729) | [![Stars](https://img.shields.io/github/stars/liulin815/GuideFlow?style=social)](https://github.com/liulin815/GuideFlow) | — |
+| **DiffRefiner**<br><sub>DiffRefiner: Coarse to Fine Trajectory Planning via Diffusion Refinement with Semantic Interaction for End to End Autonomous Driving</sub> | 2025 | `Diffusion` · `Refinement` | [![arXiv](https://img.shields.io/badge/arXiv-2511.17150-b31b1b?style=flat-square)](https://arxiv.org/abs/2511.17150) | [![Stars](https://img.shields.io/github/stars/nullmax-vision/DiffRefiner?style=social)](https://github.com/nullmax-vision/DiffRefiner) | — |
+| **ResAD**<br><sub>ResAD: Normalized Residual Trajectory Modeling for End-to-End Autonomous Driving</sub> | 2025 | `Trajectory Modeling` | [![arXiv](https://img.shields.io/badge/arXiv-2510.08562-b31b1b?style=flat-square)](https://arxiv.org/abs/2510.08562) | [![Stars](https://img.shields.io/github/stars/Duckyee728/ResAD-released?style=social)](https://github.com/Duckyee728/ResAD-released) | — |
+| **SeerDrive**<br><sub>Future-Aware End-to-End Driving: Bidirectional Modeling of Trajectory Planning and Scene Evolution</sub> | NeurIPS 2025 | `World Model` · `Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2510.11092-b31b1b?style=flat-square)](https://arxiv.org/abs/2510.11092) | [![Stars](https://img.shields.io/github/stars/LogosRoboticsGroup/SeerDrive?style=social)](https://github.com/LogosRoboticsGroup/SeerDrive) | — |
+| **DriveDPO**<br><sub>DriveDPO: Policy Learning via Safety DPO For End-to-End Autonomous Driving</sub> | 2025 | `DPO` · `Safety` | [![arXiv](https://img.shields.io/badge/arXiv-2509.17940-b31b1b?style=flat-square)](https://arxiv.org/abs/2509.17940) | — | — |
+| **AnchDrive**<br><sub>AnchDrive: Bootstrapping Diffusion Policies with Hybrid Trajectory Anchors for End-to-End Driving</sub> | 2025 | `Diffusion` · `Anchors` | [![arXiv](https://img.shields.io/badge/arXiv-2509.20253-b31b1b?style=flat-square)](https://arxiv.org/abs/2509.20253) | — | — |
+| **AdaThinkDrive**<br><sub>AdaThinkDrive: Adaptive Thinking via Reinforcement Learning for Autonomous Driving</sub> | 2025 | `RL` · `CoT` | [![arXiv](https://img.shields.io/badge/arXiv-2509.13769-b31b1b?style=flat-square)](https://arxiv.org/abs/2509.13769) | — | — |
+| **VeteranAD**<br><sub>Perception in Plan: Coupled Perception and Planning for End-to-End Autonomous Driving</sub> | 2025 | `Perception-Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2508.11488-b31b1b?style=flat-square)](https://arxiv.org/abs/2508.11488) | [![Stars](https://img.shields.io/github/stars/LogosRoboticsGroup/VeteranAD?style=social)](https://github.com/LogosRoboticsGroup/VeteranAD) | — |
+| **EvaDrive**<br><sub>Evolutionary Adversarial Policy Optimization for End-to-End Autonomous Driving</sub> | 2025 | `RL` · `Adversarial` | [![arXiv](https://img.shields.io/badge/arXiv-2508.09158-b31b1b?style=flat-square)](https://arxiv.org/abs/2508.09158) | — | — |
+| **ReconDreamer-RL**<br><sub>Enhancing Reinforcement Learning via Diffusion-based Scene Reconstruction</sub> | 2025 | `RL` · `World Model` | [![arXiv](https://img.shields.io/badge/arXiv-2508.08170-b31b1b?style=flat-square)](https://arxiv.org/abs/2508.08170) | [![Stars](https://img.shields.io/github/stars/GigaAI-research/ReconDreamer-RL?style=social)](https://github.com/GigaAI-research/ReconDreamer-RL) | — |
+| **GMF-Drive**<br><sub>Gated Mamba Fusion with Spatial-Aware BEV Representation for End-to-End Autonomous Driving</sub> | 2025 | `Mamba` · `Fusion` | [![arXiv](https://img.shields.io/badge/arXiv-2508.06113-b31b1b?style=flat-square)](https://arxiv.org/abs/2508.06113) | — | — |
+| **DistillDrive**<br><sub>End-to-End Multi-Mode Autonomous Driving Distillation by Isomorphic Hetero-Source Planning Model</sub> | 2025 | `Distillation` | [![arXiv](https://img.shields.io/badge/arXiv-2508.05402-b31b1b?style=flat-square)](https://arxiv.org/abs/2508.05402) | [![Stars](https://img.shields.io/github/stars/YuruiAI/DistillDrive?style=social)](https://github.com/YuruiAI/DistillDrive) | — |
+| **GEMINUS**<br><sub>Dual-aware Global and Scene-Adaptive Mixture-of-Experts for End-to-End Autonomous Driving</sub> | 2025 | `MoE` · `Adaptive` | [![arXiv](https://img.shields.io/badge/arXiv-2507.14456-b31b1b?style=flat-square)](https://arxiv.org/abs/2507.14456) | [![Stars](https://img.shields.io/github/stars/newbrains1/GEMINUS?style=social)](https://github.com/newbrains1/GEMINUS) | — |
+| **DiVER**<br><sub>Breaking Imitation Bottlenecks: Reinforced Diffusion Powers Diverse Trajectory Generation</sub> | 2025 | `RL` · `Diffusion` | [![arXiv](https://img.shields.io/badge/arXiv-2507.04049-b31b1b?style=flat-square)](https://arxiv.org/abs/2507.04049) | — | — |
+| **World4Drive**<br><sub>End-to-End Autonomous Driving via Intention-aware Physical Latent World Model</sub> | ICCV 2025 | `World Model` | [![arXiv](https://img.shields.io/badge/arXiv-2507.00603-b31b1b?style=flat-square)](https://arxiv.org/abs/2507.00603) | [![Stars](https://img.shields.io/github/stars/ucaszyp/World4Drive?style=social)](https://github.com/ucaszyp/World4Drive) | — |
+| **FocalAD**<br><sub>Local Motion Planning for End-to-End Autonomous Driving</sub> | 2025 | `Motion Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2506.11419-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.11419) | — | — |
+| **GaussianFusion**<br><sub>Gaussian-Based Multi-Sensor Fusion for End-to-End Autonomous Driving</sub> | 2025 | `Gaussian Splatting` · `Fusion` | [![arXiv](https://img.shields.io/badge/arXiv-2506.00034-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.00034) | [![Stars](https://img.shields.io/github/stars/Say2L/GaussianFusion?style=social)](https://github.com/Say2L/GaussianFusion) | — |
+| **CogAD**<br><sub>Cognitive-Hierarchy Guided End-to-End Autonomous Driving</sub> | 2025 | `Cognitive` · `Hierarchy` | [![arXiv](https://img.shields.io/badge/arXiv-2505.21581-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.21581) | — | — |
+| **DiffE2E**<br><sub>Rethinking End-to-End Driving with a Hybrid Action Diffusion and Supervised Policy</sub> | 2025 | `Diffusion` · `Hybrid` | [![arXiv](https://img.shields.io/badge/arXiv-2505.19516-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.19516) | — | [Project](https://infinidrive.github.io/DiffE2E/) |
+| **TransDiffuser**<br><sub>End-to-end Trajectory Generation with Decorrelated Multi-modal Representation for Autonomous Driving</sub> | 2025 | `Diffusion` · `Multimodal` | [![arXiv](https://img.shields.io/badge/arXiv-2505.09315-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.09315) | — | — |
+| **MomAD**<br><sub>Don’t Shake the Wheel: Momentum-Aware Planning in End-to-End Autonomous Driving</sub> | CVPR 2025 | `Planning` · `Momentum` | [![arXiv](https://img.shields.io/badge/arXiv-2503.03125-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.03125) | [![Stars](https://img.shields.io/github/stars/adept-thu/MomAD?style=social)](https://github.com/adept-thu/MomAD) | — |
+| **Consistency**<br><sub>Predictive Planner for Autonomous Driving with Consistency Models</sub> | 2025 | `Consistency` · `Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2502.08033-b31b1b?style=flat-square)](https://arxiv.org/abs/2502.08033) | — | — |
+| **ARTEMIS**<br><sub>Autoregressive End-to-End Trajectory Planning with Mixture of Experts for Autonomous Driving</sub> | 2025 | `MoE` · `Autoregressive` | [![arXiv](https://img.shields.io/badge/arXiv-2504.19580-b31b1b?style=flat-square)](https://arxiv.org/abs/2504.19580) | — | — |
+| **TTOG**<br><sub>Two Tasks, One Goal: Uniting Motion and Planning for Excellent End To End Autonomous Driving Performance</sub> | 2025 | `Multi-task` | [![arXiv](https://img.shields.io/badge/arXiv-2504.12667-b31b1b?style=flat-square)](https://arxiv.org/abs/2504.12667) | — | — |
+| **DiffusionDrive**<br><sub>Truncated Diffusion Model for End-to-End Autonomous Driving</sub> | CVPR 2025 | `Diffusion` | [![arXiv](https://img.shields.io/badge/arXiv-2411.15139-b31b1b?style=flat-square)](https://arxiv.org/abs/2411.15139) | [![Stars](https://img.shields.io/github/stars/hustvl/DiffusionDrive?style=social)](https://github.com/hustvl/DiffusionDrive) | — |
+| **WoTE**<br><sub>End-to-End Driving with Online Trajectory Evaluation via BEV World Model</sub> | 2025 | `World Model` · `BEV` | [![arXiv](https://img.shields.io/badge/arXiv-2504.01941-b31b1b?style=flat-square)](https://arxiv.org/abs/2504.01941) | [![Stars](https://img.shields.io/github/stars/liyingyanUCAS/WoTE?style=social)](https://github.com/liyingyanUCAS/WoTE) | — |
+| **DMAD**<br><sub>Divide and Merge: Motion and Semantic Learning in End-to-End Autonomous Driving</sub> | 2025 | `Multi-task` | [![arXiv](https://img.shields.io/badge/arXiv-2502.07631-b31b1b?style=flat-square)](https://arxiv.org/abs/2502.07631) | [![Stars](https://img.shields.io/github/stars/shenyinzhe/DMAD?style=social)](https://github.com/shenyinzhe/DMAD) | — |
+| **Centaur**<br><sub>Robust End-to-End Autonomous Driving with Test-Time Training</sub> | 2025 | `Test-Time Training` | [![arXiv](https://img.shields.io/badge/arXiv-2503.11650-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.11650) | — | — |
+| **Drive in Corridors**<br><sub>Enhancing the Safety of End-to-end Autonomous Driving via Corridor Learning and Planning</sub> | 2025 | `Safety` · `Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2504.07507-b31b1b?style=flat-square)](https://arxiv.org/abs/2504.07507) | — | — |
+| **BridgeAD**<br><sub>Bridging Past and Future: End-to-End Autonomous Driving with Historical Prediction and Planning</sub> | CVPR 2025 | `Prediction` · `Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2503.14182-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.14182) | [![Stars](https://img.shields.io/github/stars/fudan-zvg/BridgeAD?style=social)](https://github.com/fudan-zvg/BridgeAD) | — |
+| **Hydra-MDP++**<br><sub>Advancing End-to-End Driving via Expert-Guided Hydra-Distillation</sub> | 2025 | `Distillation` · `Multi-head` | [![arXiv](https://img.shields.io/badge/arXiv-2503.12820-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.12820) | [![Stars](https://img.shields.io/github/stars/NVlabs/Hydra-MDP?style=social)](https://github.com/NVlabs/Hydra-MDP) | — |
+| **DiffAD**<br><sub>A Unified Diffusion Modeling Approach for Autonomous Driving</sub> | 2025 | `Diffusion` | [![arXiv](https://img.shields.io/badge/arXiv-2503.12170-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.12170) | — | — |
+| **GoalFlow**<br><sub>Goal-Driven Flow Matching for Multimodal Trajectories Generation in End-to-End Autonomous Driving</sub> | CVPR 2025 | `Flow Matching` | [![arXiv](https://img.shields.io/badge/arXiv-2503.05689-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.05689) | [![Stars](https://img.shields.io/github/stars/YvanYin/GoalFlow?style=social)](https://github.com/YvanYin/GoalFlow) | — |
+| **HiP-AD**<br><sub>Hierarchical and Multi-Granularity Planning with Deformable Attention for Autonomous Driving in a Single Decoder</sub> | ICCV 2025 | `Attention` · `Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2503.08612-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.08612) | [![Stars](https://img.shields.io/github/stars/nullmax-vision/HiP-AD?style=social)](https://github.com/nullmax-vision/HiP-AD) | — |
+| **LAW**<br><sub>Enhancing End-to-End Autonomous Driving with Latent World Model</sub> | ICLR 2025 | `World Model` | [![arXiv](https://img.shields.io/badge/arXiv-2406.08481-b31b1b?style=flat-square)](https://arxiv.org/abs/2406.08481) | [![Stars](https://img.shields.io/github/stars/BraveGroup/LAW?style=social)](https://github.com/BraveGroup/LAW) | — |
+| **DriveTransformer**<br><sub>Unified Transformer for Scalable End-to-End Autonomous Driving</sub> | ICLR 2025 | `Transformer` | [![arXiv](https://img.shields.io/badge/arXiv-2503.07656-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.07656) | [![Stars](https://img.shields.io/github/stars/Thinklab-SJTU/DriveTransformer?style=social)](https://github.com/Thinklab-SJTU/DriveTransformer) | — |
+| **UncAD**<br><sub>Towards Safe End-to-end Autonomous Driving via Online Map Uncertainty</sub> | ICRA 2025 | `Uncertainty` · `Map` | [![arXiv](https://img.shields.io/badge/arXiv-2504.12826-b31b1b?style=flat-square)](https://arxiv.org/abs/2504.12826) | [![Stars](https://img.shields.io/github/stars/pengxuanyang/UncAD?style=social)](https://github.com/pengxuanyang/UncAD) | — |
+| **RAD**<br><sub>Training an End-to-End Driving Policy via Large-Scale 3DGS-based Reinforcement Learning</sub> | 2025 | `RL` · `3DGS` | [![arXiv](https://img.shields.io/badge/arXiv-2502.13144-b31b1b?style=flat-square)](https://arxiv.org/abs/2502.13144) | — | [Project](https://hgao-cv.github.io/RAD/) |
+| **OAD**<br><sub>Trajectory Offset Learning: A Framework for Enhanced End-to-End Autonomous Driving</sub> | 2025 | `Trajectory` · `Offset` | [![ResearchGate](https://img.shields.io/badge/ResearchGate-Paper-00ccbb?style=flat-square)](https://www.researchgate.net/publication/388891609_Trajectory_Offset_Learning_A_Framework_for_Enhanced_End-to-End_Autonomous_Driving) | [![Stars](https://img.shields.io/github/stars/wzn-cv/OAD?style=social)](https://github.com/wzn-cv/OAD) | — |
 
 </details>
 <details open>
 <summary>2024</summary>
 
-- **GaussianAD**: Gaussian-Centric End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2412.10371)] [[Code](https://github.com/wzzheng/GaussianAD)]
-   
-    Summary: The author extensively and sparsely describes the scene by using 3D semantic Gaussian, efficiently performs 3D perception with sparse convolution, uses Gaussian 3D flow prediction, and plans the self-vehicle trajectory accordingly with the goal of future scene prediction.
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **GaussianAD**<br><sub>Gaussian-Centric End-to-End Autonomous Driving</sub> | 2024 | `Gaussian Splatting` · `Perception` | [![arXiv](https://img.shields.io/badge/arXiv-2412.10371-b31b1b?style=flat-square)](https://arxiv.org/abs/2412.10371) | [![Stars](https://img.shields.io/github/stars/wzzheng/GaussianAD?style=social)](https://github.com/wzzheng/GaussianAD) | — |
+| **MA2T**<br><sub>Module-wise Adaptive Adversarial Training for End-to-end Autonomous Driving</sub> | 2024 | `Adversarial` · `Robustness` | [![arXiv](https://img.shields.io/badge/arXiv-2409.07321-b31b1b?style=flat-square)](https://arxiv.org/abs/2409.07321) | — | — |
+| **Hint-AD**<br><sub>Holistically Aligned Interpretability in End-to-End Autonomous Driving</sub> | 2024 | `Interpretability` · `Alignment` | [![arXiv](https://img.shields.io/badge/arXiv-2409.06702-b31b1b?style=flat-square)](https://arxiv.org/abs/2409.06702) | [![Stars](https://img.shields.io/github/stars/Robot-K/Hint-AD?style=social)](https://github.com/Robot-K/Hint-AD) | [Project](https://air-discover.github.io/Hint-AD/) |
+| **DRAMA**<br><sub>An Efficient End-to-end Motion Planner for Autonomous Driving with Mamba</sub> | CVPR 2025 | `Mamba` · `Motion Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2408.03601-b31b1b?style=flat-square)](https://arxiv.org/abs/2408.03601) | [![Stars](https://img.shields.io/github/stars/Chengran-Yuan/DRAMA?style=social)](https://github.com/Chengran-Yuan/DRAMA) | [Project](https://chengran-yuan.github.io/DRAMA/) |
+| **PPAD**<br><sub>Iterative Interactions of Prediction and Planning for End-to-end Autonomous Driving</sub> | ECCV 2024 | `Prediction` · `Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2311.08100-b31b1b?style=flat-square)](https://arxiv.org/abs/2311.08100) | [![Stars](https://img.shields.io/github/stars/zlichen/PPAD?style=social)](https://github.com/zlichen/PPAD) | — |
+| **BEV-Planner**<br><sub>Is Ego Status All You Need for Open-Loop End-to-End Autonomous Driving?</sub> | CVPR 2024 | `BEV` · `Evaluation` | [![arXiv](https://img.shields.io/badge/arXiv-2312.03031-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.03031) | [![Stars](https://img.shields.io/github/stars/NVlabs/BEV-Planner?style=social)](https://github.com/NVlabs/BEV-Planner) | — |
+| **EfficientFuser**<br><sub>Efficient Fusion and Task Guided Embedding for End-to-end Autonomous Driving</sub> | 2024 | `Efficient` · `Fusion` | [![arXiv](https://img.shields.io/badge/arXiv-2407.02878-b31b1b?style=flat-square)](https://arxiv.org/abs/2407.02878) | — | — |
+| **UAD**<br><sub>End-to-End Autonomous Driving without Costly Modularization and 3D Manual Annotation</sub> | 2024 | `Unsupervised` | [![arXiv](https://img.shields.io/badge/arXiv-2406.17680-b31b1b?style=flat-square)](https://arxiv.org/abs/2406.17680) | — | — |
+| **Hydra-MDP**<br><sub>End-to-end Multimodal Planning with Multi-target Hydra-Distillation</sub> | 2024 | `Distillation` · `Multimodal` | [![arXiv](https://img.shields.io/badge/arXiv-2406.06978-b31b1b?style=flat-square)](https://arxiv.org/abs/2406.06978) | [![Stars](https://img.shields.io/github/stars/NVlabs/Hydra-MDP?style=social)](https://github.com/NVlabs/Hydra-MDP) | — |
+| **DualAD**<br><sub>Disentangling the Dynamic and Static World for End-to-End Driving</sub> | CVPR 2025 | `Dual-Stream` · `Dynamic` | [![arXiv](https://img.shields.io/badge/arXiv-2406.06264-b31b1b?style=flat-square)](https://arxiv.org/abs/2406.06264) | [![Stars](https://img.shields.io/github/stars/TUM-AVS/DualAD?style=social)](https://github.com/TUM-AVS/DualAD) | — |
+| **SparseDrive**<br><sub>End-to-End Autonomous Driving via Sparse Scene Representation</sub> | 2024 | `Sparse` · `Scene Rep` | [![arXiv](https://img.shields.io/badge/arXiv-2405.19620-b31b1b?style=flat-square)](https://arxiv.org/abs/2405.19620) | [![Stars](https://img.shields.io/github/stars/swc-17/SparseDrive?style=social)](https://github.com/swc-17/SparseDrive) | — |
+| **GAD**<br><sub>GAD-Generative Learning for HD Map-Free Autonomous Driving</sub> | 2024 | `Generative` · `Map-Free` | [![arXiv](https://img.shields.io/badge/arXiv-2405.00515-b31b1b?style=flat-square)](https://arxiv.org/abs/2405.00515) | [![Stars](https://img.shields.io/github/stars/mr-d-self-driving/GAD?style=social)](https://github.com/mr-d-self-driving/GAD) | — |
+| **SparseAD**<br><sub>Sparse Query-Centric Paradigm for Efficient End-to-End Autonomous Driving</sub> | 2024 | `Sparse` · `Query` | [![arXiv](https://img.shields.io/badge/arXiv-2404.06892-b31b1b?style=flat-square)](https://arxiv.org/abs/2404.06892) | — | — |
+| **GenAD**<br><sub>Generative End-to-End Autonomous Driving</sub> | ECCV 2024 | `Generative` · `Prediction` | [![arXiv](https://img.shields.io/badge/arXiv-2402.11502-b31b1b?style=flat-square)](https://arxiv.org/abs/2402.11502) | [![Stars](https://img.shields.io/github/stars/wzzheng/GenAD?style=social)](https://github.com/wzzheng/GenAD) | — |
+| **GraphAD**<br><sub>Interaction Scene Graph for End-to-end Autonomous Driving</sub> | 2024 | `Graph` · `Interaction` | [![arXiv](https://img.shields.io/badge/arXiv-2403.19098-b31b1b?style=flat-square)](https://arxiv.org/abs/2403.19098) | [![Stars](https://img.shields.io/github/stars/zhangyp15/GraphAD?style=social)](https://github.com/zhangyp15/GraphAD) | — |
+| **ActiveAD**<br><sub>Planning-Oriented Active Learning for End-to-End Autonomous Driving</sub> | 2024 | `Active Learning` | [![arXiv](https://img.shields.io/badge/arXiv-2403.02877-b31b1b?style=flat-square)](https://arxiv.org/abs/2403.02877) | — | — |
+| **VADv2**<br><sub>End-to-End Vectorized Autonomous Driving via Probabilistic Planning</sub> | 2024 | `Vectorized` · `Probabilistic` | [![arXiv](https://img.shields.io/badge/arXiv-2402.13243-b31b1b?style=flat-square)](https://arxiv.org/abs/2402.13243) | [![Stars](https://img.shields.io/github/stars/hustvl/vad?style=social)](https://github.com/hustvl/vad) | — |
 
-- **MA2T**: Module-wise Adaptive Adversarial Training for End-to-end Autonomous Driving [[Paper](https://arxiv.org/pdf/2409.07321)]
-   
-    Summary: Adversative training is applied to end-to-end AD to improve the robustness under different adversative attacks by integrating module-level noise injection and dynamic weight accumulation adaptation.
-
-- **Hint-AD**: Holistically Aligned Interpretability in End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2409.06702)] [[Project](https://air-discover.github.io/Hint-AD/)] [[Code](https://github.com/Robot-K/Hint-AD)]
-   
-    Summary: By combining the intermediate output and the token mixer subnetwork, the language generated by the model is aligned with the overall perception-prediction-planning output of the AD model.
-
-- **DRAMA**: An Efficient End-to-end Motion Planner for Autonomous Driving with Mamba, **CVPR 2025** [[Paper](https://arxiv.org/pdf/2408.03601)] [[Project](https://chengran-yuan.github.io/DRAMA/)] [[Code](https://github.com/Chengran-Yuan/DRAMA)]
-   
-    Summary: Using the Mamba-embedded encoder-decoder architecture, the encoder is used to fuse fuses features from the camera and LiDAR BEV images, and the decoder is used to generate motion trajectories.
-
-- **PPAD**: Iterative Interactions of Prediction and Planning for End-to-end Autonomous Driving, **ECCV 2024** [[Paper](https://arxiv.org/pdf/2311.08100)] [[Code](https://github.com/zlichen/PPAD)]
-   
-    Summary: The prediction and planning processes are carried out alternately at each time step, rather than a single sequential process of prediction and planning.
-
-- **BEV-Planner**: Is Ego Status All You Need for Open-Loop End-to-End Autonomous Driving?, **CVPR 2024** [[Paper](https://arxiv.org/pdf/2312.03031)] [[Code](https://github.com/NVlabs/BEV-Planner)]
-   
-    Summary: This paper analyzes the problem of excessive reliance on the ego status in planning tasks by existing methods, proposes new baseline methods and evaluation metrics, and emphasizes the importance of developing more suitable datasets.
-
-- **EfficientFuser**: Efficient Fusion and Task Guided Embedding for End-to-end Autonomous Driving [[Paper](https://arxiv.org/pdf/2407.02878)]
-   
-    Summary: Reduce required parameters and computation with EfficientViT lightweight neural networks.
-
-- **UAD**: End-to-End Autonomous Driving without Costly Modularization and 3D Manual Annotation [[Paper](https://arxiv.org/pdf/2406.17680)]
-   
-    Summary: Using unsupervised frameworks eliminate the need for expensive 3D annotation and use self-supervised training strategies to enhance the planning robustness in the transition scene.
-
-- **Hydra-MDP**: End-to-end Multimodal Planning with Multi-target Hydra-Distillation [[Paper](https://arxiv.org/pdf/2406.06978)] [[Code](https://github.com/NVlabs/Hydra-MDP)]
-   
-    Summary: The student model learns diverse trajectory candidates tailored for various evaluation metrics through the knowledge distillation of human teachers and rule-based teachers.
-
-- **DualAD**: Disentangling the Dynamic and Static World for End-to-End Driving, **CVPR 2025** [[Paper](https://arxiv.org/pdf/2406.06264)] [[Code](https://github.com/TUM-AVS/DualAD)]
-   
-    Summary: A dual-stream architecture that decouples dynamic agents and static scene elements is used to compensate for the movement of self-vehicles and objects, enabling the system to better integrate information in the time dimension.
-
-- **SparseDrive**: End-to-End Autonomous Driving via Sparse Scene Representation [[Paper](https://arxiv.org/pdf/2405.19620)] [[Code](https://github.com/swc-17/SparseDrive)]
-   
-    Summary: Sparse scene representation is used, while adding a parallel motion planner and using a hierarchical programming selection strategy to improve the performance of the model.
-
-- **GAD**: GAD-Generative Learning for HD Map-Free Autonomous Driving [[Paper](https://arxiv.org/pdf/2405.00515)] [[Code](https://github.com/mr-d-self-driving/GAD)]
-   
-    Summary: The data-driven predictive - planning framework without high-precision maps goes beyond the planning methods of simple imitation or trajectory sampling.
-
-- **SparseAD**: Sparse Query-Centric Paradigm for Efficient End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2404.06892)]
-   
-    Summary: Using the sparse query center paradigm to reduce computing costs and memory usage enables the utilization of longer historical information.
-
-- **GenAD**: Generative End-to-End Autonomous Driving, **ECCV 2024** [[Paper](https://arxiv.org/pdf/2402.11502)] [[Code](https://github.com/wzzheng/GenAD)]
-   
-    Summary: Use a unified future trajectory generation model to perform motion prediction and planning simultaneously for introducing trajectory priors and higher-order interactions.
-
-- **GraphAD**: Interaction Scene Graph for End-to-end Autonomous Driving [[Paper](https://arxiv.org/pdf/2403.19098)] [[Code](https://github.com/zhangyp15/GraphAD)]
-   
-    Summary: The graph model is adopted to describe the complex interactions in the traffic scene and introduce powerful prior knowledge.
-
-- **ActiveAD**: Planning-Oriented Active Learning for End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2403.02877)]
-   
-    Summary: Utilize the active learning method oriented to planning to intelligently select the data that most needs annotation and improve the efficiency of data utilization.
-
-- **VADv2**: End-to-End Vectorized Autonomous Driving via Probabilistic Planning [[Paper](https://arxiv.org/pdf/2402.13243)] [[Code](https://github.com/hustvl/vad)]
-   
-    Summary: Output the probability distribution of the action to deal with the uncertainty of the planning.
 </details>
 
 <details open>
 <summary>2023</summary>
 
-- **DriveAdapter**: Breaking the Coupling Barrier of Perception and Planning in End-to-End Autonomous Driving, **ICCV 2023** [[Paper](https://arxiv.org/pdf/2308.00398)] [[Code](https://github.com/OpenDriveLab/DriveAdapter)]
-   
-    Summary: DriveAdapter decouples the perceptual learning of the student model from the planning knowledge of the teacher model by introducing an adapter module, avoiding the causal confusion problem in traditional behavior cloning methods and improving the efficiency and performance of the autonomous driving system.
-
-- **VAD**: Vectorized Scene Representation for Efficient Autonomous Driving, **ICCV 2023** [[Paper](https://arxiv.org/pdf/2303.12077)] [[Code](https://github.com/hustvl/VAD)]
-   
-    Summary: The design of vectorized environmental representation improves the processing speed, and instance-level planning constraints enhance planning security.
-
-- **ThinkTwice**: Think Twice before Driving: Towards Scalable Decoders for End-to-End Autonomous Driving, **CVPR 2023** [[Paper](https://arxiv.org/pdf/2305.06242)] [[Code](https://github.com/OpenDriveLab/ThinkTwice)]
-   
-    Summary: This paper refines the prediction results layer by layer through an extensible decoder layer, combining spatio-temporal prior knowledge and intensive supervision, which enhances driving safety and task completion rate, and also provides new ideas for planner design.
-
-- **ReasonNet**: End-to-End Driving with Temporal and Global Reasoning, **CVPR 2023** [[Paper](https://arxiv.org/pdf/2305.10507)] [[Code](https://github.com/opendilab/DOS?tab=readme-ov-file)]
-   
-    Summary: Use temporal reasoning module to effectively fuse information from different frames and a transformer-based global reasoning module for better scene understanding. Release a dataset DOS, which consists of diverse occlusion scenarios in urban driving for systematic evaluation of occlusion events.
-
-- **SuperDriverAI**: Towards Design and Implementation for End-to-End Learning-based Autonomous Driving [[Paper](https://arxiv.org/pdf/2305.10443)]
-   
-    Summary: Employing simple DNN network to predict steering angle, and the visual attention module improves interpretability.
-
-- **UniAD**: Planning-oriented Autonomous Driving, **CVPR 2023** [[Paper](https://arxiv.org/pdf/2212.10156)] [[Code](https://arxiv.org/pdf/2212.10156)]
-   
-    Summary: The full-stack driving task is integrated in a query-based network. Different modules achieve feature complementarity and a global perspective, oriented towards the final planning task.
-
-- **End-to-End Learning of Behavioural Inputs for Autonomous Driving in Dense Traffic**: End-to-End Learning of Behavioural Inputs for Autonomous Driving in Dense Traffic, **IROS 2023** [[Paper](https://arxiv.org/pdf/2310.14766)]
-   
-    Summary: By embedding a novel differentiable trajectory optimizer as the neural network layer, this method can dynamically adjust the behavioral input while ensuring the rapid convergence of the optimizer, thereby improving driving efficiency and reducing the collision rate.
-
-- **CRCHFL**: Communication Resources Constrained Hierarchical Federated Learning for End-to-End Autonomous Driving, **IROS 2023** [[Paper](https://arxiv.org/pdf/2306.16169)]
-   
-    Summary: This paper proposes an optimization-driven communication resource-constrained hierarchical federated learning framework (CRCHFL), aiming to address the trade-off between limited communication resources and learning performance in end-to-end autonomous driving scenarios.
-
-- **PPGeo**: Policy pre-training for autonomous driving via self-supervised geometric modeling, **ICLR 2023** [[Paper](https://arxiv.org/pdf/2301.01006)] [[Code](https://github.com/OpenDriveLab/PPGeo)]
-   
-    Summary: By performing self-supervised geometric modeling (pose/depth prediction and future ego-motion prediction) in stages on a large number of unlabeled YouTube driving videos, PPGeo pre-trained an encoder that can extract rich visual representations relevant to driving policies, thereby significantly improving the performance of visuo-motor driving tasks in data-constrained situations.
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **DriveAdapter**<br><sub>Breaking the Coupling Barrier of Perception and Planning in End-to-End Autonomous Driving</sub> | ICCV 2023 | `Adapter` · `Decoupling` | [![arXiv](https://img.shields.io/badge/arXiv-2308.00398-b31b1b?style=flat-square)](https://arxiv.org/abs/2308.00398) | [![Stars](https://img.shields.io/github/stars/OpenDriveLab/DriveAdapter?style=social)](https://github.com/OpenDriveLab/DriveAdapter) | — |
+| **VAD**<br><sub>Vectorized Scene Representation for Efficient Autonomous Driving</sub> | ICCV 2023 | `Vectorized` · `Efficient` | [![arXiv](https://img.shields.io/badge/arXiv-2303.12077-b31b1b?style=flat-square)](https://arxiv.org/abs/2303.12077) | [![Stars](https://img.shields.io/github/stars/hustvl/VAD?style=social)](https://github.com/hustvl/VAD) | — |
+| **ThinkTwice**<br><sub>Think Twice before Driving: Towards Scalable Decoders for End-to-End Autonomous Driving</sub> | CVPR 2023 | `Decoder` · `Refinement` | [![arXiv](https://img.shields.io/badge/arXiv-2305.06242-b31b1b?style=flat-square)](https://arxiv.org/abs/2305.06242) | [![Stars](https://img.shields.io/github/stars/OpenDriveLab/ThinkTwice?style=social)](https://github.com/OpenDriveLab/ThinkTwice) | — |
+| **ReasonNet**<br><sub>End-to-End Driving with Temporal and Global Reasoning</sub> | CVPR 2023 | `Reasoning` · `Temporal` | [![arXiv](https://img.shields.io/badge/arXiv-2305.10507-b31b1b?style=flat-square)](https://arxiv.org/abs/2305.10507) | [![Stars](https://img.shields.io/github/stars/opendilab/DOS?style=social)](https://github.com/opendilab/DOS) | — |
+| **SuperDriverAI**<br><sub>Towards Design and Implementation for End-to-End Learning-based Autonomous Driving</sub> | 2023 | `Attention` · `DNN` | [![arXiv](https://img.shields.io/badge/arXiv-2305.10443-b31b1b?style=flat-square)](https://arxiv.org/abs/2305.10443) | — | — |
+| **UniAD**<br><sub>Planning-oriented Autonomous Driving</sub> | CVPR 2023 | `Multi-task` · `Unified` | [![arXiv](https://img.shields.io/badge/arXiv-2212.10156-b31b1b?style=flat-square)](https://arxiv.org/abs/2212.10156) | [Code](https://arxiv.org/pdf/2212.10156) | — |
+| **E2E Dense**<br><sub>End-to-End Learning of Behavioural Inputs for Autonomous Driving in Dense Traffic</sub> | IROS 2023 | `Optimization` · `Dense Traffic` | [![arXiv](https://img.shields.io/badge/arXiv-2310.14766-b31b1b?style=flat-square)](https://arxiv.org/abs/2310.14766) | — | — |
+| **CRCHFL**<br><sub>Communication Resources Constrained Hierarchical Federated Learning for End-to-End Autonomous Driving</sub> | IROS 2023 | `Federated Learning` | [![arXiv](https://img.shields.io/badge/arXiv-2306.16169-b31b1b?style=flat-square)](https://arxiv.org/abs/2306.16169) | — | — |
+| **PPGeo**<br><sub>Policy pre-training for autonomous driving via self-supervised geometric modeling</sub> | ICLR 2023 | `Self-Supervised` · `Geometric` | [![arXiv](https://img.shields.io/badge/arXiv-2301.01006-b31b1b?style=flat-square)](https://arxiv.org/abs/2301.01006) | [![Stars](https://img.shields.io/github/stars/OpenDriveLab/PPGeo?style=social)](https://github.com/OpenDriveLab/PPGeo) | — |
 
 </details>
 
 <details open>
 <summary>Before 2023</summary>
 
-- **MMFN**: Multi-Modal-Fusion-Net for End-to-End Driving, **IROS 2022** [[Paper](https://arxiv.org/pdf/2207.00186)] [[Code](https://github.com/Kin-Zhang/mmfn)]
-   
-    Summary: This paper improves the driving performance of the autonomous driving model in complex urban environments by integrating camera, LiDAR, high-definition Map (HD Map) and radar data.
-
-- **KEMP**: Keyframe-Based Hierarchical End-to-End Deep Model for Long-Term Trajectory Prediction, **ICRA 2022** [[Paper](https://arxiv.org/pdf/2205.04624)]
-   
-    Summary: This paper predicts keyframes based on road context, and then fills in the intermediate states according to the keyframes and road context to generate complete trajectories, achieving the most advanced prediction performance.
-
-- **TCP**: Trajectory-guided Control Prediction for End-to-end Autonomous Driving: A Simple yet Strong Baseline, **NeurIPS 2022** [[Paper](https://arxiv.org/pdf/2206.08129)] [[Code](https://github.com/OpenPerceptionX/TCP)]
-   
-    Summary: This paper combines two mainstream prediction paradigms: trajectory planning and direct control. By designing a unified learning framework and interaction mechanism, it fully leverages the advantages of both and optimizes the final output through context fusion strategies.
-
-- **ST-P3**: End-to-end Vision-based Autonomous Driving via Spatial-Temporal Feature Learning, **ECCV 2022** [[Paper](https://arxiv.org/pdf/2207.07601)] [[Code](https://github.com/OpenDriveLab/ST-P3)]
-   
-    Summary: ST-P3 proposes an interpretable end-to-end visual autonomous driving system, which realizes the joint spatiotemporal feature learning of perception, prediction and planning tasks by integrating self-centered alignment accumulation, dual-path prediction and time refinement units.
-
-- **MP3**: A Unified Model to Map, Perceive, Predict and Plan, **CVPR 2021** [[Paper](https://openaccess.thecvf.com/content/CVPR2021/papers/Casas_MP3_A_Unified_Model_To_Map_Perceive_Predict_and_Plan_CVPR_2021_paper.pdf)]
-   
-    Summary: By online predicting the map and dynamic agent status and using this information for motion planning, it achieves driving performance that is safer, more comfortable and has higher command compliance than existing methods without the need for high-precision maps.
-
-- **Multitask-with-attention**: Multi-task Learning with Attention for End-to-end Autonomous Driving, **CVPR 2021** [[Paper](https://arxiv.org/pdf/2104.10753)] [[Code](https://github.com/KeishiIshihara/multitask-with-attention)]
-   
-    Summary: By integrating the Conditional Imitation Learning (CIL) framework and multi-task learning, the authors designed an attention-aware network to enhance the model's generalization ability and processing capacity for traffic signals.
-
-- **Transfuser**: Multi-Modal Fusion Transformer for End-to-End Autonomous Driving, **CVPR 2021** [[Paper](https://openaccess.thecvf.com/content/CVPR2021/papers/Prakash_Multi-Modal_Fusion_Transformer_for_End-to-End_Autonomous_Driving_CVPR_2021_paper.pdf)] [[Code](https://github.com/autonomousvision/transfuser)]
-   
-    Summary: TransFuser proposed a multimodal fusion Transformer based on the attention mechanism to integrate image and LiDAR data, thereby achieving a lower collision rate and better driving performance.
-
-- **NEAT**: Neural Attention Fields for End-to-End Autonomous Driving, **ICCV 2021** [[Paper](https://openaccess.thecvf.com/content/ICCV2021/papers/Chitta_NEAT_Neural_Attention_Fields_for_End-to-End_Autonomous_Driving_ICCV_2021_paper.pdf)] [[Code](https://github.com/autonomousvision/neat)]
-   
-    Summary: By learning the attention map from camera input to the spatio-temporal query location of BEV, the correlation problem of existing methods in BEV semantic prediction from camera input has been overcome, and robust and interpretable cloning of autonomous driving behavior has been achieved.
-
-- **Fast-LiDARNet**: Efficient and Robust LiDAR-Based End-to-End Navigation, **ICRA 2021** [[Paper](https://arxiv.org/pdf/2105.09932)]
-   
-    Summary: This paper addresses the issues of high computational cost and insufficient model robustness in processing LiDAR data in existing methods, and enhances efficiency and reliability by optimizing the neural network structure and fusion algorithm.
-
-- **IVMP**: Learning Interpretable End-to-End Vision-Based Motion Planning for Autonomous Driving with Optical Flow Distillation, **ICRA 2021** [[Paper](https://arxiv.org/pdf/2104.12861)] [[Project](https://sites.google.com/view/ivmp)]
-   
-    Summary: This paper achieves interpretable trajectory planning by predicting future bird's-eye view semantic maps, and simultaneously adopts optical flow distillation technology to enhance network performance and maintain real-time performance.
-
-- **P3**: Perceive, Predict, and Plan: Safe Motion Planning Through Interpretable Semantic Representations, **ECCV 2020** [[Paper](https://arxiv.org/pdf/2008.05930)]
-   
-    Summary: A novel end-to-end autonomous driving system based on the differentiable probabilistic semantic occupancy layer is proposed, aiming to solve the problems of information loss in traditional perception modules and inconsistency among modules in multi-task learning.
-
-- **DARB**: Exploring data aggregation in policy learning for vision-based urban autonomous driving, **CVPR 2020** [[Paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Prakash_Exploring_Data_Aggregation_in_Policy_Learning_for_Vision-Based_Urban_Autonomous_CVPR_2020_paper.pdf)] [[Code](https://github.com/autonomousvision/data_aggregation)]
-   
-    Summary: A novel data aggregation method is proposed. By sampling key states and using replay buffers that focus on uncertainties, the generalization ability and robustness of visual driving strategies in complex traffic scenarios are significantly improved.
-
-- **Roach**: End-to-End Urban Driving by Imitating a Reinforcement Learning Coach, **ICCV 2021** [[Paper](https://arxiv.org/pdf/2108.08265)] [[Code](https://github.com/zhejz/carla-roach)]
-   
-    Summary: This paper proposes an end-to-end imitation learning framework based on the guidance of reinforcement learning experts, which effectively improves the performance of autonomous driving agents through intensive supervision signals and multi-task learning objectives.
-
-- **LBC**: Learning by cheating, **CoRL 2019** [[Paper](https://arxiv.org/pdf/1912.12294)] [[Code](https://github.com/dotchen/LearningByCheating)]
-   
-    Summary: By using "privileged" agents as teachers to train pure visual perception autonomous driving systems, the driving performance in complex urban environments has been significantly improved.
-
-- **CIL**: End-to-End driving via conditional imitation learning, **CoRL 2018** [[Paper](https://arxiv.org/pdf/1710.02410)] [[Code](https://github.com/carla-simulator/imitation-learning)]
-   
-    Summary: The conditional imitation learning method based on advanced commands enables the deep learning system that imitates human driving to respond to specific navigation instructions during the test stage while processing sensor inputs.
-
-- **Drive in A Day**: Learning to drive in a day [[Paper](https://arxiv.org/pdf/1807.00412)] [[Code](https://github.com/sheelabhadra/Learning2Drive)]
-   
-    Summary: Deep reinforcement learning is applied to autonomous driving. Through autonomous exploration of vehicles and universal driving distance rewards, lane following can be learned merely based on monocular images.
-
-- **CNN E2E**: End to End Learning for Self-Driving Cars [[Paper](https://arxiv.org/pdf/1604.07316)] [[Code](https://github.com/Nuclearstar/End-to-End-Learning-for-Self-Driving-Cars)]
-   
-    Summary: By training an end-to-end CNN to directly convert the original pixels of the camera into steering instructions, autonomous driving in various complex road conditions was achieved, and its potential advantages in performance and system scale compared with the traditional step-by-step method were proved.
-
-- **Alvinn**: An autonomous land vehicle in a neural network, **NeurIPS 1988** [[Paper](https://proceedings.neurips.cc/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Paper.pdf)]
-   
-    Summary: ALVINN is a three-layer backpropagation neural network. Through the input of cameras and laser rangefinders, it learns and outputs the direction in which vehicles travel along the road, demonstrating the adaptive potential to adjust processing capabilities according to different conditions.
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **MMFN**<br><sub>Multi-Modal-Fusion-Net for End-to-End Driving</sub> | IROS 2022 | `Fusion` · `Multi-Modal` | [![arXiv](https://img.shields.io/badge/arXiv-2207.00186-b31b1b?style=flat-square)](https://arxiv.org/abs/2207.00186) | [![Stars](https://img.shields.io/github/stars/Kin-Zhang/mmfn?style=social)](https://github.com/Kin-Zhang/mmfn) | — |
+| **KEMP**<br><sub>Keyframe-Based Hierarchical End-to-End Deep Model for Long-Term Trajectory Prediction</sub> | ICRA 2022 | `Keyframe` · `Hierarchical` | [![arXiv](https://img.shields.io/badge/arXiv-2205.04624-b31b1b?style=flat-square)](https://arxiv.org/abs/2205.04624) | — | — |
+| **TCP**<br><sub>Trajectory-guided Control Prediction for End-to-end Autonomous Driving: A Simple yet Strong Baseline</sub> | NeurIPS 2022 | `Trajectory` · `Control` | [![arXiv](https://img.shields.io/badge/arXiv-2206.08129-b31b1b?style=flat-square)](https://arxiv.org/abs/2206.08129) | [![Stars](https://img.shields.io/github/stars/OpenPerceptionX/TCP?style=social)](https://github.com/OpenPerceptionX/TCP) | — |
+| **ST-P3**<br><sub>End-to-end Vision-based Autonomous Driving via Spatial-Temporal Feature Learning</sub> | ECCV 2022 | `Spatial-Temporal` · `Interpretable` | [![arXiv](https://img.shields.io/badge/arXiv-2207.07601-b31b1b?style=flat-square)](https://arxiv.org/abs/2207.07601) | [![Stars](https://img.shields.io/github/stars/OpenDriveLab/ST-P3?style=social)](https://github.com/OpenDriveLab/ST-P3) | — |
+| **MP3**<br><sub>A Unified Model to Map, Perceive, Predict and Plan</sub> | CVPR 2021 | `Mapless` · `Prediction` | [Paper](https://openaccess.thecvf.com/content/CVPR2021/papers/Casas_MP3_A_Unified_Model_To_Map_Perceive_Predict_and_Plan_CVPR_2021_paper.pdf) | — | — |
+| **Multitask**<br><sub>Multi-task Learning with Attention for End-to-end Autonomous Driving</sub> | CVPR 2021 | `Multi-task` · `Attention` | [![arXiv](https://img.shields.io/badge/arXiv-2104.10753-b31b1b?style=flat-square)](https://arxiv.org/abs/2104.10753) | [![Stars](https://img.shields.io/github/stars/KeishiIshihara/multitask-with-attention?style=social)](https://github.com/KeishiIshihara/multitask-with-attention) | — |
+| **Transfuser**<br><sub>Multi-Modal Fusion Transformer for End-to-End Autonomous Driving</sub> | CVPR 2021 | `Transformer` · `Fusion` | [Paper](https://openaccess.thecvf.com/content/CVPR2021/papers/Prakash_Multi-Modal_Fusion_Transformer_for_End-to-End_Autonomous_Driving_CVPR_2021_paper.pdf) | [![Stars](https://img.shields.io/github/stars/autonomousvision/transfuser?style=social)](https://github.com/autonomousvision/transfuser) | — |
+| **NEAT**<br><sub>Neural Attention Fields for End-to-End Autonomous Driving</sub> | ICCV 2021 | `Attention Fields` · `BEV` | [Paper](https://openaccess.thecvf.com/content/ICCV2021/papers/Chitta_NEAT_Neural_Attention_Fields_for_End-to-End_Autonomous_Driving_ICCV_2021_paper.pdf) | [![Stars](https://img.shields.io/github/stars/autonomousvision/neat?style=social)](https://github.com/autonomousvision/neat) | — |
+| **Fast-LiDARNet**<br><sub>Efficient and Robust LiDAR-Based End-to-End Navigation</sub> | ICRA 2021 | `LiDAR` · `Efficient` | [![arXiv](https://img.shields.io/badge/arXiv-2105.09932-b31b1b?style=flat-square)](https://arxiv.org/abs/2105.09932) | — | — |
+| **IVMP**<br><sub>Learning Interpretable End-to-End Vision-Based Motion Planning for Autonomous Driving with Optical Flow Distillation</sub> | ICRA 2021 | `Interpretable` · `Optical Flow` | [![arXiv](https://img.shields.io/badge/arXiv-2104.12861-b31b1b?style=flat-square)](https://arxiv.org/abs/2104.12861) | — | [Project](https://sites.google.com/view/ivmp) |
+| **P3**<br><sub>Perceive, Predict, and Plan: Safe Motion Planning Through Interpretable Semantic Representations</sub> | ECCV 2020 | `Semantic` · `Interpretability` | [![arXiv](https://img.shields.io/badge/arXiv-2008.05930-b31b1b?style=flat-square)](https://arxiv.org/abs/2008.05930) | — | — |
+| **DARB**<br><sub>Exploring data aggregation in policy learning for vision-based urban autonomous driving</sub> | CVPR 2020 | `Data Aggregation` · `Policy` | [Paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Prakash_Exploring_Data_Aggregation_in_Policy_Learning_for_Vision-Based_Urban_Autonomous_CVPR_2020_paper.pdf) | [![Stars](https://img.shields.io/github/stars/autonomousvision/data_aggregation?style=social)](https://github.com/autonomousvision/data_aggregation) | — |
+| **Roach**<br><sub>End-to-End Urban Driving by Imitating a Reinforcement Learning Coach</sub> | ICCV 2021 | `RL` · `Imitation` | [![arXiv](https://img.shields.io/badge/arXiv-2108.08265-b31b1b?style=flat-square)](https://arxiv.org/abs/2108.08265) | [![Stars](https://img.shields.io/github/stars/zhejz/carla-roach?style=social)](https://github.com/zhejz/carla-roach) | — |
+| **LBC**<br><sub>Learning by cheating</sub> | CoRL 2019 | `Knowledge Distillation` | [![arXiv](https://img.shields.io/badge/arXiv-1912.12294-b31b1b?style=flat-square)](https://arxiv.org/abs/1912.12294) | [![Stars](https://img.shields.io/github/stars/dotchen/LearningByCheating?style=social)](https://github.com/dotchen/LearningByCheating) | — |
+| **CIL**<br><sub>End-to-End driving via conditional imitation learning</sub> | CoRL 2018 | `Imitation Learning` | [![arXiv](https://img.shields.io/badge/arXiv-1710.02410-b31b1b?style=flat-square)](https://arxiv.org/abs/1710.02410) | [![Stars](https://img.shields.io/github/stars/carla-simulator/imitation-learning?style=social)](https://github.com/carla-simulator/imitation-learning) | — |
+| **Drive in A Day**<br><sub>Learning to drive in a day</sub> | 2018 | `RL` | [![arXiv](https://img.shields.io/badge/arXiv-1807.00412-b31b1b?style=flat-square)](https://arxiv.org/abs/1807.00412) | [![Stars](https://img.shields.io/github/stars/sheelabhadra/Learning2Drive?style=social)](https://github.com/sheelabhadra/Learning2Drive) | — |
+| **CNN E2E**<br><sub>End to End Learning for Self-Driving Cars</sub> | 2016 | `CNN` · `Imitation` | [![arXiv](https://img.shields.io/badge/arXiv-1604.07316-b31b1b?style=flat-square)](https://arxiv.org/abs/1604.07316) | [![Stars](https://img.shields.io/github/stars/Nuclearstar/End-to-End-Learning-for-Self-Driving-Cars?style=social)](https://github.com/Nuclearstar/End-to-End-Learning-for-Self-Driving-Cars) | — |
+| **ALVINN**<br><sub>An autonomous land vehicle in a neural network</sub> | NeurIPS 1988 | `Neural Network` | [Paper](https://proceedings.neurips.cc/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Paper.pdf) | — | — |
 
 </details>
 
@@ -482,468 +226,137 @@ If you find this project useful in your research, please consider citing:
 <details open>
 <summary>2025</summary>
 
-- **CoT4AD**: CoT4AD: A Vision-Language-Action Model with Explicit Chain-of-Thought Reasoning for Autonomous Driving [[Paper](https://www.arxiv.org/pdf/2511.22532)]
-  
-  Summary: CoT4AD is a VLA framework that injects explicit Chain-of-Thought reasoning into autonomous driving. It takes visual observations and language instructions, then models an explicit perception–question–prediction–action CoT during training to align the reasoning trajectory with the action space across multiple tasks; at inference, it performs implicit CoT reasoning to improve numerical reasoning, causal understanding, and trajectory planning in complex scenes.
-
-- **Model-Based Policy Adaptation (MPA)**: Model-Based Policy Adaptation for Closed-Loop End-to-End Autonomous Driving, **NeurIPS 2025** [[Paper](https://arxiv.org/pdf/2511.21584)] [[Project](https://mpa-drive.github.io/)]
-  
-  Summary: MPA is a model-based adaptation framework that improves pretrained end-to-end policies at deployment time. It first uses a geometry-consistent simulation engine to generate diverse counterfactual trajectories, then trains a diffusion-based policy adapter to refine the base policy and a multi-step Q-value model to evaluate long-term outcomes; at inference, the adapter proposes multiple trajectory candidates and the Q model selects the one with highest expected utility for safer, more robust closed-loop behavior.
-
-- **AD-R1**: AD-R1: Closed-Loop Reinforcement Learning for End-to-End Autonomous Driving with Impartial World Models [[Paper](https://www.arxiv.org/pdf/2511.20325)]
-  
-  Summary: AD-R1 introduces an Impartial World Model and a closed-loop RL refinement framework to overcome optimistic bias in world-model-based driving agents. It uses Counterfactual Synthesis to generate plausible failure cases (collisions, off-road events) so the world model learns to “imagine danger” faithfully, then employs this world model as an internal critic that is queried to predict outcomes of candidate actions, enabling policy refinement that explicitly minimizes safety violations in challenging scenarios.
-
-
-- **Alpamayo-R1 (AR1)**: Alpamayo-R1: Bridging Reasoning and Action Prediction for Generalizable Autonomous Driving in the Long Tail [[Paper](https://arxiv.org/pdf/2511.00088)] [[Code](https://github.com/NVlabs/alpamayo)]
-  
-  Summary: Alpamayo-R1 is a VLA framework that couples causal reasoning with trajectory planning using a modular architecture. It uses Cosmos-Reason, a vision–language model pretrained for physical reasoning, to generate Chain-of-Causation traces aligned with driving decisions, and a diffusion-based trajectory decoder to produce feasible plans; a multi-stage training pipeline with supervised fine-tuning and RL further aligns reasoning quality and action consistency using LRM feedback.
-
-- **DriveVLA-W0**: DRIVEVLA-W0: World Models Amplify Data Scaling Law in Autonomous Driving [[Paper](https://arxiv.org/pdf/2510.12796)] [[Code](https://github.com/BraveGroup/DriveVLA-W0)]
-  
-  Summary: DriveVLA-W0 is a training paradigm for VLA models that augments sparse action supervision with dense world modeling signals by predicting future images. It instantiates both an autoregressive world model for discrete visual tokens and a diffusion world model for continuous visual features, and then adds a lightweight action expert on top of the learned representations to realize low-latency control for real-time deployment.
-
-
-- **MTRDrive**: MTRDrive: Memory-Tool Synergistic Reasoning for Robust Autonomous Driving in Corner Cases [[Paper](https://arxiv.org/pdf/2509.20843)]
-  
-  Summary: MTRDrive builds a VLM-based end-to-end driving framework that augments vision-language reasoning with external memory and tools. It retrieves procedural driving experiences via a memory module, dynamically invokes toolkits in a closed-loop system, and combines these through memory–tool synergistic reasoning to improve robustness and generalization, especially in out-of-distribution and roadwork scenarios.
-
-- **ReflectDrive**: Discrete Diffusion for Reflective Vision-Language-Action Models in Autonomous Driving [[Paper](https://arxiv.org/pdf/2509.20109)]
-  
-  Summary: ReflectDrive integrates a discrete diffusion-based reflection mechanism into VLA models for safe trajectory generation. It discretizes the driving space into an action codebook to adapt pre-trained diffusion language models for planning, generates goal-conditioned trajectories, and iteratively performs safety-aware reflection by detecting unsafe tokens and inpainting around safe anchors, enabling self-correction without gradient-based guidance.
-
-
-- **IRL-VLA**: IRL-VLA: Training an Vision-Language-Action Policy via Reward World Model for End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2508.06571)] [[Code](http://github.com/IRL-VLA/IRL-VLA)]
-  
-  Summary: IRL-VLA is a closed-loop VLA framework trained via a reward world model built with inverse reinforcement learning. It first pretrains a VLA driving policy via imitation learning, then constructs a lightweight reward world model to provide efficient reward signals in closed-loop, and finally optimizes the VLA policy with PPO guided by this model to balance safety incidents, driving comfort, and traffic efficiency.
-
-- **Prune2Drive**: Prune2Drive: A Plug-and-Play Framework for Accelerating Vision-Language Models in Autonomous Driving [[Paper](https://arxiv.org/pdf/2508.13305)]
-  
-  Summary: Prune2Drive accelerates multi-view VLMs for autonomous driving via plug-and-play visual token pruning that neither requires retraining nor attention maps. It uses a diversity-aware token selection mechanism inspired by farthest point sampling to retain tokens with broad semantic and spatial coverage, and a view-adaptive controller that learns distinct pruning ratios per camera view, greatly reducing compute while preserving vision-language reasoning for driving tasks.
-
-- **FastDriveVLA**: FastDriveVLA: Efficient End-to-End Driving via Plug-and-Play Reconstruction-based Token Pruning [[Paper](https://arxiv.org/pdf/2507.23318)]
-  
-  Summary: This work proposes FastDriveVLA, a reconstruction-based visual token pruning framework for VLA models in autonomous driving. A plug-and-play module, ReconPruner, is trained with MAE-style pixel reconstruction and an adversarial foreground–background reconstruction strategy on the nuScenes-FG dataset, so that it can be attached to different VLA models to keep foreground-critical tokens and prune redundant ones, cutting computation while maintaining effective driving decisions.
-
-- **MCAM**​: Multimodal Causal Analysis Model for Ego-Vehicle-Level Driving Video Understanding [[paper](https://arxiv.org/pdf/2507.06072)] [[code](https://github.com/SixCorePeach/MCAM)]
-
-     Summary: MCAM provides a new solution for behavior understanding and causal reasoning in autonomous driving videos by integrating multimodal feature extraction, causal analysis, and vision-language converters.
-
-- **AutoDrive-R²**​: Incentivizing Reasoning and Self-Reflection Capacity for VLA Model in Autonomous Driving  [[paper](https://arxiv.org/pdf/2509.01944)]
-
-
-     Summary: AutoDrive-R² enhances the reasoning and self-reflection capabilities of autonomous driving systems simultaneously by incorporating self-reflective thought chain processing and physics-based reinforcement learning.
-
-- **DriveAgent-R1**​: Advancing VLM-based Autonomous Driving with Hybrid Thinking and Active Perception [[paper](https://arxiv.org/pdf/2507.20879)]
-
-     Summary: DriveAgent-R1 offers an innovative solution for the field of autonomous driving through a hybrid thinking and active perception mechanism, significantly enhancing the reliability and safety of decision-making in complex scenarios, while opening up new directions for future research.
-
-- **NavigScene:​** Bridging Local Perception and Global Navigation for Beyond-Visual-Range Autonomous Driving​ [[paper](https://arxiv.org/pdf/2507.05227)]
-
-     Summary: NavigScene significantly enhances the performance of autonomous driving systems by providing global navigation information, making them closer to the navigation capabilities of human drivers in complex and unknown environments.
-
-- **ADRD**​: LLM-DRIVEN AUTONOMOUS DRIVING BASED ON RULE-BASED DECISION SYSTEMS [[Paper](https://arxiv.org/pdf/2506.14299)]
-
-     Summary: ADRD (LLM-Driven Autonomous Driving with Rule-Based Decision Systems), a framework that leverages large language models to automatically generate rule-based driving policies, aims to achieve efficient, explainable, and robust autonomous driving decisions.
-
-- **AutoVLA**​: A Vision-Language-Action Model for End-to-End Autonomous Driving with Adaptive Reasoning and Reinforcement Fine-Tuning [[Paper](https://arxiv.org/pdf/2506.13757)] [[project](https://autovla.github.io/)] [[code](https://github.com/ucla-mobility/AutoVLA)]
-
-     Summary: Reinforcement learning-based post-training methods and adaptive fast and slow thinking capabilities significantly improve planning performance
-
-- **Poutine**​: Vision-Language-Trajectory Pre-Training and Reinforcement Learning Post-Training Enable Robust End-to-End Autonomous Driving [[Paper](https://arxiv.org/abs/2506.11234)]
-
-     Summary: Poutine shows that both VLT pre-training and RL fine-tuning are critical to achieving strong driving performance in the long tail. This is a 3B parameter visual language model (VLM) designed for end-to-end autonomous driving in long-tail driving scenarios, trained with self-supervised visual language track (VLT) next tag prediction Poutine-Base
-
-- **ReCogDrive**​: A Reinforced Cognitive Framework for End-to-End Autonomous Driving [[Paper](https://arxiv.org/abs/2506.08052)] [[project](https://xiaomi-research.github.io/recogdrive/)] [[code](https://github.com/xiaomi-research/recogdrive)]
-
-     Summary: ReCogDrive, an autonomous driving system that combines the VLM with a diffusion planner
-
-- **AD-EE**​: Early Exiting for Fast and Reliable Vision-Language Models in Autonomous Driving [[Paper](https://arxiv.org/pdf/2506.05404)]
-
-     Summary: AD-EE is an early exit framework that incorporates domain characteristics of autonomous driving and uses causal reasoning to identify the optimal exit layer.
-
-- **FastDrive: ​**Structured Labeling Enables Faster Vision-Language Models for End-to-End Autonomous Driving [[Paper](https://arxiv.org/pdf/2506.05442)]
-
-     Summary: Introducing NuScenes-S, a structured and concise benchmark dataset, FastDrive, a compact VLM baseline with 90 million parameters that can understand structured and concise descriptions and efficiently generate machine-friendly driving decisions
-
-- **HMVLM**​: Multistage Reasoning-Enhanced Vision-Language Model for Long-Tailed Driving Scenarios​ [[Paper](https://arxiv.org/pdf/2506.05883)]
-
-     Summary: HaoMo implements the slow branch of cognitively inspired fast-slow architecture. The fast controller outputs low-level steering, throttle, and brake commands, while the slow planner (a large visual-language model) generates high-level intent.
-
-- **S4-Driver**​: Scalable Self-Supervised Driving Multimodal Large Language Model with Spatio-Temporal Visual Representation, ​**CVPR2025**​ [[Paper](https://openaccess.thecvf.com//content/CVPR2025/papers/Xie_S4-Driver_Scalable_Self-Supervised_Driving_Multimodal_Large_Language_Model_with_Spatio-Temporal_CVPR_2025_paper.pdf)]
-
-     Summary: S4-Driver is a scalable self-supervised motion planning algorithm with spatiotemporal visual representations
-
-- **DiffVLA**​: Vision-Language Guided Diffusion Planning for Autonomous Driving [[Paper](https://arxiv.org/pdf/2505.19381)]
-
-     Summary: Diff-VLA introduces a novel hybrid sparse-dense diffusion policy, enhanced by the integration of a Vision-Language Model (VLM)
-
-- **X-Driver**​:Explainable Autonomous Driving with Vision-Language Models [[Paper](https://arxiv.org/pdf/2505.05098)]
-
-     Summary: X-Driver is a unified multimodal large language model (MLLM) framework for closed-loop autonomous driving that utilizes Chain of Thought (CoT) reasoning and autoregressive modeling to improve both perception and decision-making performance.
-
-- **DriveGPT4-V2**​: Harnessing Large Language Model Capabilities for Enhanced Closed-Loop Autonomous Driving, ​**CVPR2025**​ [[Paper](https://openaccess.thecvf.com//content/CVPR2025/papers/Xu_DriveGPT4-V2_Harnessing_Large_Language_Model_Capabilities_for_Enhanced_Closed-Loop_Autonomous_CVPR_2025_paper.pdf)]
-
-     Summary: Different from the previous study DriveGPT4-V1, which focused on open-loop tasks, this study explores the ability of LLM in enhancing closed-loop autonomous driving and uses an expert LLM as a teacher for online policy supervision.
-
-- **DriveMind**​: A Dual-VLM based Reinforcement Learning Framework for Autonomous Driving [[Paper](https://arxiv.org/abs/2506.00819)]
-
-     Summary: A dynamic dual-VLM architecture is proposed, which combines a static contrastive VLM encoder with a novelty-triggered VLM encoder-decoder to solve the semantic rigidity problem of traditional fixed cues.
-
-- **ReasonPlan**​: Unified Scene Prediction and Decision Reasoning for Closed-loop Autonomous Driving [[Paper](https://arxiv.org/abs/2505.20024)] [[Code](https://github.com/Liuxueyi/ReasonPlan)]
-
-     Summary: ReasonPlan is an MLLM fine-tuning framework specifically designed for closed-loop driving, enabling comprehensive reasoning through a self-supervised Next Scene Prediction task and a supervised Decision Chain-of-Thought process.
-
-- **FutureSightDrive**​: Thinking Visually with Spatio-Temporal CoT for Autonomous Driving [[Paper](https://arxiv.org/abs/2505.17685)] [[Code](https://github.com/missTL/FSDrive)]
-
-     Summary: FutureSightDrive proposes a spatio-temporal CoT reasoning method to enable the model to think visually.
-
-- **PADriver**​: Towards Personalized Autonomous Driving [[Paper](https://arxiv.org/abs/2505.05240)]
-
-     Summary: Based on a multimodal large language model (MLLM), PADriver takes streaming video frames and personalized text prompts as input to actively perform scene understanding, danger level assessment, and action decision-making.
-
-- **LDM**​: Unlock the Power of Unlabeled Data in Language Driving Model, ​**ICRA2025**​ [[Paper](https://arxiv.org/abs/2503.10586)]
-
-     Summary: Dynamic self-supervised pre-training framework, semi-supervised knowledge distillation architecture
-
-- **DriveMoE**​: Mixture-of-Experts for Vision-Language-Action Model in End-to-End Autonomous Driving [[Paper](https://arxiv.org/abs/2505.16278)] [[Project](https://thinklab-sjtu.github.io/DriveMoE/)] [[Code](https://github.com/Thinklab-SJTU/DriveMoE)]
-
-     Summary: A new VLM-AD framework based on MoE
-
-- **DriveMonkey**​:Extending Large Vision-Language Model for Diverse Interactive Tasks in Autonomous Driving [[Paper](https://arxiv.org/abs/2505.08725)] [[Code](https://github.com/zc-zhao/DriveMonkey)]
-
-     Summary: Use a series of learnable queries to seamlessly integrate the LVLM with the spatial processor, which is designed as a plug-and-play component and can be initialized with a pre-trained 3D detector to improve 3D perception
-
-- **AgentThink**​: A Unified Framework for Tool-Augmented Chain-of-Thought Reasoning in Vision-Language Models for Autonomous Driving [[Paper](https://arxiv.org/abs/2505.15298)]
-
-     Summary: AgentThink combines Chain-of-Thought (CoT) reasoning with dynamic agent-style tool invocation for autonomous driving tasks for the first time.
-
-- **DSDrive**​: Distilling Large Language Model for Lightweight End-to-End Autonomous Driving with Unified Reasoning and Planning [[Paper](https://arxiv.org/pdf/2505.05360)]
-
-     Summary: DSDrive uses a distillation method to enhance lightweight LLM as the core of the AD system
-
-- **LightEMMA**​: Lightweight End-to-end Multimodal Autonomous Driving [[Paper](https://arxiv.org/abs/2505.00284)] [[Code](https://github.com/michigan-traffic-lab/LightEMMA)]
-
-     Summary: LightEMMA is a lightweight, end-to-end multimodal model designed for autonomous driving, enabling efficient and comprehensive perception and decision-making.
-
-- **Towards Human-Centric Autonomous Driving**​: A Fast-Slow Architecture Integrating Large Language Model Guidance with Reinforcement Learning [[Paper](https://arxiv.org/abs/2505.06875)]
-
-     Summary: A "fast and slow" decision-making framework that combines a large language model (LLM) for high-level instruction parsing and a reinforcement learning (RL) agent for low-level real-time decision-making.
-
-- **DriveSOTIF**​: Advancing Perception SOTIF Through Multimodal Large Language Models [[Paper](https://arxiv.org/abs/2505.07084)]
-
-     Summary: The first innovative fusion of multimodal large language models (MLLMs) and SOTIF risk recognition
-
-- **Actor-Reasoner**​: Interact, Instruct to Improve: A LLM-Driven Parallel Actor-Reasoner Framework for Enhancing Autonomous Vehicle Interactions [[Paper](https://arxiv.org/abs/2503.00502)] [[Code](https://github.com/FanGShiYuu/Actor-Reasoner)]
-
-- **MPDrive**​: Improving Spatial Understanding with Marker-Based Prompt Learning for Autonomous Driving, ​**CVPR2025**​ [[Paper](https://arxiv.org/abs/2504.00379)]
-
-     Summary: By using detection experts to overlay numerical labels on target regions to create labeled images, we transform complex text coordinate generation into text-based visual label prediction.
-
-- **V3LMA**​: Visual 3D-enhanced Language Model for Autonomous Driving [[Paper](https://arxiv.org/pdf/2505.00156)]
-
-     Summary: Approach improves 3D scene understanding by combining Large Language Models (LLMs) with vision-language models (LVLMs).
-
-- **OpenDriveVLA**​: Towards End-to-end Autonomous Driving with Large Vision Language Action Model [[Paper](https://arxiv.org/abs/2503.23463v1)] [[Project](https://drivevla.github.io/)] [[Code](https://github.com/DriveVLA/OpenDriveVLA)]
-
-     Summary: OpenDriveVLA is built on an open-source pre-trained large-scale vision-language model (VLM) to generate reliable driving actions conditioned on 3D environment perception, ego vehicle state, and driver commands.
-
-- **SimLingo**​: Vision-Only Closed-Loop Autonomous Driving with Language-Action Alignment, ​**CVPR2025**​ [[Paper](https://openaccess.thecvf.com//content/CVPR2025/papers/Renz_SimLingo_Vision-Only_Closed-Loop_Autonomous_Driving_with_Language-Action_Alignment_CVPR_2025_paper.pdf)] [[Project](https://www.katrinrenz.de/simlingo/)] [[Code](https://github.com/RenzKa/simlingo)]
-
-     Summary: SimLingo is a vision-language-action model unifying the tasks of autonomous driving, vision-language understanding and language-action alignment.
-
-- **SAFEAUTO**​: KNOWLEDGE-ENHANCED SAFE AUTONOMOUS DRIVING WITH MULTIMODAL FOUNDATION MODELS , ​**ICLR2025**​ [[Paper](https://arxiv.org/abs/2503.00211)] [[Code](https://github.com/AI-secure/SafeAuto)]
-
-     Summary: SAFEAUTO introduces the Place-Dependent Cross-Entropy (PDCE) loss function, specifically designed to improve the accuracy of low-level control signal predictions by treating numerical values as textual sequences.
-
-- **NuGrounding**​: A Multi-View 3D Visual Grounding Framework in Autonomous Driving [[Paper](https://arxiv.org/abs/2503.22436)]
-
-     Summary: NuGrounding introduces a novel paradigm that seamlessly integrates the instruction comprehension capabilities of multimodal large language models (MLLMs) with the precise localization abilities of specialized detection models.
-
-- **CoT-Drive**​: Efficient Motion Forecasting for Autonomous Driving with LLMs and Chain-of-Thought Prompting [[Paper](https://arxiv.org/pdf/2503.07234)]
-
-     Summary: Use LLMs and chaining cues to do prediction tasks
-
-- **CoLMDriver**​: LLM-based Negotiation Benefits Cooperative Autonomous Driving [[Paper](https://arxiv.org/abs/2503.08683)] [[Code](https://github.com/cxliu0314/CoLMDriver)]
-
-     Summary: The first full-process collaborative driving system based on a large language model, capable of effective language-based negotiation and real-time driving control.
-
-- **AlphaDrive**​: Unleashing the Power of VLMs in Autonomous Driving via Reinforcement Learning and Reasoning [[Paper](https://arxiv.org/abs/2503.07608)] [[Code](https://github.com/hustvl/AlphaDrive)]
-
-     Summary: AlphaDrive is the first framework to integrate GRPO-based RL and planning reasoning into autonomous driving
-
-- **TrackingMeetsLMM**​: Tracking Meets Large Multimodal Models for Driving Scenario Understanding [[Paper](https://arxiv.org/abs/2503.14498)] [[Code](https://github.com/mbzuai-oryx/TrackingMeetsLMM)]
-
-     Summary: Introduced a novel method to embed tracking information into LMMs to enhance their spatiotemporal understanding of driving scenarios
-
-- **BEVDriver**​: Leveraging BEV Maps in LLMs for Robust Closed-Loop Driving [[Paper](https://arxiv.org/abs/2503.03074)]
-
-     Summary: Directly utilize the original BEV features generated by LiDAR and camera to eliminate the dependence on pre-predicted path points. Use two PIDs to control the lateral and longitudinal directions to bridge the gap between high-level decision-making and low-level planning.
-
-- **DynRsl-VLM**​: Enhancing Autonomous Driving Perception with Dynamic Resolution Vision-Language Models [[Paper](https://arxiv.org/pdf/2503.11265)]
-
-     Summary:  DynRsl-VLM incorporates a dynamic resolution image input processing approach that captures all entity feature information within an image while ensuring that the image input remains computationally tractable for the Vision Transformer (ViT).
-
-- **Sce2DriveX**​: A Generalized MLLM Framework for Scene-to-Drive Learning [[Paper](https://arxiv.org/abs/2502.14917)]
-
-     Summary: Sce2DriveX utilizes multimodal joint learning from local scene videos and global BEV maps to deeply understand long-range spatiotemporal relationships and road topology, enhancing its comprehensive perception and reasoning capabilities in 3D dynamic/static scenes and achieving driving generalization across scenes.
-
-- VLM-Assisted Continual learning for Visual Question Answering in Self-Driving  [[Paper](https://arxiv.org/pdf/2502.00843)]
-
-     Summary: It introduces a novel continual learning framework that integrates vision-language models (VLMs) with selective memory replay and knowledge distillation, further strengthened by regularization of task-specific projection layers.
-
-- **LeapVAD**​: A Leap in Autonomous Driving via Cognitive Perception and Dual-Process Thinking [[Paper](https://arxiv.org/pdf/2501.08168)] [[Project](https://pjlab-adg.github.io/LeapVAD/)] [[Code](https://github.com/PJLab-ADG/LeapVAD)]
-
-     Summary: LeapAD is a dual-process, closed-loop autonomous driving system that enables continuous learning, adaptation, and improvement over time.
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **CoT4AD**<br><sub>CoT4AD: A Vision-Language-Action Model with Explicit Chain-of-Thought Reasoning</sub> | 2025 | `VLA` · `CoT` | [![arXiv](https://img.shields.io/badge/arXiv-2511.22532-b31b1b?style=flat-square)](https://arxiv.org/abs/2511.22532) | — | — |
+| **MPA**<br><sub>Model-Based Policy Adaptation for Closed-Loop End-to-End Autonomous Driving</sub> | NeurIPS 2025 | `Model-Based` · `Sim` | [![arXiv](https://img.shields.io/badge/arXiv-2511.21584-b31b1b?style=flat-square)](https://arxiv.org/abs/2511.21584) | — | [Project](https://mpa-drive.github.io/) |
+| **AD-R1**<br><sub>AD-R1: Closed-Loop Reinforcement Learning with Impartial World Models</sub> | 2025 | `RL` · `World Model` | [![arXiv](https://img.shields.io/badge/arXiv-2511.20325-b31b1b?style=flat-square)](https://arxiv.org/abs/2511.20325) | — | — |
+| **Alpamayo-R1**<br><sub>Alpamayo-R1: Bridging Reasoning and Action Prediction for Generalizable Autonomous Driving</sub> | 2025 | `VLA` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2511.00088-b31b1b?style=flat-square)](https://arxiv.org/abs/2511.00088) | [![Stars](https://img.shields.io/github/stars/NVlabs/alpamayo?style=social)](https://github.com/NVlabs/alpamayo) | — |
+| **DriveVLA-W0**<br><sub>DRIVEVLA-W0: World Models Amplify Data Scaling Law in Autonomous Driving</sub> | 2025 | `VLA` · `World Model` | [![arXiv](https://img.shields.io/badge/arXiv-2510.12796-b31b1b?style=flat-square)](https://arxiv.org/abs/2510.12796) | [![Stars](https://img.shields.io/github/stars/BraveGroup/DriveVLA-W0?style=social)](https://github.com/BraveGroup/DriveVLA-W0) | — |
+| **MTRDrive**<br><sub>MTRDrive: Memory-Tool Synergistic Reasoning for Robust Autonomous Driving</sub> | 2025 | `VLM` · `Memory` | [![arXiv](https://img.shields.io/badge/arXiv-2509.20843-b31b1b?style=flat-square)](https://arxiv.org/abs/2509.20843) | — | — |
+| **ReflectDrive**<br><sub>Discrete Diffusion for Reflective Vision-Language-Action Models in Autonomous Driving</sub> | 2025 | `Diffusion` · `VLA` | [![arXiv](https://img.shields.io/badge/arXiv-2509.20109-b31b1b?style=flat-square)](https://arxiv.org/abs/2509.20109) | — | — |
+| **IRL-VLA**<br><sub>IRL-VLA: Training an Vision-Language-Action Policy via Reward World Model</sub> | 2025 | `IRL` · `VLA` | [![arXiv](https://img.shields.io/badge/arXiv-2508.06571-b31b1b?style=flat-square)](https://arxiv.org/abs/2508.06571) | [![Stars](https://img.shields.io/github/stars/IRL-VLA/IRL-VLA?style=social)](https://github.com/IRL-VLA/IRL-VLA) | — |
+| **Prune2Drive**<br><sub>Prune2Drive: A Plug-and-Play Framework for Accelerating Vision-Language Models</sub> | 2025 | `VLM` · `Pruning` | [![arXiv](https://img.shields.io/badge/arXiv-2508.13305-b31b1b?style=flat-square)](https://arxiv.org/abs/2508.13305) | — | — |
+| **FastDriveVLA**<br><sub>FastDriveVLA: Efficient End-to-End Driving via Plug-and-Play Reconstruction-based Token Pruning</sub> | 2025 | `VLA` · `Pruning` | [![arXiv](https://img.shields.io/badge/arXiv-2507.23318-b31b1b?style=flat-square)](https://arxiv.org/abs/2507.23318) | — | — |
+| **MCAM**<br><sub>Multimodal Causal Analysis Model for Ego-Vehicle-Level Driving Video Understanding</sub> | 2025 | `Causal` · `Multimodal` | [![arXiv](https://img.shields.io/badge/arXiv-2507.06072-b31b1b?style=flat-square)](https://arxiv.org/abs/2507.06072) | [![Stars](https://img.shields.io/github/stars/SixCorePeach/MCAM?style=social)](https://github.com/SixCorePeach/MCAM) | — |
+| **AutoDrive-R²**<br><sub>Incentivizing Reasoning and Self-Reflection Capacity for VLA Model in Autonomous Driving</sub> | 2025 | `VLA` · `Reflection` | [![arXiv](https://img.shields.io/badge/arXiv-2509.01944-b31b1b?style=flat-square)](https://arxiv.org/abs/2509.01944) | — | — |
+| **DriveAgent-R1**<br><sub>Advancing VLM-based Autonomous Driving with Hybrid Thinking and Active Perception</sub> | 2025 | `VLM` · `Active` | [![arXiv](https://img.shields.io/badge/arXiv-2507.20879-b31b1b?style=flat-square)](https://arxiv.org/abs/2507.20879) | — | — |
+| **NavigScene**<br><sub>Bridging Local Perception and Global Navigation for Beyond-Visual-Range Autonomous Driving</sub> | 2025 | `Navigation` · `Perception` | [![arXiv](https://img.shields.io/badge/arXiv-2507.05227-b31b1b?style=flat-square)](https://arxiv.org/abs/2507.05227) | — | — |
+| **ADRD**<br><sub>LLM-DRIVEN AUTONOMOUS DRIVING BASED ON RULE-BASED DECISION SYSTEMS</sub> | 2025 | `LLM` · `Rule-Based` | [![arXiv](https://img.shields.io/badge/arXiv-2506.14299-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.14299) | — | — |
+| **AutoVLA**<br><sub>A Vision-Language-Action Model for End-to-End Autonomous Driving with Adaptive Reasoning</sub> | 2025 | `VLA` · `RL` | [![arXiv](https://img.shields.io/badge/arXiv-2506.13757-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.13757) | [![Stars](https://img.shields.io/github/stars/ucla-mobility/AutoVLA?style=social)](https://github.com/ucla-mobility/AutoVLA) | [Project](https://autovla.github.io/) |
+| **Poutine**<br><sub>Vision-Language-Trajectory Pre-Training and Reinforcement Learning Post-Training</sub> | 2025 | `VLT` · `RL` | [![arXiv](https://img.shields.io/badge/arXiv-2506.11234-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.11234) | — | — |
+| **ReCogDrive**<br><sub>A Reinforced Cognitive Framework for End-to-End Autonomous Driving</sub> | 2025 | `VLM` · `Diffusion` | [![arXiv](https://img.shields.io/badge/arXiv-2506.08052-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.08052) | [![Stars](https://img.shields.io/github/stars/xiaomi-research/recogdrive?style=social)](https://github.com/xiaomi-research/recogdrive) | [Project](https://xiaomi-research.github.io/recogdrive/) |
+| **AD-EE**<br><sub>Early Exiting for Fast and Reliable Vision-Language Models in Autonomous Driving</sub> | 2025 | `VLM` · `Efficient` | [![arXiv](https://img.shields.io/badge/arXiv-2506.05404-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.05404) | — | — |
+| **FastDrive**<br><sub>Structured Labeling Enables Faster Vision-Language Models for End-to-End Autonomous Driving</sub> | 2025 | `VLM` · `Structured` | [![arXiv](https://img.shields.io/badge/arXiv-2506.05442-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.05442) | — | — |
+| **HMVLM**<br><sub>Multistage Reasoning-Enhanced Vision-Language Model for Long-Tailed Driving Scenarios</sub> | 2025 | `VLM` · `Long-Tail` | [![arXiv](https://img.shields.io/badge/arXiv-2506.05883-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.05883) | — | — |
+| **S4-Driver**<br><sub>Scalable Self-Supervised Driving Multimodal Large Language Model</sub> | CVPR 2025 | `Self-Supervised` · `MLLM` | [![Paper](https://img.shields.io/badge/Paper-CVPR2025-b31b1b?style=flat-square)](https://openaccess.thecvf.com//content/CVPR2025/papers/Xie_S4-Driver_Scalable_Self-Supervised_Driving_Multimodal_Large_Language_Model_with_Spatio-Temporal_CVPR_2025_paper.pdf) | — | — |
+| **DiffVLA**<br><sub>Vision-Language Guided Diffusion Planning for Autonomous Driving</sub> | 2025 | `Diffusion` · `VLM` | [![arXiv](https://img.shields.io/badge/arXiv-2505.19381-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.19381) | — | — |
+| **X-Driver**<br><sub>Explainable Autonomous Driving with Vision-Language Models</sub> | 2025 | `MLLM` · `CoT` | [![arXiv](https://img.shields.io/badge/arXiv-2505.05098-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.05098) | — | — |
+| **DriveGPT4-V2**<br><sub>Harnessing Large Language Model Capabilities for Enhanced Closed-Loop Autonomous Driving</sub> | CVPR 2025 | `LLM` · `Closed-Loop` | [![Paper](https://img.shields.io/badge/Paper-CVPR2025-b31b1b?style=flat-square)](https://openaccess.thecvf.com//content/CVPR2025/papers/Xu_DriveGPT4-V2_Harnessing_Large_Language_Model_Capabilities_for_Enhanced_Closed-Loop_Autonomous_CVPR_2025_paper.pdf) | — | — |
+| **DriveMind**<br><sub>A Dual-VLM based Reinforcement Learning Framework for Autonomous Driving</sub> | 2025 | `Dual-VLM` · `RL` | [![arXiv](https://img.shields.io/badge/arXiv-2506.00819-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.00819) | — | — |
+| **ReasonPlan**<br><sub>Unified Scene Prediction and Decision Reasoning for Closed-loop Autonomous Driving</sub> | 2025 | `MLLM` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2505.20024-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.20024) | [![Stars](https://img.shields.io/github/stars/Liuxueyi/ReasonPlan?style=social)](https://github.com/Liuxueyi/ReasonPlan) | — |
+| **FutureSightDrive**<br><sub>Thinking Visually with Spatio-Temporal CoT for Autonomous Driving</sub> | 2025 | `CoT` · `Spatio-Temporal` | [![arXiv](https://img.shields.io/badge/arXiv-2505.17685-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.17685) | [![Stars](https://img.shields.io/github/stars/missTL/FSDrive?style=social)](https://github.com/missTL/FSDrive) | — |
+| **PADriver**<br><sub>Towards Personalized Autonomous Driving</sub> | 2025 | `MLLM` · `Personalized` | [![arXiv](https://img.shields.io/badge/arXiv-2505.05240-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.05240) | — | — |
+| **LDM**<br><sub>Unlock the Power of Unlabeled Data in Language Driving Model</sub> | ICRA 2025 | `Self-Supervised` · `Distillation` | [![arXiv](https://img.shields.io/badge/arXiv-2503.10586-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.10586) | — | — |
+| **DriveMoE**<br><sub>Mixture-of-Experts for Vision-Language-Action Model in End-to-End Autonomous Driving</sub> | 2025 | `MoE` · `VLA` | [![arXiv](https://img.shields.io/badge/arXiv-2505.16278-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.16278) | [![Stars](https://img.shields.io/github/stars/Thinklab-SJTU/DriveMoE?style=social)](https://github.com/Thinklab-SJTU/DriveMoE) | [Project](https://thinklab-sjtu.github.io/DriveMoE/) |
+| **DriveMonkey**<br><sub>Extending Large Vision-Language Model for Diverse Interactive Tasks in Autonomous Driving</sub> | 2025 | `LVLM` · `Interactive` | [![arXiv](https://img.shields.io/badge/arXiv-2505.08725-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.08725) | [![Stars](https://img.shields.io/github/stars/zc-zhao/DriveMonkey?style=social)](https://github.com/zc-zhao/DriveMonkey) | — |
+| **AgentThink**<br><sub>A Unified Framework for Tool-Augmented Chain-of-Thought Reasoning in Vision-Language Models</sub> | 2025 | `CoT` · `Tools` | [![arXiv](https://img.shields.io/badge/arXiv-2505.15298-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.15298) | — | — |
+| **DSDrive**<br><sub>Distilling Large Language Model for Lightweight End-to-End Autonomous Driving</sub> | 2025 | `Distillation` · `Lightweight` | [![arXiv](https://img.shields.io/badge/arXiv-2505.05360-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.05360) | — | — |
+| **LightEMMA**<br><sub>Lightweight End-to-end Multimodal Autonomous Driving</sub> | 2025 | `Lightweight` · `Multimodal` | [![arXiv](https://img.shields.io/badge/arXiv-2505.00284-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.00284) | [![Stars](https://img.shields.io/github/stars/michigan-traffic-lab/LightEMMA?style=social)](https://github.com/michigan-traffic-lab/LightEMMA) | — |
+| **THCAD**<br><sub>Towards Human-Centric Autonomous Driving: A Fast-Slow Architecture Integrating LLM Guidance with RL</sub> | 2025 | `LLM` · `RL` · `Fast-Slow` | [![arXiv](https://img.shields.io/badge/arXiv-2505.06875-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.06875) | — | — |
+| **DriveSOTIF**<br><sub>Advancing Perception SOTIF Through Multimodal Large Language Models</sub> | 2025 | `SOTIF` · `MLLM` | [![arXiv](https://img.shields.io/badge/arXiv-2505.07084-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.07084) | — | — |
+| **Actor-Reasoner**<br><sub>Interact, Instruct to Improve: A LLM-Driven Parallel Actor-Reasoner Framework</sub> | 2025 | `LLM` · `Interaction` | [![arXiv](https://img.shields.io/badge/arXiv-2503.00502-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.00502) | [![Stars](https://img.shields.io/github/stars/FanGShiYuu/Actor-Reasoner?style=social)](https://github.com/FanGShiYuu/Actor-Reasoner) | — |
+| **MPDrive**<br><sub>Improving Spatial Understanding with Marker-Based Prompt Learning for Autonomous Driving</sub> | CVPR 2025 | `Prompt` · `Spatial` | [![arXiv](https://img.shields.io/badge/arXiv-2504.00379-b31b1b?style=flat-square)](https://arxiv.org/abs/2504.00379) | — | — |
+| **V3LMA**<br><sub>Visual 3D-enhanced Language Model for Autonomous Driving</sub> | 2025 | `3D` · `LVLM` | [![arXiv](https://img.shields.io/badge/arXiv-2505.00156-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.00156) | — | — |
+| **OpenDriveVLA**<br><sub>Towards End-to-end Autonomous Driving with Large Vision Language Action Model</sub> | 2025 | `VLA` · `Open-Source` | [![arXiv](https://img.shields.io/badge/arXiv-2503.23463v1-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.23463v1) | [![Stars](https://img.shields.io/github/stars/DriveVLA/OpenDriveVLA?style=social)](https://github.com/DriveVLA/OpenDriveVLA) | [Project](https://drivevla.github.io/) |
+| **SimLingo**<br><sub>Vision-Only Closed-Loop Autonomous Driving with Language-Action Alignment</sub> | CVPR 2025 | `VLA` · `Closed-Loop` | [![Paper](https://img.shields.io/badge/Paper-CVPR2025-b31b1b?style=flat-square)](https://openaccess.thecvf.com//content/CVPR2025/papers/Renz_SimLingo_Vision-Only_Closed-Loop_Autonomous_Driving_with_Language-Action_Alignment_CVPR_2025_paper.pdf) | [![Stars](https://img.shields.io/github/stars/RenzKa/simlingo?style=social)](https://github.com/RenzKa/simlingo) | [Project](https://www.katrinrenz.de/simlingo/) |
+| **SAFEAUTO**<br><sub>KNOWLEDGE-ENHANCED SAFE AUTONOMOUS DRIVING WITH MULTIMODAL FOUNDATION MODELS</sub> | ICLR 2025 | `Safety` · `Multimodal` | [![arXiv](https://img.shields.io/badge/arXiv-2503.00211-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.00211) | [![Stars](https://img.shields.io/github/stars/AI-secure/SafeAuto?style=social)](https://github.com/AI-secure/SafeAuto) | — |
+| **NuGrounding**<br><sub>A Multi-View 3D Visual Grounding Framework in Autonomous Driving</sub> | 2025 | `Grounding` · `3D` | [![arXiv](https://img.shields.io/badge/arXiv-2503.22436-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.22436) | — | — |
+| **CoT-Drive**<br><sub>Efficient Motion Forecasting for Autonomous Driving with LLMs and Chain-of-Thought Prompting</sub> | 2025 | `CoT` · `Forecasting` | [![arXiv](https://img.shields.io/badge/arXiv-2503.07234-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.07234) | — | — |
+| **CoLMDriver**<br><sub>LLM-based Negotiation Benefits Cooperative Autonomous Driving</sub> | 2025 | `Cooperative` · `LLM` | [![arXiv](https://img.shields.io/badge/arXiv-2503.08683-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.08683) | [![Stars](https://img.shields.io/github/stars/cxliu0314/CoLMDriver?style=social)](https://github.com/cxliu0314/CoLMDriver) | — |
+| **AlphaDrive**<br><sub>Unleashing the Power of VLMs in Autonomous Driving via Reinforcement Learning and Reasoning</sub> | 2025 | `RL` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2503.07608-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.07608) | [![Stars](https://img.shields.io/github/stars/hustvl/AlphaDrive?style=social)](https://github.com/hustvl/AlphaDrive) | — |
+| **TrackingMeetsLMM**<br><sub>Tracking Meets Large Multimodal Models for Driving Scenario Understanding</sub> | 2025 | `Tracking` · `LMM` | [![arXiv](https://img.shields.io/badge/arXiv-2503.14498-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.14498) | [![Stars](https://img.shields.io/github/stars/mbzuai-oryx/TrackingMeetsLMM?style=social)](https://github.com/mbzuai-oryx/TrackingMeetsLMM) | — |
+| **BEVDriver**<br><sub>Leveraging BEV Maps in LLMs for Robust Closed-Loop Driving</sub> | 2025 | `BEV` · `LLM` | [![arXiv](https://img.shields.io/badge/arXiv-2503.03074-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.03074) | — | — |
+| **DynRsl-VLM**<br><sub>Enhancing Autonomous Driving Perception with Dynamic Resolution Vision-Language Models</sub> | 2025 | `Dynamic Res` · `VLM` | [![arXiv](https://img.shields.io/badge/arXiv-2503.11265-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.11265) | — | — |
+| **Sce2DriveX**<br><sub>A Generalized MLLM Framework for Scene-to-Drive Learning</sub> | 2025 | `MLLM` · `Scene` | [![arXiv](https://img.shields.io/badge/arXiv-2502.14917-b31b1b?style=flat-square)](https://arxiv.org/abs/2502.14917) | — | — |
+| **VLM-Assisted-CL**<br><sub>VLM-Assisted Continual learning for Visual Question Answering in Self-Driving</sub> | 2025 | `Continual Learning` | [![arXiv](https://img.shields.io/badge/arXiv-2502.00843-b31b1b?style=flat-square)](https://arxiv.org/abs/2502.00843) | — | — |
+| **LeapVAD**<br><sub>A Leap in Autonomous Driving via Cognitive Perception and Dual-Process Thinking</sub> | 2025 | `Cognitive` · `Dual-Process` | [![arXiv](https://img.shields.io/badge/arXiv-2501.08168-b31b1b?style=flat-square)](https://arxiv.org/abs/2501.08168) | [![Stars](https://img.shields.io/github/stars/PJLab-ADG/LeapVAD?style=social)](https://github.com/PJLab-ADG/LeapVAD) | [Project](https://pjlab-adg.github.io/LeapVAD/) |
 </details>
-
 <details open>
 <summary>2024</summary>
 
-- **VLM-RL**​: A Unified Vision Language Model and Reinforcement Learning Framework for Safe Autonomous Driving[[Paper](https://arxiv.org/abs/2412.15544)][[Project](https://www.huang-zilin.com/VLM-RL-website/)][[Code](https://github.com/zihaosheng/VLM-RL)]
-
-    Symmary: VLM-RL is the first work in the autonomous driving field to unify VLMs with RL for end-to-end driving policy learning in the CARLA simulator.
-
-- **GPVL**: Generative Planning with 3D-vision Language Pre-training for End-to-End Autonomous Driving, **AAAI 2025** [[Paper](https://arxiv.org/pdf/2501.08861)] [[Code](https://github.com/ltp1995/GPVL)]
-   Summary: A generative planning framework for autonomous driving using a 3D vision-language pre-training paradigm.
-- **CALMM-Drive**: Confidence-Aware Autonomous Driving with Large Multimodal Model [[Paper](https://arxiv.org/abs/2412.04209)]
-   
-   Summary: The CALMM-Drive approach integrates driving task-specific Chain-of-Thought (CoT) reasoning with Top-K confidence elicitation to improve the accuracy and reliability of decision-making.
-
-- **WiseAD**: Knowledge Augmented End-to-End Autonomous Driving with Vision-Language Model [[Paper](https://arxiv.org/abs/2412.09951)] [[Code](https://github.com/wyddmw/WiseAD)]
-   
-   Summary: WiseAD is a specialized vision-language model (VLM) designed for end-to-end autonomous driving, capable of performing driving reasoning, action justification, object recognition, risk analysis, providing driving suggestions, and trajectory planning across a wide range of scenarios.
-
-- **OpenEMMA**: Open-Source Multimodal Model for End-to-End Autonomous Driving, **WACV 2025** [[Paper](https://arxiv.org/abs/2412.15208)] [[Code](https://github.com/taco-group/OpenEMMA)]
-  
-   Summary: OpenEMMA leverages existing open source modules and pre-trained MLLMs to replicate the capabilities of EMMA in trajectory planning and perception.
-
-- **FeD**​: Feedback-Guided Autonomous Driving, ​**CVPR2024**​[[Paper](https://fedaltothemetal.github.io/resources/FeD_v1.pdf)][[Project](https://fedaltothemetal.github.io/)]
-
-    Summary: Achieving the First Perceptual-Motion End-to-End Training and Evaluation of an LLM-Based Driving Model
-
-- **LeapAD**​: Continuously learning, adapting, and improving: A dual-process approach to autonomous driving, ​**NeurIPS 2024**​[[Paper](https://arxiv.org/abs/2405.15324)][[Project](https://pjlab-adg.github.io/LeapAD/)][[Code](https://github.com/PJLab-ADG/LeapAD)]
-
-- **DriveMM**​: All-in-One Large Multimodal Model for Autonomous Driving[[Paper](https://arxiv.org/abs/2412.07689)][[Project](https://zhijian11.github.io/DriveMM/)][[Code](https://github.com/zhijian11/DriveMM)]
-
-    Summary: DriveMM is robustly designed with the general capability to perform a wide variety of autonomous driving (AD) tasks and demonstrates strong generalization performance, enabling effective transfer to new datasets.
-
-- Explanation for Trajectory Planning using Multi-modal Large Language Model for Autonomous Driving​**, ECCV2024**​[[Paper](https://arxiv.org/abs/2411.09971)]
-
-    Summary:  Leveraging the newly collected dataset, we take the future planning trajectory of the ego vehicle as input.
-
-- **LaVida Drive**: Vision-Text Interaction VLM for Autonomous Driving with Token Selection, Recovery and Enhancement [[Paper](https://arxiv.org/abs/2411.12980)]
-   
-   Summary: An innovative VQA framework designed to support fine-grained perception of high-resolution visual inputs in dynamic driving environments while integrating temporal information.
-
-- **EMMA**: End-to-End Multimodal Model for Autonomous Driving [[Paper](https://arxiv.org/abs/2410.23262)]
-   
-   Summary: EMMA directly maps raw camera sensor data into various driving-specific outputs, including planner trajectories, perception objects, and road graph elements.
-
-- **DriVLMe**: Enhancing LLM-based Autonomous Driving Agents with Embodied and Social Experiences, **IROS 2024** [[Paper](https://arxiv.org/pdf/2406.03008)] [[Project](https://sled-group.github.io/driVLMe/)] [[Code](https://github.com/sled-group/driVLMe/tree/main)]
-   
-   Summary: DriVLMe is a video-language model-based agent designed to enable natural and effective communication between humans and autonomous vehicles, allowing the vehicles to perceive their surroundings and navigate the environment more intuitively.
-
-- **OccLLaMA**: An Occupancy-Language-Action Generative World Model for Autonomous Driving [[Paper](https://arxiv.org/abs/2409.03272)]
-   
-   Summary: OccLLaMA is a unified 3D occupancy-language-action generative world model that integrates various VLA (vision-language-action) related tasks.
-
-- ​**MiniDrive**​: More Efficient Vision-Language Models with Multi-Level 2D Features as Text Tokens for Autonomous Driving[[Paper](https://arxiv.org/abs/2409.07267)]
-
-
-    Summary: By combining the Feature Engineering Mixture of Experts (FEMoE) module with a dynamic instruction adapter, our approach addresses the limitation of previous methods, which could only generate static visual token embeddings for a given image.
-
-- ​**RDA-Driver**​:Making Large Language Models Better Planners with Reasoning-Decision Alignment, ​**2024ECCV**​[[Paper](https://arxiv.org/abs/2408.13890)]
-
-
-    Summary: We develop an end-to-end decision model based on a multimodal enhanced LLM that simultaneously performs CoT reasoning and enforces planning outcomes.
-
-- ​**EC-Drive**​:Edge-Cloud Collaborative Motion Planning for Autonomous Driving with Large Language Models, ​**2024ICCT**​[[Paper](https://arxiv.org/abs/2408.09972)][[Project](https://sites.google.com/view/ec-drive)]
-
-
-    Summary: EC-Drive utilizes drift detection algorithms to selectively upload critical data, including new obstacles and traffic pattern changes, to the cloud for processing by GPT-4, while routine data is efficiently managed by smaller LLMs on edge devices.
-- **V2X-VLM**​: End-to-End V2X Cooperative Autonomous Driving Through Large Vision-Language Models[[Paper](https://arxiv.org/abs/2408.09251)][[Project](https://www.huang-zilin.com/V2X-VLM-website/)][[Code](https://github.com/zilin-huang/V2X-VLM)]
-
-
-    Summary: This study aims to propose pioneering E2E vehicle-infrastructure cooperative autonomous driving (VICAD) framework leveraging large VLMs to enhance collaborative situational awareness, decision-making, and overall driving performances.
-​- **Cube-LLM**​: Language-Image Models with 3D Understanding[[Paper](https://arxiv.org/abs/2405.03685)][[Project](https://janghyuncho.github.io/Cube-LLM/)]
-
-
-    Summary: Cube-LLM, a pre-trained visual language model for autonomous driving, can infer 3D indoor and outdoor scenes from a single image
-​- **VLM-MPC**​: Vision Language Foundation Model (VLM)-Guided Model Predictive Controller (MPC) for Autonomous Driving[[Paper](https://arxiv.org/abs/2408.04821)]
-
-    Summary: VLM-MPC combines the Model Predictive Controller (MPC) with VLM to evaluate how model-based control could enhance VLM decision-making.
-
-- **SimpleLLM4AD**​: An End-to-End Vision-Language Model with Graph Visual Question Answering for Autonomous Driving, ​**IEIT Systems**​[[Paper](https://arxiv.org/abs/2407.21293)]
-
-    Summary: SimpleLLM4AD reimagines the traditional autonomous driving pipeline by structuring the task into four interconnected stages: perception, prediction, planning, and behavior.
-
-- **AsyncDriver**​: Asynchronous Large Language Model Enhanced Planner for Autonomous Driving, ​**ECCV 2024**​[[Paper](https://arxiv.org/abs/2406.14556)][[Code](https://github.com/memberRE/AsyncDriver)]
-
-    Summary: AsyncDriver is a novel asynchronous, LLM-enhanced closed-loop framework that utilizes scene-aware instruction features generated by a large language model (LLM) to guide real-time planners in producing accurate and controllable trajectory predictions.
-
-- ​**AD-H**​: AUTONOMOUS DRIVING WITH HIERARCHICAL AGENTS , ​**ICLR2025**​[[Paper](https://openreview.net/pdf/e15ef4c8e8f4e0d2db875b42314bcc25546c73dc.pdf)]
-
-    Summary: A hierarchical framework that facilitates collaboration between two agents: the MLLM-based planner and the controller.
-
-- **CarLLaVA**​: Vision language models for camera-only closed-loop driving[[Paper](https://arxiv.org/abs/2406.10165)][[Project](https://www.youtube.com/watch?v=E1nsEgcHRuc)]
-
-
-    Summary: CarLLaVA uses a semi-disentangled output representation of both path predictions and waypoints, getting the advantages of the path for better lateral control and the waypoints for better longitudinal control.
-
-- ​**PlanAgent**​: A Multi-modal Large Language Agent for Closed-loop Vehicle Motion Planning[[Paper](https://arxiv.org/abs/2406.01587)]
-
-
-    Summary: PlanAgent is the first closed-loop mid-to-mid(use bev, no raw sensor) autonomous driving planning agent system based on a Multi-modal Large Language Model.
-
-- ​**Atlas ​**​: Is a 3D-Tokenized LLM the Key to Reliable Autonomous Driving?[[Paper](https://arxiv.org/abs/2405.18361#)]
-
-
-    Summary: A DETR-style 3D perceptron is introduced as a 3D tokenizer, which connects LLM with a single-layer linear projector.
-
-- ​**Driving with Regulation**​: Interpretable Decision-Making for Autonomous Vehicles with Retrieval-Augmented Reasoning via LLM[[Paper](https://arxiv.org/abs/2410.04759)]
-
-
-    Summary:Traffic Regulation Retrieval (TRR) agent based on Retrieval Augmented Generation (RAG) to automatically retrieve relevant traffic rules and guidelines from a wide range of regulatory documents and related records based on the context of the autonomous vehicle
-
-- ​**OmniDrive**​: A Holistic Vision-Language Dataset for Autonomous Driving with Counterfactual Reasoning, ​**CVPR 2025**​[[Paper](https://arxiv.org/abs/2405.01533)][[Code](https://github.com/NVlabs/OmniDrive)]
-
-
-    Summary: The  features a novel 3D multimodal LLM design that uses sparse queries to lift and compress visual representations into 3D.
-
-- ​**Co-driver**​: VLM-based Autonomous Driving Assistant with Human-like Behavior and Understanding for Complex Road Scenes[[Paper](https://arxiv.org/html/2405.05885v1)]
-
-
-    Summary: This is an automated driving assistance system that provides adjustable driving behavior for autonomous vehicles based on an understanding of complex road scenarios, including safety distances, weather, lighting conditions, road surfaces, and locations.
-
-- ​**AgentsCoDriver**​: Large Language Model Empowered Collaborative Driving with Lifelong Learning[[Paper](https://arxiv.org/abs/2404.06345)]
-
-
-    Summary: Multiple vehicles are capable of collaborative driving It can accumulate knowledge, lessons, and experiences over time by constantly interacting with its environment, enabling lifelong learning
-
-- ​**EM-VLM4AD**​: Multi-Frame, Lightweight & Efficient Vision-Language Models for Question Answering in Autonomous Driving, ​**CVPR2024**​[[Paper](https://arxiv.org/abs/2403.19838)][[Code](https://github.com/akshaygopalkr/EM-VLM4AD)]
-
-
-    Summary: EM-VLM4AD is an efficient and lightweight multi-frame vision-language model designed to perform visual question answering for autonomous driving applications.
-
-- ​**LeGo-Drive**​: Language-enhanced Goal-oriented Closed-Loop End-to-End Autonomous Driving, ​**IROS2024**​[[Paper](https://arxiv.org/abs/2403.20116)][[Project](https://reachpranjal.com/lego-drive/)][[Code](https://github.com/reachpranjal/lego-drive)]
-
-
-    Summary: A novel planning-guided end-to-end LLM-based goal point navigation solution that predicts and improves the desired state by dynamically interacting with the environment and generating a collision-free trajectory.
-
-- ​**Hybrid Reasoning Based on Large Language Models for Autonomous Car Driving**​, ​**ICCMA2024**​[[Paper](https://arxiv.org/abs/2402.13602v3)]
-
-
-    Summary: Regarding the "location of the object," "speed of our car," "distance to the object," and "our car’s direction" are fed into the large language model for mathematical calculations within CARLA. After formulating these calculations based on overcoming weather conditions, precise control values for brake and speed are generated.
-
-- ​**VLAAD**​: Vision and Language Assistant for Autonomous Driving, ​**WACV2024**​[[Paper](https://openaccess.thecvf.com/content/WACV2024W/LLVM-AD/papers/Park_VLAAD_Vision_and_Language_Assistant_for_Autonomous_Driving_WACVW_2024_paper.pdf)]
-
-
-    Summary: Aiming to enhance the explainability of autonomous driving systems.
-
-- ​**ELM**​: Embodied Understanding of Driving Scenarios, ​**ECCV2024**​[[Paper](https://arxiv.org/abs/2403.04593)]
-
-
-    Summary: we introduce the Embodied Language Model (ELM), a comprehensive framework tailored for agents' understanding of driving scenes with large spatial and temporal spans.
-
-- ​**RAG-Driver**​: Generalisable Driving Explanations with Retrieval-Augmented In-Context Learning in Multi-Modal Large Language Model,​**​ RSS2024**​[[Paper](https://arxiv.org/abs/2402.10828)][[Project](https://yuanjianhao508.github.io/RAG-Driver/)][[Code](https://github.com/YuanJianhao508/RAG-Driver)]
-
-
-    Summary: RAG-Driver is a novel retrieval-augmented, multimodal large language model that utilizes in-context learning to enable high-performance, interpretable, and generalizable autonomous driving.
-
-- ​**BEV-TSR**​: Text-Scene Retrieval in BEV Space for Autonomous Driving,​**​ AAAI-2025**​[[Paper](https://arxiv.org/abs/2401.01065)]
-
-
-    Summary: Focus on enhancing the semantic capabilities of BEV representations
-
-- ​**LLaDA**​: Driving Everywhere with Large Language Model Policy Adaptation, ​**CVPR2024**​[[Paper](https://arxiv.org/abs/2402.05932)][[Project](https://boyiliee.github.io/llada/)][[Code](https://github.com/Boyiliee/LLaDA-AV)]
-
-
-    Summary: Traffic Rule Extractor (TRE), which aims to organize and filter the inputs (initial plan+unique traffic code) and feed the output into the frozen LLMs to obtain the final new plan.
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **VLM-RL**<br><sub>A Unified Vision Language Model and Reinforcement Learning Framework for Safe Autonomous Driving</sub> | 2024 | `RL` · `VLM` | [![arXiv](https://img.shields.io/badge/arXiv-2412.15544-b31b1b?style=flat-square)](https://arxiv.org/abs/2412.15544) | [![Stars](https://img.shields.io/github/stars/zihaosheng/VLM-RL?style=social)](https://github.com/zihaosheng/VLM-RL) | [Project](https://www.huang-zilin.com/VLM-RL-website/) |
+| **GPVL**<br><sub>Generative Planning with 3D-vision Language Pre-training for End-to-End Autonomous Driving</sub> | AAAI 2025 | `Generative` · `3D-VL` | [![arXiv](https://img.shields.io/badge/arXiv-2501.08861-b31b1b?style=flat-square)](https://arxiv.org/pdf/2501.08861) | [![Stars](https://img.shields.io/github/stars/ltp1995/GPVL?style=social)](https://github.com/ltp1995/GPVL) | — |
+| **CALMM-Drive**<br><sub>Confidence-Aware Autonomous Driving with Large Multimodal Model</sub> | 2024 | `CoT` · `Confidence` | [![arXiv](https://img.shields.io/badge/arXiv-2412.04209-b31b1b?style=flat-square)](https://arxiv.org/abs/2412.04209) | — | — |
+| **WiseAD**<br><sub>Knowledge Augmented End-to-End Autonomous Driving with Vision-Language Model</sub> | 2024 | `VLM` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2412.09951-b31b1b?style=flat-square)](https://arxiv.org/abs/2412.09951) | [![Stars](https://img.shields.io/github/stars/wyddmw/WiseAD?style=social)](https://github.com/wyddmw/WiseAD) | — |
+| **OpenEMMA**<br><sub>Open-Source Multimodal Model for End-to-End Autonomous Driving</sub> | WACV 2025 | `Open-Source` · `Multimodal` | [![arXiv](https://img.shields.io/badge/arXiv-2412.15208-b31b1b?style=flat-square)](https://arxiv.org/abs/2412.15208) | [![Stars](https://img.shields.io/github/stars/taco-group/OpenEMMA?style=social)](https://github.com/taco-group/OpenEMMA) | — |
+| **FeD**<br><sub>Feedback-Guided Autonomous Driving</sub> | CVPR 2024 | `Feedback` · `LLM` | [Paper](https://fedaltothemetal.github.io/resources/FeD_v1.pdf) | — | [Project](https://fedaltothemetal.github.io/) |
+| **LeapAD**<br><sub>Continuously learning, adapting, and improving: A dual-process approach to autonomous driving</sub> | NeurIPS 2024 | `Dual-Process` · `Continual` | [![arXiv](https://img.shields.io/badge/arXiv-2405.15324-b31b1b?style=flat-square)](https://arxiv.org/abs/2405.15324) | [![Stars](https://img.shields.io/github/stars/PJLab-ADG/LeapAD?style=social)](https://github.com/PJLab-ADG/LeapAD) | [Project](https://pjlab-adg.github.io/LeapAD/) |
+| **DriveMM**<br><sub>All-in-One Large Multimodal Model for Autonomous Driving</sub> | 2024 | `Multimodal` · `Generalization` | [![arXiv](https://img.shields.io/badge/arXiv-2412.07689-b31b1b?style=flat-square)](https://arxiv.org/abs/2412.07689) | [![Stars](https://img.shields.io/github/stars/zhijian11/DriveMM?style=social)](https://github.com/zhijian11/DriveMM) | [Project](https://zhijian11.github.io/DriveMM/) |
+| **Exp-Planning**<br><sub>Explanation for Trajectory Planning using Multi-modal Large Language Model for Autonomous Driving</sub> | ECCV 2024 | `Explainability` · `Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2411.09971-b31b1b?style=flat-square)](https://arxiv.org/abs/2411.09971) | — | — |
+| **LaVida Drive**<br><sub>Vision-Text Interaction VLM for Autonomous Driving with Token Selection, Recovery and Enhancement</sub> | 2024 | `VQA` · `Interaction` | [![arXiv](https://img.shields.io/badge/arXiv-2411.12980-b31b1b?style=flat-square)](https://arxiv.org/abs/2411.12980) | — | — |
+| **EMMA**<br><sub>End-to-End Multimodal Model for Autonomous Driving</sub> | 2024 | `End-to-End` · `Multimodal` | [![arXiv](https://img.shields.io/badge/arXiv-2410.23262-b31b1b?style=flat-square)](https://arxiv.org/abs/2410.23262) | — | — |
+| **DriVLMe**<br><sub>Enhancing LLM-based Autonomous Driving Agents with Embodied and Social Experiences</sub> | IROS 2024 | `Embodied` · `Social` | [![arXiv](https://img.shields.io/badge/arXiv-2406.03008-b31b1b?style=flat-square)](https://arxiv.org/pdf/2406.03008) | [![Stars](https://img.shields.io/github/stars/sled-group/driVLMe?style=social)](https://github.com/sled-group/driVLMe/tree/main) | [Project](https://sled-group.github.io/driVLMe/) |
+| **OccLLaMA**<br><sub>An Occupancy-Language-Action Generative World Model for Autonomous Driving</sub> | 2024 | `World Model` · `Occupancy` | [![arXiv](https://img.shields.io/badge/arXiv-2409.03272-b31b1b?style=flat-square)](https://arxiv.org/abs/2409.03272) | — | — |
+| **MiniDrive**<br><sub>More Efficient Vision-Language Models with Multi-Level 2D Features as Text Tokens</sub> | 2024 | `Efficient` · `MoE` | [![arXiv](https://img.shields.io/badge/arXiv-2409.07267-b31b1b?style=flat-square)](https://arxiv.org/abs/2409.07267) | — | — |
+| **RDA-Driver**<br><sub>Making Large Language Models Better Planners with Reasoning-Decision Alignment</sub> | ECCV 2024 | `Reasoning` · `Alignment` | [![arXiv](https://img.shields.io/badge/arXiv-2408.13890-b31b1b?style=flat-square)](https://arxiv.org/abs/2408.13890) | — | — |
+| **EC-Drive**<br><sub>Edge-Cloud Collaborative Motion Planning for Autonomous Driving with Large Language Models</sub> | ICCT 2024 | `Edge-Cloud` · `Collaborative` | [![arXiv](https://img.shields.io/badge/arXiv-2408.09972-b31b1b?style=flat-square)](https://arxiv.org/abs/2408.09972) | — | [Project](https://sites.google.com/view/ec-drive) |
+| **V2X-VLM**<br><sub>End-to-End V2X Cooperative Autonomous Driving Through Large Vision-Language Models</sub> | 2024 | `V2X` · `Cooperative` | [![arXiv](https://img.shields.io/badge/arXiv-2408.09251-b31b1b?style=flat-square)](https://arxiv.org/abs/2408.09251) | [![Stars](https://img.shields.io/github/stars/zilin-huang/V2X-VLM?style=social)](https://github.com/zilin-huang/V2X-VLM) | [Project](https://www.huang-zilin.com/V2X-VLM-website/) |
+| **Cube-LLM**<br><sub>Language-Image Models with 3D Understanding</sub> | 2024 | `3D` · `Language-Image` | [![arXiv](https://img.shields.io/badge/arXiv-2405.03685-b31b1b?style=flat-square)](https://arxiv.org/abs/2405.03685) | — | [Project](https://janghyuncho.github.io/Cube-LLM/) |
+| **VLM-MPC**<br><sub>Vision Language Foundation Model (VLM)-Guided Model Predictive Controller (MPC)</sub> | 2024 | `MPC` · `Control` | [![arXiv](https://img.shields.io/badge/arXiv-2408.04821-b31b1b?style=flat-square)](https://arxiv.org/abs/2408.04821) | — | — |
+| **SimpleLLM4AD**<br><sub>An End-to-End Vision-Language Model with Graph Visual Question Answering</sub> | IEIT Systems | `Graph VQA` · `Pipeline` | [![arXiv](https://img.shields.io/badge/arXiv-2407.21293-b31b1b?style=flat-square)](https://arxiv.org/abs/2407.21293) | — | — |
+| **AsyncDriver**<br><sub>Asynchronous Large Language Model Enhanced Planner for Autonomous Driving</sub> | ECCV 2024 | `Asynchronous` · `Closed-Loop` | [![arXiv](https://img.shields.io/badge/arXiv-2406.14556-b31b1b?style=flat-square)](https://arxiv.org/abs/2406.14556) | [![Stars](https://img.shields.io/github/stars/memberRE/AsyncDriver?style=social)](https://github.com/memberRE/AsyncDriver) | — |
+| **AD-H**<br><sub>AUTONOMOUS DRIVING WITH HIERARCHICAL AGENTS</sub> | ICLR 2025 | `Hierarchical` · `Agents` | [Paper](https://openreview.net/pdf/e15ef4c8e8f4e0d2db875b42314bcc25546c73dc.pdf) | — | — |
+| **CarLLaVA**<br><sub>Vision language models for camera-only closed-loop driving</sub> | 2024 | `Camera-only` · `Closed-Loop` | [![arXiv](https://img.shields.io/badge/arXiv-2406.10165-b31b1b?style=flat-square)](https://arxiv.org/abs/2406.10165) | — | [Project](https://www.youtube.com/watch?v=E1nsEgcHRuc) |
+| **PlanAgent**<br><sub>A Multi-modal Large Language Agent for Closed-loop Vehicle Motion Planning</sub> | 2024 | `Agent` · `Closed-Loop` | [![arXiv](https://img.shields.io/badge/arXiv-2406.01587-b31b1b?style=flat-square)](https://arxiv.org/abs/2406.01587) | — | — |
+| **Atlas**<br><sub>Is a 3D-Tokenized LLM the Key to Reliable Autonomous Driving?</sub> | 2024 | `3D-Tokenized` · `LLM` | [![arXiv](https://img.shields.io/badge/arXiv-2405.18361-b31b1b?style=flat-square)](https://arxiv.org/abs/2405.18361#) | — | — |
+| **TRR Agent**<br><sub>Interpretable Decision-Making for Autonomous Vehicles with Retrieval-Augmented Reasoning via LLM</sub> | 2024 | `RAG` · `Rule-Based` | [![arXiv](https://img.shields.io/badge/arXiv-2410.04759-b31b1b?style=flat-square)](https://arxiv.org/abs/2410.04759) | — | — |
+| **OmniDrive**<br><sub>A Holistic Vision-Language Dataset for Autonomous Driving with Counterfactual Reasoning</sub> | CVPR 2025 | `Counterfactual` · `3D` | [![arXiv](https://img.shields.io/badge/arXiv-2405.01533-b31b1b?style=flat-square)](https://arxiv.org/abs/2405.01533) | [![Stars](https://img.shields.io/github/stars/NVlabs/OmniDrive?style=social)](https://github.com/NVlabs/OmniDrive) | — |
+| **Co-driver**<br><sub>VLM-based Autonomous Driving Assistant with Human-like Behavior and Understanding</sub> | 2024 | `Assistant` · `Human-like` | [![arXiv](https://img.shields.io/badge/arXiv-2405.05885-b31b1b?style=flat-square)](https://arxiv.org/html/2405.05885v1) | — | — |
+| **AgentsCoDriver**<br><sub>Large Language Model Empowered Collaborative Driving with Lifelong Learning</sub> | 2024 | `Collaborative` · `Lifelong` | [![arXiv](https://img.shields.io/badge/arXiv-2404.06345-b31b1b?style=flat-square)](https://arxiv.org/abs/2404.06345) | — | — |
+| **EM-VLM4AD**<br><sub>Multi-Frame, Lightweight & Efficient Vision-Language Models for Question Answering</sub> | CVPR 2024 | `Efficient` · `VQA` | [![arXiv](https://img.shields.io/badge/arXiv-2403.19838-b31b1b?style=flat-square)](https://arxiv.org/abs/2403.19838) | [![Stars](https://img.shields.io/github/stars/akshaygopalkr/EM-VLM4AD?style=social)](https://github.com/akshaygopalkr/EM-VLM4AD) | — |
+| **LeGo-Drive**<br><sub>Language-enhanced Goal-oriented Closed-Loop End-to-End Autonomous Driving</sub> | IROS 2024 | `Goal-oriented` · `Closed-Loop` | [![arXiv](https://img.shields.io/badge/arXiv-2403.20116-b31b1b?style=flat-square)](https://arxiv.org/abs/2403.20116) | [![Stars](https://img.shields.io/github/stars/reachpranjal/lego-drive?style=social)](https://github.com/reachpranjal/lego-drive) | [Project](https://reachpranjal.com/lego-drive/) |
+| **Hybrid Reasoning**<br><sub>Hybrid Reasoning Based on Large Language Models for Autonomous Car Driving</sub> | ICCMA 2024 | `Reasoning` · `Math` | [![arXiv](https://img.shields.io/badge/arXiv-2402.13602-b31b1b?style=flat-square)](https://arxiv.org/abs/2402.13602v3) | — | — |
+| **VLAAD**<br><sub>Vision and Language Assistant for Autonomous Driving</sub> | WACV 2024 | `Assistant` · `Explainability` | [Paper](https://openaccess.thecvf.com/content/WACV2024W/LLVM-AD/papers/Park_VLAAD_Vision_and_Language_Assistant_for_Autonomous_Driving_WACVW_2024_paper.pdf) | — | — |
+| **ELM**<br><sub>Embodied Understanding of Driving Scenarios</sub> | ECCV 2024 | `Embodied` · `Scene Understanding` | [![arXiv](https://img.shields.io/badge/arXiv-2403.04593-b31b1b?style=flat-square)](https://arxiv.org/abs/2403.04593) | — | — |
+| **RAG-Driver**<br><sub>Generalisable Driving Explanations with Retrieval-Augmented In-Context Learning</sub> | RSS 2024 | `RAG` · `In-Context` | [![arXiv](https://img.shields.io/badge/arXiv-2402.10828-b31b1b?style=flat-square)](https://arxiv.org/abs/2402.10828) | [![Stars](https://img.shields.io/github/stars/YuanJianhao508/RAG-Driver?style=social)](https://github.com/YuanJianhao508/RAG-Driver) | [Project](https://yuanjianhao508.github.io/RAG-Driver/) |
+| **BEV-TSR**<br><sub>Text-Scene Retrieval in BEV Space for Autonomous Driving</sub> | AAAI 2025 | `Retrieval` · `BEV` | [![arXiv](https://img.shields.io/badge/arXiv-2401.01065-b31b1b?style=flat-square)](https://arxiv.org/abs/2401.01065) | — | — |
+| **LLaDA**<br><sub>Driving Everywhere with Large Language Model Policy Adaptation</sub> | CVPR 2024 | `Adaptation` · `Traffic Rules` | [![arXiv](https://img.shields.io/badge/arXiv-2402.05932-b31b1b?style=flat-square)](https://arxiv.org/abs/2402.05932) | [![Stars](https://img.shields.io/github/stars/Boyiliee/LLaDA-AV?style=social)](https://github.com/Boyiliee/LLaDA-AV) | [Project](https://boyiliee.github.io/llada/) |
 
 </details>
-
 <details open>
 <summary>2023</summary>
 
-- **LingoQA**: Visual Question Answering for Autonomous Driving, **ECCV 2024** [[Paper](https://arxiv.org/abs/2312.14115)] [[Code](https://github.com/wayveai/LingoQA/)]
-   
-    Summary: This is a novel framework for integrating LLM into AD systems, enabling them to follow user instructions by generating code that leverages established functional primitives.
-- **LaMPilot**: An Open Benchmark Dataset for Autonomous Driving with Language Model Programs, **CVPR 2024** [[Paper](https://arxiv.org/abs/2312.04372)] [[Project](https://github.com/PurdueDigitalTwin/LaMPilot)]
-   
-    Summary: This is a novel framework for integrating LLM into AD systems, enabling them to follow user instructions by generating code that leverages established functional primitives.
-- **LLM-ASSIST**: Enhancing Closed-Loop Planning with Language-Based Reasoning [[Paper](https://arxiv.org/pdf/2401.00125)] [[Project](https://llmassist.github.io/)]
-   
-    Summary: LLM-Planner takes over scenarios that PDM-Closed cannot handle.
-- **DriveLM**: Driving with Graph Visual Question Answering, **ECCV 2024 Oral** [[Paper](https://arxiv.org/pdf/2312.14150)] [[Code](https://github.com/OpenDriveLab/DriveLM)]
-   
-    Summary: Graph VQA involves formulating Perception, Prediction, Planning reasoning as a series of questionanswer pairs (QAs) in a directed graph.
-- **DriveMLM**: Aligning Multi-Modal Large Language Models with Behavioral Planning States for Autonomous Driving [[Paper](https://arxiv.org/abs/2312.09245)] [[Code](https://github.com/OpenGVLab/DriveMLM)]
-   
-    Summary: Design an MLLM planner for decision prediction, and develop a data engine that can effectively generate decision states and corresponding explanation annotation for model training and evaluation.
-- **LiDAR-LLM**: Exploring the Potential of Large Language Models for 3D LiDAR Understanding [[Paper](https://arxiv.org/abs/2312.14074)] [[Project](https://sites.google.com/view/lidar-llm)]
-   
-    Summary: Take raw LiDAR data as input and leverage LLM’s superior inference capabilities to fully understand outdoor 3D scenes.
-- **Talk2BEV**: Language-enhanced Bird's-eye View Maps for Autonomous Driving [[Paper](https://arxiv.org/abs/2310.02251)] [[Project](https://llmbev.github.io/talk2bev/)] [[Code](https://github.com/llmbev/talk2bev)]
-   
-    Summary: Large-scale visual language model (LVLM) combined with BEV map to achieve visual reasoning, spatial understanding and decision making.
-- **Talk2Drive**: Personalized Autonomous Driving with Large Language Models: Field Experiments [[Paper](https://arxiv.org/abs/2312.09397)] [[Project](https://www.youtube.com/watch?v=4BWsfPaq1Ro)]
-   
-    Summary: capable of translating natural verbal commands into executable controls and learning to satisfy personal preferences for safety, efficiency, and comfort with a proposed memory module.
-- **LMDrive**: Closed-Loop End-to-End Driving with Large Language Models, **CVPR 2024** [[Paper](https://arxiv.org/abs/2312.07488)] [[Code](https://github.com/opendilab/LMDrive)]
-   
-    Summary: LMDrive, the very first work to leverage LLMs for closed-loop end-to-end autonomous driving.
-- **Reason2Drive**: Towards Interpretable and Chain-based Reasoning for Autonomous Driving, **ECCV 2024** [[Paper](https://arxiv.org/abs/2312.03661)] [[Code](https://github.com/fudan-zvg/Reason2Drive)]
-   
-    Summary: Introduce a straightforward yet effective framework that enhances existing VLMs with two new components: a prior tokenizer and an instructed vision decoder.
-- **CAVG**: GPT-4 Enhanced Multimodal Grounding for Autonomous Driving: Leveraging Cross-Modal Attention with Large Language Models [[Paper](https://arxiv.org/abs/2312.03543)] [[Code](https://github.com/Petrichor625/Talk2car_CAVG)]
-   
-    Summary: Utilize five encoders: Text, Image, Context, and Cross-Modal—with: with a Multimodal decoder to predict object bounding box.
-- **Dolphins**: Multimodal Language Model for Driving, **ECCV 2024** [[Paper](https://arxiv.org/abs/2312.00438)] [[Project](https://vlm-driver.github.io/)] [[Code](https://github.com/SaFoLab-WISC/Dolphins)]
-   
-    Summary: Dolphins is adept at processing multimodal inputs comprising video (or image) data, text instructions, and historical control signals to generate informed outputs corresponding to the provided instructions.
-- **Agent-Driver**: A Language Agent for Autonomous Driving, **COLM 2024** [[Paper](https://arxiv.org/abs/2311.10813)] [[Project](https://usc-gvl.github.io/Agent-Driver/)] [[Code](https://github.com/USC-GVL/Agent-Driver)]
-   
-    Summary: Agent-Driver changes the traditional autonomous driving pipeline by introducing a versatile tool library accessible through function calls, cognitive memory for common sense and experiential knowledge for decision-making, and a reasoning engine capable of thought chain reasoning, task planning, motion planning, and self-reflection.
-- **Empowering Autonomous Driving with Large Language Models**: A Safety Perspective, **ICLR 2024** [[Paper](https://arxiv.org/abs/2312.00812)] [[Code](https://github.com/wangyixu14/llm_conditioned_mpc_ad)]
-   
-    Summary: Deploys the LLM as an intelligent decision-maker in planning, incorporating safety verifiers for contextual safety learning to enhance overall AD performance and safety.
-- **ChatGPT as Your Vehicle Co-Pilot**: An Initial Attempt [[Paper](https://ieeexplore.ieee.org/document/10286969)]
-   
-    Summary: Design a universal framework that embeds LLMs as a vehicle "Co-Pilot" of driving, which can accomplish specific driving tasks with human intention satisfied based on the information provided.
-- **Receive, Reason, and React**: Drive as You Say with Large Language Models in Autonomous Vehicles, **ITSM 2024** [[Paper](https://arxiv.org/abs/2310.08034)]
-   
-    Summary: Utilize LLMs’ linguistic and contextual understanding abilities with specialized tools to integrate the language and reasoning capabilities of LLMs into autonomous vehicles.
-- **LanguageMPC**: Large Language Models as Decision Makers for Autonomous Driving [[Paper](https://arxiv.org/pdf/2310.03026)]
-   
-    Summary: Leverage LLMs to provide high-level decisions through chain-of-thought.Convert high-level decisions into mathematical representations to guide the bottom-level controller(MPC).
-- **Driving with LLMs**: Fusing Object-Level Vector Modality for Explainable Autonomous Driving [[Paper](https://arxiv.org/abs/2310.01957)] [[Code](https://github.com/wayveai/Driving-with-LLMs)]
-   
-    Summary: Propose a unique object-level multimodal LLM architecture(Llama2+Lora), using only vectorized representations as input.
-- **DriveGPT4**: Interpretable End-to-end Autonomous Driving via Large Language Model, **RAL** [[Paper](https://tonyxuqaq.github.io/assets/pdf/2024_RAL_DriveGPT4.pdf)] [[Project](https://tonyxuqaq.github.io/projects/DriveGPT4/)]
-   
-    Summary: DriveGPT4 represents the pioneering effort to leverage LLMs for the development of an interpretable end-to-end autonomous driving solution.
-- **GPT-Driver**: Learning to Drive with GPT, **NeurIPS 2023** [[Paper](https://arxiv.org/abs/2310.01415)] [[Project](https://pointscoder.github.io/projects/gpt_driver/index.html)] [[Code](https://github.com/PointsCoder/GPT-Driver)]
-   
-    Summary: Represent the planner inputs and outputs as language tokens, and leverage the LLM to generate driving trajectories through a language description of coordinate positions.
-- **DiLu**: A Knowledge-Driven Approach to Autonomous Driving with Large Language Models, **ICLR 2024** [[Paper](https://arxiv.org/pdf/2309.16292)] [[Project](https://pjlab-adg.github.io/DiLu/)] [[Code](https://github.com/PJLab-ADG/DiLu)]
-   
-    Summary: Propose the DiLu framework, which combines a Reasoning and a Reflection module to enable the system to perform decision-making based on common-sense knowledge and evolve continuously.
-- **Drive as You Speak**: Enabling Human-Like Interaction with Large Language Models in Autonomous Vehicles [[Paper](https://arxiv.org/abs/2309.10228)]
-   
-    Summary: In this paper, we present a novel framework that leverages Large Language Models (LLMs) to enhance autonomous vehicles’ decision-making processes. By integrating LLMs’ natural language capabilities and contextual understanding, specialized tools usage, synergizing reasoning, and acting with various modules on autonomous vehicles, this framework aims to seamlessly integrate the advanced language and reasoning capabilities of LLMs into autonomous vehicles.
-- **HiLM-D**: Enhancing MLLMs with Multi-Scale High-Resolution Details for Autonomous Driving, **IJCV** [[Paper](https://arxiv.org/abs/2309.05186)]
-   
-    Summary: ROLISP that aims to identify, explain and localize the risk object for the ego-vehicle meanwhile predicting its intention and giving suggestions. Propose HiLM-D (Towards High-Resolution Understanding in MLLMs for Autonomous Driving), an efficient method to incorporate HR information into MLLMs for the ROLISP task.
-- **SurrealDriver**: Designing LLM-powered Generative Driver Agent Framework based on Human Drivers' Driving-thinking Data [[Paper](https://arxiv.org/abs/2309.13193)]
-   
-    Summary: The framework uses post-drive self-reported driving thought data from human drivers as demonstration and feedback to build a human-like generative driving agent.
-- **Drive Like a Human**: Rethinking Autonomous Driving with Large Language Models [[Paper](https://arxiv.org/abs/2307.07162)] [[Code](https://github.com/PJLab-ADG/DriveLikeAHuman?tab=readme-ov-file)]
-   
-    Summary: Identify three key abilities: Reasoning, Interpretation and Memorization (accumulate experience and self-reflection).
-- **ADAPT**: Action-aware Driving Caption Transformer, **ICRA 2023** [[Paper](https://arxiv.org/abs/2302.00673)] [[Code](https://github.com/jxbbb/ADAPT)]
-   
-    Summary: propose a multi-task joint training framework that aligns both the driving action captioning task and the control signal prediction task.
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **LingoQA**<br><sub>Visual Question Answering for Autonomous Driving</sub> | ECCV 2024 | `VQA` · `LLM` | [![arXiv](https://img.shields.io/badge/arXiv-2312.14115-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.14115) | [![Stars](https://img.shields.io/github/stars/wayveai/LingoQA?style=social)](https://github.com/wayveai/LingoQA/) | — |
+| **LaMPilot**<br><sub>An Open Benchmark Dataset for Autonomous Driving with Language Model Programs</sub> | CVPR 2024 | `Benchmark` · `LLM` | [![arXiv](https://img.shields.io/badge/arXiv-2312.04372-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.04372) | [![Stars](https://img.shields.io/github/stars/PurdueDigitalTwin/LaMPilot?style=social)](https://github.com/PurdueDigitalTwin/LaMPilot) | — |
+| **LLM-ASSIST**<br><sub>Enhancing Closed-Loop Planning with Language-Based Reasoning</sub> | 2023 | `Planning` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2401.00125-b31b1b?style=flat-square)](https://arxiv.org/pdf/2401.00125) | — | [Project](https://llmassist.github.io/) |
+| **DriveLM**<br><sub>Driving with Graph Visual Question Answering</sub> | ECCV 2024 | `Graph VQA` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2312.14150-b31b1b?style=flat-square)](https://arxiv.org/pdf/2312.14150) | [![Stars](https://img.shields.io/github/stars/OpenDriveLab/DriveLM?style=social)](https://github.com/OpenDriveLab/DriveLM) | — |
+| **DriveMLM**<br><sub>Aligning Multi-Modal Large Language Models with Behavioral Planning States</sub> | 2023 | `MLLM` · `Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2312.09245-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.09245) | [![Stars](https://img.shields.io/github/stars/OpenGVLab/DriveMLM?style=social)](https://github.com/OpenGVLab/DriveMLM) | — |
+| **LiDAR-LLM**<br><sub>Exploring the Potential of Large Language Models for 3D LiDAR Understanding</sub> | 2023 | `LiDAR` · `LLM` | [![arXiv](https://img.shields.io/badge/arXiv-2312.14074-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.14074) | — | [Project](https://sites.google.com/view/lidar-llm) |
+| **Talk2BEV**<br><sub>Language-enhanced Bird's-eye View Maps for Autonomous Driving</sub> | 2023 | `BEV` · `LVLM` | [![arXiv](https://img.shields.io/badge/arXiv-2310.02251-b31b1b?style=flat-square)](https://arxiv.org/abs/2310.02251) | [![Stars](https://img.shields.io/github/stars/llmbev/talk2bev?style=social)](https://github.com/llmbev/talk2bev) | [Project](https://llmbev.github.io/talk2bev/) |
+| **Talk2Drive**<br><sub>Personalized Autonomous Driving with Large Language Models: Field Experiments</sub> | 2023 | `Personalized` · `LLM` | [![arXiv](https://img.shields.io/badge/arXiv-2312.09397-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.09397) | — | [Project](https://www.youtube.com/watch?v=4BWsfPaq1Ro) |
+| **LMDrive**<br><sub>Closed-Loop End-to-End Driving with Large Language Models</sub> | CVPR 2024 | `Closed-Loop` · `LLM` | [![arXiv](https://img.shields.io/badge/arXiv-2312.07488-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.07488) | [![Stars](https://img.shields.io/github/stars/opendilab/LMDrive?style=social)](https://github.com/opendilab/LMDrive) | — |
+| **Reason2Drive**<br><sub>Towards Interpretable and Chain-based Reasoning for Autonomous Driving</sub> | ECCV 2024 | `Reasoning` · `Interpretability` | [![arXiv](https://img.shields.io/badge/arXiv-2312.03661-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.03661) | [![Stars](https://img.shields.io/github/stars/fudan-zvg/Reason2Drive?style=social)](https://github.com/fudan-zvg/Reason2Drive) | — |
+| **CAVG**<br><sub>GPT-4 Enhanced Multimodal Grounding for Autonomous Driving</sub> | 2023 | `Grounding` · `GPT-4` | [![arXiv](https://img.shields.io/badge/arXiv-2312.03543-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.03543) | [![Stars](https://img.shields.io/github/stars/Petrichor625/Talk2car_CAVG?style=social)](https://github.com/Petrichor625/Talk2car_CAVG) | — |
+| **Dolphins**<br><sub>Multimodal Language Model for Driving</sub> | ECCV 2024 | `Multimodal` · `VLM` | [![arXiv](https://img.shields.io/badge/arXiv-2312.00438-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.00438) | [![Stars](https://img.shields.io/github/stars/SaFoLab-WISC/Dolphins?style=social)](https://github.com/SaFoLab-WISC/Dolphins) | [Project](https://vlm-driver.github.io/) |
+| **Agent-Driver**<br><sub>A Language Agent for Autonomous Driving</sub> | COLM 2024 | `Agent` · `Memory` | [![arXiv](https://img.shields.io/badge/arXiv-2311.10813-b31b1b?style=flat-square)](https://arxiv.org/abs/2311.10813) | [![Stars](https://img.shields.io/github/stars/USC-GVL/Agent-Driver?style=social)](https://github.com/USC-GVL/Agent-Driver) | [Project](https://usc-gvl.github.io/Agent-Driver/) |
+| **LLM-Safety**<br><sub>Empowering Autonomous Driving with Large Language Models: A Safety Perspective</sub> | ICLR 2024 | `Safety` · `MPC` | [![arXiv](https://img.shields.io/badge/arXiv-2312.00812-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.00812) | [![Stars](https://img.shields.io/github/stars/wangyixu14/llm_conditioned_mpc_ad?style=social)](https://github.com/wangyixu14/llm_conditioned_mpc_ad) | — |
+| **Co-Pilot**<br><sub>ChatGPT as Your Vehicle Co-Pilot: An Initial Attempt</sub> | 2023 | `Co-Pilot` · `LLM` | [Paper](https://ieeexplore.ieee.org/document/10286969) | — | — |
+| **RRR**<br><sub>Receive, Reason, and React: Drive as You Say with Large Language Models</sub> | ITSM 2024 | `Tools` · `LLM` | [![arXiv](https://img.shields.io/badge/arXiv-2310.08034-b31b1b?style=flat-square)](https://arxiv.org/abs/2310.08034) | — | — |
+| **LanguageMPC**<br><sub>Large Language Models as Decision Makers for Autonomous Driving</sub> | 2023 | `MPC` · `CoT` | [![arXiv](https://img.shields.io/badge/arXiv-2310.03026-b31b1b?style=flat-square)](https://arxiv.org/pdf/2310.03026) | — | — |
+| **Driving with LLMs**<br><sub>Fusing Object-Level Vector Modality for Explainable Autonomous Driving</sub> | 2023 | `Object-Level` · `Explainable` | [![arXiv](https://img.shields.io/badge/arXiv-2310.01957-b31b1b?style=flat-square)](https://arxiv.org/abs/2310.01957) | [![Stars](https://img.shields.io/github/stars/wayveai/Driving-with-LLMs?style=social)](https://github.com/wayveai/Driving-with-LLMs) | — |
+| **DriveGPT4**<br><sub>Interpretable End-to-end Autonomous Driving via Large Language Model</sub> | RAL | `Interpretable` · `LLM` | [Paper](https://tonyxuqaq.github.io/assets/pdf/2024_RAL_DriveGPT4.pdf) | — | [Project](https://tonyxuqaq.github.io/projects/DriveGPT4/) |
+| **GPT-Driver**<br><sub>Learning to Drive with GPT</sub> | NeurIPS 2023 | `Planner` · `GPT` | [![arXiv](https://img.shields.io/badge/arXiv-2310.01415-b31b1b?style=flat-square)](https://arxiv.org/abs/2310.01415) | [![Stars](https://img.shields.io/github/stars/PointsCoder/GPT-Driver?style=social)](https://github.com/PointsCoder/GPT-Driver) | [Project](https://pointscoder.github.io/projects/gpt_driver/index.html) |
+| **DiLu**<br><sub>A Knowledge-Driven Approach to Autonomous Driving with Large Language Models</sub> | ICLR 2024 | `Knowledge-Driven` · `Reflection` | [![arXiv](https://img.shields.io/badge/arXiv-2309.16292-b31b1b?style=flat-square)](https://arxiv.org/pdf/2309.16292) | [![Stars](https://img.shields.io/github/stars/PJLab-ADG/DiLu?style=social)](https://github.com/PJLab-ADG/DiLu) | [Project](https://pjlab-adg.github.io/DiLu/) |
+| **Drive as You Speak**<br><sub>Enabling Human-Like Interaction with Large Language Models in Autonomous Vehicles</sub> | 2023 | `Interaction` · `LLM` | [![arXiv](https://img.shields.io/badge/arXiv-2309.10228-b31b1b?style=flat-square)](https://arxiv.org/abs/2309.10228) | — | — |
+| **HiLM-D**<br><sub>Enhancing MLLMs with Multi-Scale High-Resolution Details for Autonomous Driving</sub> | IJCV | `High-Res` · `MLLM` | [![arXiv](https://img.shields.io/badge/arXiv-2309.05186-b31b1b?style=flat-square)](https://arxiv.org/abs/2309.05186) | — | — |
+| **SurrealDriver**<br><sub>Designing LLM-powered Generative Driver Agent Framework based on Human Data</sub> | 2023 | `Generative` · `Agent` | [![arXiv](https://img.shields.io/badge/arXiv-2309.13193-b31b1b?style=flat-square)](https://arxiv.org/abs/2309.13193) | — | — |
+| **Drive Like a Human**<br><sub>Rethinking Autonomous Driving with Large Language Models</sub> | 2023 | `Reasoning` · `Reflection` | [![arXiv](https://img.shields.io/badge/arXiv-2307.07162-b31b1b?style=flat-square)](https://arxiv.org/abs/2307.07162) | [![Stars](https://img.shields.io/github/stars/PJLab-ADG/DriveLikeAHuman?style=social)](https://github.com/PJLab-ADG/DriveLikeAHuman) | — |
+| **ADAPT**<br><sub>Action-aware Driving Caption Transformer</sub> | ICRA 2023 | `Captioning` · `Transformer` | [![arXiv](https://img.shields.io/badge/arXiv-2302.00673-b31b1b?style=flat-square)](https://arxiv.org/abs/2302.00673) | [![Stars](https://img.shields.io/github/stars/jxbbb/ADAPT?style=social)](https://github.com/jxbbb/ADAPT) | — |
 
 </details>
 
@@ -955,159 +368,57 @@ If you find this project useful in your research, please consider citing:
 
 ### Hybrid End-to-End Methods
 
-
 <details open>
 <summary>2025</summary>
 
-- **AdaDrive**: AdaDrive: Self-Adaptive Slow-Fast System for Language-Grounded Autonomous Driving, **ICCV 2025** [[Paper](https://arxiv.org/pdf/2511.06253)] [[Code](https://github.com/ReaFly/AdaDrive)]
-  
-  Summary: AdaDrive builds a self-adaptive slow–fast framework that decides when and how to invoke an LLM to assist a conventional planner in language-grounded driving. It introduces an adaptive activation loss that learns to trigger the LLM only in complex or critical scenarios, and an adaptive fusion strategy that continuously scales the LLM’s influence based on scene complexity and prediction confidence, balancing high-level reasoning with real-time efficiency.
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **AdaDrive**<br><sub>AdaDrive: Self-Adaptive Slow-Fast System for Language-Grounded Autonomous Driving</sub> | ICCV 2025 | `Slow-Fast` · `LLM` | [![arXiv](https://img.shields.io/badge/arXiv-2511.06253-b31b1b?style=flat-square)](https://arxiv.org/abs/2511.06253) | [![Stars](https://img.shields.io/github/stars/ReaFly/AdaDrive?style=social)](https://github.com/ReaFly/AdaDrive) | — |
+| **ReAL-AD**<br><sub>Towards Human-Like Reasoning in End-to-End Autonomous Driving</sub> | 2025 | `Reasoning` · `VLM` | [![arXiv](https://img.shields.io/badge/arXiv-2507.12499-b31b1b?style=flat-square)](https://arxiv.org/abs/2507.12499) | — | [Project](https://4dvlab.github.io/project_page/realad) |
+| **VLAD**<br><sub>A VLM-Augmented Autonomous Driving Framework with Hierarchical Planning and Interpretable Decision Process</sub> | ITSC 2025 | `VLM` · `Hierarchical` | [![arXiv](https://img.shields.io/badge/arXiv-2507.01284-b31b1b?style=flat-square)](https://arxiv.org/abs/2507.01284) | — | — |
+| **LeAD**<br><sub>The LLM Enhanced Planning System Converged with End-to-end Autonomous Driving</sub> | 2025 | `LLM` · `E2E` | [![arXiv](https://img.shields.io/badge/arXiv-2507.05754-b31b1b?style=flat-square)](https://arxiv.org/abs/2507.05754) | — | — |
+| **NetRoller**<br><sub>Interfacing General and Specialized Models for End-to-End Autonomous Driving</sub> | 2025 | `Adapter` · `VLM` | [![arXiv](https://img.shields.io/badge/arXiv-2506.14589-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.14589) | [![Stars](https://img.shields.io/github/stars/Rex-sys-hk/NetRoller?style=social)](https://github.com/Rex-sys-hk/NetRoller) | — |
+| **SOLVE**<br><sub>Synergy of Language-Vision and End-to-End Networks for Autonomous Driving</sub> | CVPR 2025 | `VLM` · `Fusion` | [![arXiv](https://img.shields.io/badge/arXiv-2505.16805-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.16805) | — | — |
+| **VERDI**<br><sub>VLM-Embedded Reasoning for Autonomous Driving</sub> | 2025 | `VLM` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2505.15925-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.15925) | — | — |
+| **ALN-P3**<br><sub>Unified Language Alignment for Perception, Prediction, and Planning in Autonomous Driving</sub> | 2025 | `Alignment` · `Language` | [![arXiv](https://img.shields.io/badge/arXiv-2505.15158-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.15158) | — | — |
+| **VLM-E2E**<br><sub>Enhancing End-to-End Autonomous Driving with Multimodal Driver Attention Fusion</sub> | 2025 | `VLM` · `Attention` | [![arXiv](https://img.shields.io/badge/arXiv-2502.18042-b31b1b?style=flat-square)](https://arxiv.org/abs/2502.18042) | — | — |
+| **DIMA**<br><sub>Distilling Multi-modal Large Language Models for Autonomous Driving</sub> | CVPR 2025 | `Distillation` · `MLLM` | [![arXiv](https://img.shields.io/badge/arXiv-2501.09757-b31b1b?style=flat-square)](https://arxiv.org/abs/2501.09757) | — | — |
 
-
-- **ReAL-AD**: Towards Human-Like Reasoning in End-to-End Autonomous Driving [[paper](https://arxiv.org/pdf/2507.12499)][[project](https://4dvlab.github.io/project_page/realad)]
-
-
-    Summary: ReAL-AD introduces a human-like hierarchical reasoning mechanism and innovatively integrates the vision-language model organically into the decision-making hierarchy, significantly improving the planning accuracy and safety of the end-to-end autonomous driving system.
-
-- ​**VLAD**​: A VLM-Augmented Autonomous Driving Framework with Hierarchical Planning and Interpretable Decision Process, ​**ITSC2025**​[[Paper](https://arxiv.org/abs/2507.01284)]
-
-
-    Summary: Combining a fine-tuned VLM with a state-of-the-art end-to-end system, VAD
-
-- ​**LeAD**​: The LLM Enhanced Planning System Converged with End-to-end Autonomous Driving[[Paper](https://arxiv.org/abs/2507.05754)]
-
-
-    Summary: The high-frequency E2E subsystem maintains real-time perception-planning-control cycles, while the low-frequency LLM module enhances scenario comprehension through multi-modal perception fusion with HD maps and derives optimal decisions via chain-of-thought (CoT) reasoning when baseline planners encounter capability limitations.
-
-- ​**NetRoller**​: Interfacing General and Specialized Models for End-to-End Autonomous Driving[[Paper](https://arxiv.org/abs/2506.14589)][[code](https://github.com/Rex-sys-hk/NetRoller)]
-
-
-    Summary: NetRoller explores the design of adapters to facilitate seamless integration of Vision Language Model (VLM, aka GM) and Specialized Driving Model (SM)
-
-- ​**SOLVE**​: Synergy of Language-Vision and End-to-End Networks for Autonomous Driving, ​**CVPR2025**​[[Paper](https://arxiv.org/pdf/2505.16805?)]
-
-
-    Summary: SOLVE combines VLM and end-to-end networks through feature-level collaboration (shared visual encoder) and trajectory-level collaboration.
-
-- ​**VERDI**​: VLM-Embedded Reasoning for Autonomous Driving[[Paper](https://arxiv.org/pdf/2505.15925)]
-
-
-    Summary: Align E2E perception prediction planning with VLM thought chain output, and refine VLM reasoning into E2E
-
-- ​**ALN-P3**​: Unified Language Alignment for Perception, Prediction, and Planning in Autonomous Driving[[Paper](https://arxiv.org/pdf/2505.15158)]
-
-
-    Summary: A unified co-refinement framework that introduces cross-modal alignment between a "fast" vision-based autonomous driving system and a "slow" language-driven reasoning module.
-
-- ​**VLM-E2E**​: Enhancing End-to-End Autonomous Driving with Multimodal Driver Attention Fusion[[Paper](https://arxiv.org/pdf/2502.18042?)]
-
-
-    Summary: The textual representation is integrated into the bird's eye view (BEV) features using VLM for semantic supervision, which enables the model to learn richer feature representations that explicitly capture the driver's attention semantics.
-
-- **DIMA:** Distilling Multi-modal Large Language Models for Autonomous Driving, ​**CVPR2025**​[[Paper](https://arxiv.org/pdf/2501.09757)]
-
-
-    Summary: Transferring knowledge from a multimodal large language model (MLLM) to a vision-based end-to-end planner via knowledge distillation
 </details>
-
-
 <details open>
 <summary>2024</summary>
 
-- **VLM-AD**​: End-to-End Autonomous Driving through Vision-Language Model Supervision[[Paper](https://arxiv.org/pdf/2412.14446)]
-
-    Summary: Using the reasoning annotations generated by VLM as supervisory signals, the planning accuracy of the E2E model is significantly improved and the collision rate is reduced.
-
-- **FASIONAD** : FAst and Slow FusION Thinking Systems for Human-Like Autonomous Driving with Adaptive Feedback​**​ ​**​[[Paper](https://arxiv.org/pdf/2411.18013)]
-
-    Summary: The fast and slow systems of VLMAD and E2EAD, the fast system efficiently manages routine navigation tasks through fast, data-driven path planning, while the slow system handles complex reasoning and decision-making in unfamiliar or challenging scenarios.
-
-- ​**Senna**​: Bridging Large Vision-Language Models and End-to-End Autonomous Driving[[Paper](https://arxiv.org/abs/2410.22313)][[Code](https://github.com/hustvl/Senna)]
-
-
-    Summary: Senna is an autonomous driving system that integrates a Large Vision-Language Model with an end-to-end model to improve planning safety, robustness and generalization.
-
-- ​**Hint-AD**​: Holistically Aligned Interpretability in End-to-End Autonomous Driving, ​**CoRL 2024**​[[Paper](https://arxiv.org/abs/2409.06702)][[Project](https://air-discover.github.io/Hint-AD/)][[Code](https://github.com/Robot-K/Hint-AD)]
-
-
-    Summary: An integrated autonomous driving-language system that generates language that is aligned with the overall perception-prediction-planning output of the autonomous driving model
-
-- ​**DriveVLM**​: The Convergence of Autonomous Driving and Large Vision-Language Models, ​**CoRL2024**​[[Paper](https://arxiv.org/abs/2402.12289)][[Project](https://tsinghua-mars-lab.github.io/DriveVLM/)]
-
-
-    Summary: DriveVLM-Dual, a hybrid system that incorporates DriveVLM and a traditional autonomous pipeline.
-
-- ​**DME-Driver**​: Integrating Human Decision Logic and 3D Scene Perception in Autonomous Driving, ​**AAAI2025**​[[Paper](https://arxiv.org/abs/2401.03641)]
-
-
-    Summary:  DME-Driver utilizes a powerful vision language model as the decision-maker and a planning-oriented perception model as the control signal generator.
-
-- ​**VLP**​: Vision Language Planning for Autonomous Driving,​**​ CVPR 2024**​[[Paper](https://arxiv.org/abs/2401.05577)]
-
-
-    Summary: Propose VLP, a Vision Language Planning model, which is composed of novel components ALP and SLP, aiming to improve the ADS from self-driving BEV reasoning and self-driving decision-making aspects, respectively.
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **VLM-AD**<br><sub>End-to-End Autonomous Driving through Vision-Language Model Supervision</sub> | 2024 | `Supervision` · `VLM` | [![arXiv](https://img.shields.io/badge/arXiv-2412.14446-b31b1b?style=flat-square)](https://arxiv.org/pdf/2412.14446) | — | — |
+| **FASIONAD**<br><sub>FAst and Slow FusION Thinking Systems for Human-Like Autonomous Driving</sub> | 2024 | `Fast-Slow` · `Fusion` | [![arXiv](https://img.shields.io/badge/arXiv-2411.18013-b31b1b?style=flat-square)](https://arxiv.org/pdf/2411.18013) | — | — |
+| **Senna**<br><sub>Bridging Large Vision-Language Models and End-to-End Autonomous Driving</sub> | 2024 | `VLM` · `Robustness` | [![arXiv](https://img.shields.io/badge/arXiv-2410.22313-b31b1b?style=flat-square)](https://arxiv.org/abs/2410.22313) | [![Stars](https://img.shields.io/github/stars/hustvl/Senna?style=social)](https://github.com/hustvl/Senna) | — |
+| **Hint-AD**<br><sub>Holistically Aligned Interpretability in End-to-End Autonomous Driving</sub> | CoRL 2024 | `Interpretability` · `Alignment` | [![arXiv](https://img.shields.io/badge/arXiv-2409.06702-b31b1b?style=flat-square)](https://arxiv.org/abs/2409.06702) | [![Stars](https://img.shields.io/github/stars/Robot-K/Hint-AD?style=social)](https://github.com/Robot-K/Hint-AD) | [Project](https://air-discover.github.io/Hint-AD/) |
+| **DriveVLM**<br><sub>The Convergence of Autonomous Driving and Large Vision-Language Models</sub> | CoRL 2024 | `Hybrid` · `VLM` | [![arXiv](https://img.shields.io/badge/arXiv-2402.12289-b31b1b?style=flat-square)](https://arxiv.org/abs/2402.12289) | — | [Project](https://tsinghua-mars-lab.github.io/DriveVLM/) |
+| **DME-Driver**<br><sub>Integrating Human Decision Logic and 3D Scene Perception in Autonomous Driving</sub> | AAAI 2025 | `Logic` · `Perception` | [![arXiv](https://img.shields.io/badge/arXiv-2401.03641-b31b1b?style=flat-square)](https://arxiv.org/abs/2401.03641) | — | — |
+| **VLP**<br><sub>Vision Language Planning for Autonomous Driving</sub> | CVPR 2024 | `Planning` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2401.05577-b31b1b?style=flat-square)](https://arxiv.org/abs/2401.05577) | — | — |
 
 </details>
-
 </details>
 <p align="right">(<a href="#top">back to top</a>)</p> 
 
 
 
 ## Dataset
-
 <details open>
 <summary>Normal Dataset</summary>
 
-### Normal Dataset
-
-
-- **KITTI**: Are We Ready for Autonomous Driving? The KITTI Vision Benchmark Suite CVPR 2012 [[Paper](https://ieeexplore.ieee.org/document/6248074)][[Dataset](https://www.cvlibs.net/datasets/kitti/)]
-  
-  - Summary: A total of 61 scenes were recorded using a 64-beam LiDAR, a stereo camera pair, a color camera, and GPS/IMU; the training set comprises 7,481 labeled frames and the test set comprises 7,518 frames.
-  - Support Tasks: 3D Object Detection, 3D Multi-Object Tracking, Semantic Segmentation, Instance Segmentation
-
-- **nuScenes**: A Multimodal Dataset for Autonomous Driving CVPR 2020 [[Paper](https://arxiv.org/abs/1903.11027)][[Dataset](https://www.nuscenes.org/)]
-
-  - Summary: A total of 1,000 scenes (20 seconds each) were collected, including raw data from 6 cameras, 5 radars, and 1 LiDAR sensor; the training set comprises 28,130 samples, the validation set comprises 6,019 samples, and the test set comprises 6,008 samples.
-  - Support Tasks: 3D Detection, 3D Multi-Object Tracking, LiDAR Semantic Segmentation, Panoptic Segmentation & Panoptic Tracking, Planning
-
-- **Waymo Open Dataset** Scalability in Perception for Autonomous Driving: Waymo Open Dataset CVPR 2020 [[Paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Sun_Scalability_in_Perception_for_Autonomous_Driving_Waymo_Open_Dataset_CVPR_2020_paper.pdf)][[Dataset](https://waymo.com/intl/zh-cn/research/scalability-in-perception-for-autonomous-driving-waymo-open-dataset/)]
-
-  - Summary: A total of 1,150 scenes (20 seconds each) were collected, including raw data from 5 LiDAR sensors and 5 cameras; the training‐validation set comprises 1,000 scenes, and the test set comprises 150 scenes.
-  - Support Tasks: 3D Detection, 3D Tracking
-
-- **Argoverse**: Argoverse: 3D Tracking and Forecasting with Rich Maps, CVPR 2019 [[Paper](https://arxiv.org/abs/1911.02620)][[Dataset](https://www.argoverse.org/)] Argoverse 2: Next Generation Datasets for Self-Driving Perception and Forecasting, NeurIPS 2023 [[Paper](https://arxiv.org/abs/2301.00493)][[Dataset](https://www.argoverse.org/)]
-
-
-  - Summary: A Sensor Dataset of 1,000 3D-annotated sequences (lidar, ring cameras, stereo cameras, HD maps), a Lidar Dataset of 20,000 unlabeled sequences, a Motion Forecasting Dataset of 250,000 scenarios, and a Map Change Dataset of 1,000 scenarios (200 depicting HD-map changes), all collected across six cities.
-  - Support Tasks: 3D Object Detection, 3D Tracking, Motion Forecasting, Map Change Detection
-
-- **Lyft**  One Thousand and One Hours: Self-driving Motion Prediction Dataset ArXiv 2020 [[Paper](https://arxiv.org/abs/2006.14480)][[Dataset](https://level5.lyft.com/)]
-
-  - Summary: Over 1,000 hours of driving data collected in Las Vegas and Palo Alto using a ring of 6 cameras, a 64-beam LiDAR, and GPS/IMU; annotated for agent trajectories and intent.
-  - Support Tasks: Motion Prediction
- 
-- **ONCE** One Million Scenes for Autonomous Driving: ONCE Dataset NeurIPS 2021 [[Paper](https://arxiv.org/abs/2106.11037)][[Dataset](https://once-for-auto-driving.github.io/index.html)]
-
-  - Summary: A million LiDAR sweeps with 28,000 frames annotated (32-beam LiDAR, 5 cameras, GNSS/IMU); training set comprises 25,000 annotated frames, validation 1,500, test 1,500.
-  - Support Tasks: 3D Object Detection, 3D Tracking, Semantic Segmentation
-
-- **Mapillary Vistas** The Mapillary Vistas Dataset for Semantic Understanding of Street Scenes ICCV 2017 [[Paper](https://openaccess.thecvf.com/content_ICCV_2017/papers/Neuhold_The_Mapillary_Vistas_ICCV_2017_paper.pdf)][[Dataset](https://www.mapillary.com/dataset/vistas)]
-
-  - Summary: A total of 25,000 high-resolution images from diverse street scenes; training set comprises 18,000 images, validation 2,000, test 5,000; pixel-level annotations over 66 object classes.
-  - Support Tasks: Semantic Segmentation, Instance Segmentation
-
-- **BDD100K**: A Diverse Driving Dataset for Heterogeneous Multitask Learning CVPR 2020 [[Paper](https://arxiv.org/abs/1805.04687)][[Dataset](https://github.com/bdd100k/bdd100k)]
-
-  - Summary: A total of 100,000 front-camera images; training set comprises 70,000 images, validation 10,000, test 20,000; annotations include bounding boxes, instance masks, drivable areas, lanes, and tracking IDs.
-  - Support Tasks: Object Detection, Instance Segmentation, Drivable Area Segmentation, Lane Marking, Multi-Object Tracking
-
-- **ApolloScape**: The ApolloScape Open Dataset for Autonomous Driving and Its Application CVPR 2018 Workshops [[Paper](https://arxiv.org/abs/1803.06184)][[Dataset](https://github.com/ApolloScapeAuto/dataset-api?tab=readme-ov-file#data-download)]
-
-  - Summary: A total of 143,000 images with pixel-level labels and 2 million LiDAR point clouds (40-line LiDAR, 6 cameras); training set comprises 100,000 images, validation 20,000, test 23,000.
-  - Support Tasks: Semantic Segmentation, Instance Segmentation, Stereo Matching, Optical Flow, Visual Odometry
-
+| 📦 **Dataset** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💾 **Dataset / Code** |
+|---|---|---|---|---|
+| **KITTI**<br><sub>The KITTI Vision Benchmark Suite</sub> | CVPR 2012 | `3D Detection` · `Tracking` | [![Paper](https://img.shields.io/badge/Paper-IEEE-b31b1b?style=flat-square)](https://ieeexplore.ieee.org/document/6248074) | [Dataset](https://www.cvlibs.net/datasets/kitti/) |
+| **nuScenes**<br><sub>A Multimodal Dataset for Autonomous Driving</sub> | CVPR 2020 | `Multimodal` · `LiDAR` · `Radar` | [![arXiv](https://img.shields.io/badge/arXiv-1903.11027-b31b1b?style=flat-square)](https://arxiv.org/abs/1903.11027) | [Dataset](https://www.nuscenes.org/) |
+| **Waymo**<br><sub>Waymo Open Dataset: Scalability in Perception</sub> | CVPR 2020 | `Perception` · `LiDAR` | [Paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Sun_Scalability_in_Perception_for_Autonomous_Driving_Waymo_Open_Dataset_CVPR_2020_paper.pdf) | [Dataset](https://waymo.com/intl/zh-cn/research/scalability-in-perception-for-autonomous-driving-waymo-open-dataset/) |
+| **Argoverse**<br><sub>3D Tracking and Forecasting with Rich Maps</sub> | CVPR 2019 | `Tracking` · `Forecasting` · `Maps` | [![arXiv](https://img.shields.io/badge/arXiv-1911.02620-b31b1b?style=flat-square)](https://arxiv.org/abs/1911.02620) | [Dataset](https://www.argoverse.org/) |
+| **Lyft**<br><sub>One Thousand and One Hours: Self-driving Motion Prediction Dataset</sub> | 2020 | `Motion Prediction` | [![arXiv](https://img.shields.io/badge/arXiv-2006.14480-b31b1b?style=flat-square)](https://arxiv.org/abs/2006.14480) | [Dataset](https://level5.lyft.com/) |
+| **ONCE**<br><sub>One Million Scenes for Autonomous Driving</sub> | NeurIPS 2021 | `Unsupervised` · `3D Detection` | [![arXiv](https://img.shields.io/badge/arXiv-2106.11037-b31b1b?style=flat-square)](https://arxiv.org/abs/2106.11037) | [Dataset](https://once-for-auto-driving.github.io/index.html) |
+| **Mapillary Vistas**<br><sub>Semantic Understanding of Street Scenes</sub> | ICCV 2017 | `Semantic Segmentation` | [Paper](https://openaccess.thecvf.com/content_ICCV_2017/papers/Neuhold_The_Mapillary_Vistas_ICCV_2017_paper.pdf) | [Dataset](https://www.mapillary.com/dataset/vistas) |
+| **BDD100K**<br><sub>A Diverse Driving Dataset for Heterogeneous Multitask Learning</sub> | CVPR 2020 | `Multitask` · `Video` | [![arXiv](https://img.shields.io/badge/arXiv-1805.04687-b31b1b?style=flat-square)](https://arxiv.org/abs/1805.04687) | [![Stars](https://img.shields.io/github/stars/bdd100k/bdd100k?style=social)](https://github.com/bdd100k/bdd100k) |
+| **ApolloScape**<br><sub>The ApolloScape Open Dataset for Autonomous Driving</sub> | CVPR 2018 | `Segmentation` · `LiDAR` | [![arXiv](https://img.shields.io/badge/arXiv-1803.06184-b31b1b?style=flat-square)](https://arxiv.org/abs/1803.06184) | [Dataset](https://github.com/ApolloScapeAuto/dataset-api?tab=readme-ov-file#data-download) |
 
 </details>
 
@@ -1118,191 +429,75 @@ If you find this project useful in your research, please consider citing:
 <details open>
 <summary>2025</summary>
 
-- **nuScenesR²-6K**: Incentivizing Reasoning and Self-Reflection Capacity for VLA Model in Autonomous Driving[[Paper](https://arxiv.org/pdf/2509.01944)]
-
-	Summary: nuScenesR²-6K is the first innovative CoT dataset for supervised fine-tuning, which effectively builds cognitive bridges between input information and output trajectories through a four-step logical chain with self-reflection for validation.
-
-- ​**Bench2ADVLM**​: A Closed-Loop Benchmark for Vision-language Models in Autonomous Driving[[Paper](https://arxiv.org/abs/2508.02028)]
-
-    Summary: Bench2ADVLM, a unified hierarchical closed-loop evaluation framework for real-time, interactive assessment of ADVLMs across both simulation and physical platforms, uses routes provided in the Bench2Drive.
-
-- ​​**VLADBench**​: Fine-Grained Evaluation of Large Vision-Language Models in Autonomous Driving[[Paper](https://arxiv.org/pdf/2503.21505)][[Project](https://github.com/Depth2World/VLADBench?tab=readme-ov-file)][[Dataset](https://huggingface.co/datasets/depth2world/VLADBench)]
-
-    Summary:  VLADBench is a challenging and finegrained dataset featuring close-form QAs that progress from static foundational knowledge and elements to advanced reasoning for dynamic on-road situations. The elaborate VLADBench spans 5 key domains: Traffic Knowledge Understanding, General Element Recognition, Traffic Graph Generation, Target Attribute Comprehension, and Ego Decision-Making and Planning.
-
-- **NuInteract ​**:Extending Large Vision-Language Model for Diverse Interactive Tasks in Autonomous Driving [[Paper](https://arxiv.org/abs/2505.08725v1)][[Project](https://github.com/zc-zhao/DriveMonkey)][[Dataset](https://github.com/zc-zhao/DriveMonkey/releases/download/NuInteract_Dataset/NuInteract.zip)]
-
-
-    Summary:  NuInteract is constructed based on nuScene. It encompasses 239K images (six single-view images and one surrounding view image for each frame) with high-quality dense captions and 1.3M data across diverse interactive language-based tasks, resulting a total of 1.5M image-text pairs.
-
-
-- ​**Drive-R1**​: Bridging Reasoning and Planning in VLMs for Autonomous Driving with Reinforcement Learning[[Paper](https://arxiv.org/abs/2506.18234)]
-
-    Summary:  Drive-R1 is designed to bridges the scenario reasoning and motion planning for AD and firstly undergoes the supervised finetuning on a elaborate dataset containing both long and short COT data. Drive-R1 is encouraged to reason step-by-step from visual input to final planning decisions.
-
-- ​**DriveAction**​: A Benchmark for Exploring Human-like Driving Decisions in VLA Models[[Paper](https://arxiv.org/abs/2506.05667)][[Project](https://huggingface.co/datasets/LiAuto-DriveAction/drive-action)][[Dataset](https://huggingface.co/datasets/LiAuto-DriveAction/drive-action)]
-
-    Summary:  The first action-driven benchmark specifically designed for VLA models, comprising 16,185 QA pairs generated from 2,610 driving scenarios and leveraging real-world driving data proactively collected by users of production-level autonomous vehicles.
-
-- ​**STSBench**​: A Spatio-temporal Scenario Benchmark for Multi-modal Large Language Models in Autonomous Driving[[Paper](https://arxiv.org/abs/2506.06218)][[Project](https://github.com/LRP-IVC/STSBench/tree/main)][[Dataset](https://huggingface.co/datasets/ivc-lrp/STSBench)]
-
-    Summary:  STSnu is the first benchmark that evaluates the spatio-temporal reasoning capabilities of VLMs based on comprehensive 3D perception and evaluates driving expert VLMs for end-to-end driving, operating on videos from multi-view cameras or LiDAR.
-
-- **DRAMA-ROLISP** HiLM-D: Enhancing MLLMs with Multi-Scale High-Resolution Details for Autonomous Driving, IJCV2025. [[Paper](https://arxiv.org/abs/2309.05186)][[Project](https://github.com/xmed-lab/HiLM-D?tab=readme-ov-file)][[Dataset](https://github.com/xmed-lab/HiLM-D?tab=readme-ov-file)]
-
-    Summary:  HiLM-D, a resource-efficient framework that enhances visual information processing in MLLMs for ROLISP (Risk Object Localization and Intention and Suggestion Prediction) .
-
-- **WOMD-Planning-ADE Benchmark** S4-Driver: Scalable Self-Supervised Driving Multimodal Large Language Model with Spatio-Temporal Visual Representation. CVPR2025. [[Paper](https://arxiv.org/abs/2505.24139)]
-
-- ​**ImpromptuVLA**​: Open Weights and Open Data for Driving Vision-Language-Action Models [[Paper](https://arxiv.org/abs/2505.23757)][[Project](https://github.com/ahydchh/Impromptu-VLA)][[Dataset](https://huggingface.co/datasets/aaaaaap/unstructed)][[Model](https://huggingface.co/aaaaaap/ImpromptuVLAModel/tree/main)]
-
-    Summary: The Impromptu VLA Dataset includes over 80,000 meticulously curated video clips, distilled from over 2M source clips sourced from 8 open-source large-scale datasets.
-
-- **DriveBench**: Are VLMs Ready for Autonomous Driving? An Empirical Study from the Reliability, Data, and Metric Perspectives. ICCV2025. [[Link](https://drive-bench.github.io/)][[Paper](https://arxiv.org/abs/2501.04003)][[Project](https://github.com/drive-bench/toolkit)][[Dataset](https://huggingface.co/datasets/drive-bench/arena)]
-
-    Summary: DriveBench is a benchmark dataset designed to evaluate VLM reliability across 17 settings, encompassing 19,200 frames, 20,498 question-answer pairs, three question types, four mainstream driving tasks, and a total of 12 popular VLMs.
-
-- **SimLingo: ​**Vision-Only Closed-Loop Autonomous Driving with Language-Action Alignment, CVPR2025.[[Paper](https://arxiv.org/abs/2503.09594)][[Project](https://github.com/RenzKa/simlingo)][[Dataset](https://huggingface.co/datasets/RenzKa/simlingo)]
-
-    Summary: Proposed model trained in this dataset that can handle three different tasks: (1) closed-loop driving, (2) vision-language understanding, and (3) language-action alignment.
-
-- ​**WOMD-Reasoning**​: A Large-Scale Dataset for Interaction Reasoning in Driving, ICML 2025. [[Paper](https://arxiv.org/abs/2407.04281)][[Project](https://github.com/yhli123/WOMD-Reasoning)][[Dataset](https://waymo.com/open/download)]
-
-    Summary: WOMD-Reasoning is a large-scale Q&As dataset built on WOMD focusing on describing and reasoning traffic rule-induced interactions in driving scenarios，and presents 3 million Q&As on real-world driving scenarios.
-
-- ​**OmniDrive**​: LLM-Agent for Autonomous Driving with 3D Perception, Reasoning and Planning, CVPR 2025. [[Paper](https://arxiv.org/abs/2405.01533)][[Project](https://github.com/NVlabs/OmniDrive)][[Dataset](https://github.com/NVlabs/OmniDrive/releases/tag/v1.0)][[Model](https://huggingface.co/exiawsh/OmniDrive/tree/main)]
-
-    Summary: OmniDrive is a holistic vision-language dataset that aligns agent models with 3D driving tasks through counterfactual reasoning.
-
-- ​**CODA-LM**​: Automated Evaluation of Large Vision-Language Models on Self-driving Corner Cases, WACV 2025. [[Paper](https://arxiv.org/abs/2404.10595)][[Project](https://github.com/DLUT-LYZ/CODA-LM)][[Dataset](https://huggingface.co/collections/KaiChen1998/coda-lm-6726500ab7d88dbcf9dc3fd0)]
-
-    Summary: CODA-LM is the very first benchmark for the automatic evaluation of LVLMs for self-driving corner cases.
-
-- **CoVLA: ​**Comprehensive Vision-Language-Action Dataset for Autonomous Driving, WACV 2025 Oral. [[Paper](https://arxiv.org/abs/2408.10845)][[Project](https://turingmotors.github.io/covla-ad/)][[Dataset](https://huggingface.co/datasets/turing-motors/CoVLA-Dataset)]
-
-    Summary: CoVLA Dataset is an dataset comprising real-world driving videos spanning more than 80 hours. This dataset leverages a novel, scalable approach based on automated data processing and a caption generation pipeline to generate accurate driving trajectories paired with detailed natural language descriptions of driving environments and maneuvers.
-
-- **nuPrompt ​**: Language Prompt for Autonomous Driving. AAAI 2025. [[Paper](https://arxiv.org/abs/2309.04379)][[Project](https://github.com/wudongming97/Prompt4Driving)][[Dataset](https://github.com/wudongming97/Prompt4Driving/releases/download/v1.0/nuprompt_v1.0.zip)][[Model](https://github.com/wudongming97/Prompt4Driving/releases/download/v1.0/f3_prompttrack_e12.pth)]
-
-    Summary: NuPrompt is the first object-centric language prompt set for driving scenes within 3D, multi-view, and multi-frame space, which expands nuScenes dataset by constructing a total of 40,147 language descriptions, each referring to an average of 7.4 object tracklets.
-
-- ​**Robusto-1 Dataset**​: Comparing Humans and VLMs on real out-of-distribution Autonomous Driving VQA from Peru[[Paper](https://arxiv.org/pdf/2503.07587)][[Dataset](https://huggingface.co/datasets/Artificio/robusto-1/tree/main)]
-
-    Summary: The Robusto-1 dataset that uses dashcam video data from Peru, a country with one of the “worst” (aggressive) drivers in the world, a high traffic index, and a high ratio of bizarre to non–bizarre street objects likely never seen in training. The motivation is preliminarly testing at a cognitive level how well Foundational Visual-Language Models (VLMs) compare to Humans in Driving.
-
-- **DrivingVQA Dataset**  RIV-CoT: Retrieval-Based Interleaved Visual Chain-of-Thought in Real-World Driving Scenarios. [[Paper](https://arxiv.org/abs/2501.04671)][[Project](https://github.com/vita-epfl/RIV-CoT)][[Dataset](https://huggingface.co/datasets/EPFL-DrivingVQA/DrivingVQA)]
-
-    Summary: DrivingVQA is a visual question answering dataset derived from driving theory exams, which contains 3,931 multiple-choice problems with expert-written explanations and grounded entities relevant to the reasoning process.
-
-- ​**DriveLMM-o1**​: A Step-by-Step Reasoning Dataset and Large Multimodal Model for Driving Scenario Understanding. [[Paper](https://arxiv.org/abs/2503.10621v1)][[Project](https://github.com/ayesha-ishaq/DriveLMM-o1)][[Dataset](https://huggingface.co/datasets/ayeshaishaq/DriveLMMo1)][[Model](https://huggingface.co/ayeshaishaq/DriveLMMo1)]
-
-    Summary: DriveLMM-o1 is a dataset designed to advance step-wise visual reasoning for autonomous driving, which features over 18k VQA examples in the training set and more than 4k in the test set, each enriched with step-by-step reasoning to ensure logical inference in autonomous driving scenarios.
+| 📦 **Dataset** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💾 **Dataset / Code** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **nuScenesR²-6K**<br><sub>Incentivizing Reasoning and Self-Reflection Capacity for VLA Model</sub> | 2025 | `CoT` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2509.01944-b31b1b?style=flat-square)](https://arxiv.org/pdf/2509.01944) | — | — |
+| **Bench2ADVLM**<br><sub>A Closed-Loop Benchmark for Vision-language Models</sub> | 2025 | `Benchmark` · `Closed-Loop` | [![arXiv](https://img.shields.io/badge/arXiv-2508.02028-b31b1b?style=flat-square)](https://arxiv.org/abs/2508.02028) | — | — |
+| **VLADBench**<br><sub>Fine-Grained Evaluation of Large Vision-Language Models</sub> | 2025 | `Evaluation` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2503.21505-b31b1b?style=flat-square)](https://arxiv.org/pdf/2503.21505) | [Dataset](https://huggingface.co/datasets/depth2world/VLADBench) | [Project](https://github.com/Depth2World/VLADBench) |
+| **NuInteract**<br><sub>Extending Large Vision-Language Model for Diverse Interactive Tasks</sub> | 2025 | `Interaction` · `VLM` | [![arXiv](https://img.shields.io/badge/arXiv-2505.08725-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.08725v1) | [Dataset](https://github.com/zc-zhao/DriveMonkey/releases/download/NuInteract_Dataset/NuInteract.zip) | [Project](https://github.com/zc-zhao/DriveMonkey) |
+| **Drive-R1**<br><sub>Bridging Reasoning and Planning in VLMs with RL</sub> | 2025 | `RL` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2506.18234-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.18234) | — | — |
+| **DriveAction**<br><sub>A Benchmark for Exploring Human-like Driving Decisions in VLA Models</sub> | 2025 | `Action-Driven` · `VLA` | [![arXiv](https://img.shields.io/badge/arXiv-2506.05667-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.05667) | [Dataset](https://huggingface.co/datasets/LiAuto-DriveAction/drive-action) | [Project](https://huggingface.co/datasets/LiAuto-DriveAction/drive-action) |
+| **STSBench**<br><sub>A Spatio-temporal Scenario Benchmark for MLLMs</sub> | 2025 | `Spatio-Temporal` · `3D` | [![arXiv](https://img.shields.io/badge/arXiv-2506.06218-b31b1b?style=flat-square)](https://arxiv.org/abs/2506.06218) | [Dataset](https://huggingface.co/datasets/ivc-lrp/STSBench) | [Project](https://github.com/LRP-IVC/STSBench/tree/main) |
+| **HiLM-D**<br><sub>(DRAMA-ROLISP) Enhancing MLLMs with Multi-Scale High-Resolution Details</sub> | IJCV 2025 | `Risk` · `High-Res` | [![arXiv](https://img.shields.io/badge/arXiv-2309.05186-b31b1b?style=flat-square)](https://arxiv.org/abs/2309.05186) | [Dataset](https://github.com/xmed-lab/HiLM-D?tab=readme-ov-file) | [Project](https://github.com/xmed-lab/HiLM-D) |
+| **S4-Driver**<br><sub>WOMD-Planning-ADE Benchmark: Scalable Self-Supervised Driving MLLM</sub> | CVPR 2025 | `Self-Supervised` · `Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2505.24139-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.24139) | — | — |
+| **ImpromptuVLA**<br><sub>Open Weights and Open Data for Driving Vision-Language-Action Models</sub> | 2025 | `Open Data` · `VLA` | [![arXiv](https://img.shields.io/badge/arXiv-2505.23757-b31b1b?style=flat-square)](https://arxiv.org/abs/2505.23757) | [Dataset](https://huggingface.co/datasets/aaaaaap/unstructed) | [Project](https://github.com/ahydchh/Impromptu-VLA) |
+| **DriveBench**<br><sub>Are VLMs Ready for Autonomous Driving? An Empirical Study</sub> | ICCV 2025 | `Reliability` · `Evaluation` | [![arXiv](https://img.shields.io/badge/arXiv-2501.04003-b31b1b?style=flat-square)](https://arxiv.org/abs/2501.04003) | [Dataset](https://huggingface.co/datasets/drive-bench/arena) | [Project](https://drive-bench.github.io/) |
+| **SimLingo**<br><sub>Vision-Only Closed-Loop Autonomous Driving with Language-Action Alignment</sub> | CVPR 2025 | `Alignment` · `Closed-Loop` | [![arXiv](https://img.shields.io/badge/arXiv-2503.09594-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.09594) | [Dataset](https://huggingface.co/datasets/RenzKa/simlingo) | [Project](https://github.com/RenzKa/simlingo) |
+| **WOMD-Reasoning**<br><sub>A Large-Scale Dataset for Interaction Reasoning in Driving</sub> | ICML 2025 | `Interaction` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2407.04281-b31b1b?style=flat-square)](https://arxiv.org/abs/2407.04281) | [Dataset](https://waymo.com/open/download) | [Project](https://github.com/yhli123/WOMD-Reasoning) |
+| **OmniDrive**<br><sub>LLM-Agent for Autonomous Driving with 3D Perception</sub> | CVPR 2025 | `3D Perception` · `Agent` | [![arXiv](https://img.shields.io/badge/arXiv-2405.01533-b31b1b?style=flat-square)](https://arxiv.org/abs/2405.01533) | [Dataset](https://github.com/NVlabs/OmniDrive/releases/tag/v1.0) | [Project](https://github.com/NVlabs/OmniDrive) |
+| **CODA-LM**<br><sub>Automated Evaluation of Large Vision-Language Models on Self-driving Corner Cases</sub> | WACV 2025 | `Corner Cases` · `Evaluation` | [![arXiv](https://img.shields.io/badge/arXiv-2404.10595-b31b1b?style=flat-square)](https://arxiv.org/abs/2404.10595) | [Dataset](https://huggingface.co/collections/KaiChen1998/coda-lm-6726500ab7d88dbcf9dc3fd0) | [Project](https://github.com/DLUT-LYZ/CODA-LM) |
+| **CoVLA**<br><sub>Comprehensive Vision-Language-Action Dataset</sub> | WACV 2025 | `VLA` · `Video` | [![arXiv](https://img.shields.io/badge/arXiv-2408.10845-b31b1b?style=flat-square)](https://arxiv.org/abs/2408.10845) | [Dataset](https://huggingface.co/datasets/turing-motors/CoVLA-Dataset) | [Project](https://turingmotors.github.io/covla-ad/) |
+| **nuPrompt**<br><sub>Language Prompt for Autonomous Driving</sub> | AAAI 2025 | `Prompt` · `3D` | [![arXiv](https://img.shields.io/badge/arXiv-2309.04379-b31b1b?style=flat-square)](https://arxiv.org/abs/2309.04379) | [Dataset](https://github.com/wudongming97/Prompt4Driving) | [Project](https://github.com/wudongming97/Prompt4Driving) |
+| **Robusto-1**<br><sub>Comparing Humans and VLMs on real out-of-distribution AD VQA</sub> | 2025 | `OOD` · `VQA` | [![arXiv](https://img.shields.io/badge/arXiv-2503.07587-b31b1b?style=flat-square)](https://arxiv.org/pdf/2503.07587) | [Dataset](https://huggingface.co/datasets/Artificio/robusto-1/tree/main) | — |
+| **DrivingVQA**<br><sub>RIV-CoT: Retrieval-Based Interleaved Visual Chain-of-Thought</sub> | 2025 | `VQA` · `CoT` | [![arXiv](https://img.shields.io/badge/arXiv-2501.04671-b31b1b?style=flat-square)](https://arxiv.org/abs/2501.04671) | [Dataset](https://huggingface.co/datasets/EPFL-DrivingVQA/DrivingVQA) | [Project](https://github.com/vita-epfl/RIV-CoT) |
+| **DriveLMM-o1**<br><sub>A Step-by-Step Reasoning Dataset and Large Multimodal Model</sub> | 2025 | `Reasoning` · `MLLM` | [![arXiv](https://img.shields.io/badge/arXiv-2503.10621-b31b1b?style=flat-square)](https://arxiv.org/abs/2503.10621v1) | [Dataset](https://huggingface.co/datasets/ayeshaishaq/DriveLMMo1) | [Project](https://github.com/ayesha-ishaq/DriveLMM-o1) |
 
 </details>
 
 <details open>
 <summary>2024</summary>
 
-- ​**DriveLM**​: Driving with Graph Visual Question Answering, ECCV 2024.[[Paper](https://arxiv.org/abs/2312.14150)][[Project](https://github.com/OpenDriveLab/DriveLM)][[Dataset](https://huggingface.co/datasets/OpenDriveLab/DriveLM)]
+| 📦 **Dataset** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💾 **Dataset / Code** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **DriveLM**<br><sub>Driving with Graph Visual Question Answering</sub> | ECCV 2024 | `Graph VQA` · `Graph` | [![arXiv](https://img.shields.io/badge/arXiv-2312.14150-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.14150) | [Dataset](https://huggingface.co/datasets/OpenDriveLab/DriveLM) | [Project](https://github.com/OpenDriveLab/DriveLM) |
+| **LMDrive**<br><sub>Closed-Loop End-to-End Driving with Large Language Models</sub> | 2024 | `Closed-Loop` · `Language` | [![arXiv](https://img.shields.io/badge/arXiv-2312.07488-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.07488) | [Dataset](https://huggingface.co/datasets/OpenDILabCommunity/LMDrive) | [Project](https://github.com/opendilab/LMDrive) |
+| **DriveCoT**<br><sub>Integrating Chain-of-Thought Reasoning with End-to-End Driving</sub> | 2024 | `CoT` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2403.16996-b31b1b?style=flat-square)](https://arxiv.org/abs/2403.16996) | [Dataset](https://drivecot.github.io/download.html) | [Project](https://drivecot.github.io/) |
+| **NuScenes-QA**<br><sub>A Multi-Modal Visual Question Answering Benchmark</sub> | AAAI 2024 | `VQA` · `Benchmark` | [![arXiv](https://img.shields.io/badge/arXiv-2305.14836-b31b1b?style=flat-square)](https://arxiv.org/pdf/2305.14836) | [Dataset](https://drive.google.com/drive/folders/1jIkICT23wZWZYPrWCa0x-ubjpClSzOuU) | [Project](https://github.com/qiantianwen/NuScenes-QA) |
+| **NuScenes-MQA**<br><sub>Integrated Evaluation of Captions and QA using Markup Annotations</sub> | WACV 2024 | `Captioning` · `QA` | [![arXiv](https://img.shields.io/badge/arXiv-2312.06352-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.06352) | [Dataset](https://drive.google.com/drive/u/0/folders/1PQy0qhTtbdueIVlVnn4jC6xvANZUynRZ) | [Project](https://github.com/turingmotors/NuScenes-MQA) |
+| **Talk2BEV**<br><sub>Language-enhanced Bird’s-eye View Maps</sub> | ICRA 2024 | `BEV` · `Maps` | [![arXiv](https://img.shields.io/badge/arXiv-2310.02251-b31b1b?style=flat-square)](https://arxiv.org/abs/2310.02251) | [Dataset](https://drive.google.com/file/d/1B5Uong8xYGRDkufR33T9sCNyNdRzPxc4/view?usp=sharing) | [Project](https://github.com/llmbev/talk2bev) |
+| **DriveGPT4**<br><sub>Interpretable End-to-end Autonomous Driving via LLM</sub> | RA-L 2024 | `Interpretable` · `Instruction` | [![arXiv](https://img.shields.io/badge/arXiv-2310.01412-b31b1b?style=flat-square)](https://arxiv.org/abs/2310.01412) | [Dataset](https://drive.google.com/drive/folders/1PsGL7ZxMMz1ZPDS5dZSjzjfPjuPHxVL5) | [Project](https://drive.google.com/drive/folders/1PsGL7ZxMMz1ZPDS5dZSjzjfPjuPHxVL5) |
+| **ContextVLM**<br><sub>Zero-Shot and Few-Shot Context Understanding</sub> | ITSC 2024 | `Context` · `Few-Shot` | [![arXiv](https://img.shields.io/badge/arXiv-2409.00301-b31b1b?style=flat-square)](https://arxiv.org/abs/2409.00301) | [Dataset](https://drive.google.com/drive/folders/1bUNDIlhgTjcxt0WaOGVRRuI0e5_cWJDG) | [Project](https://github.com/ssuralcmu/ContextVLM) |
+| **LingoQA**<br><sub>Visual Question Answering for Autonomous Driving</sub> | ECCV 2024 | `VQA` · `Freeform` | [![arXiv](https://img.shields.io/badge/arXiv-2312.14115-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.14115) | [Dataset](https://github.com/wayveai/LingoQA) | [Project](https://github.com/wayveai/LingoQA) |
+| **Rank2Tell**<br><sub>A Multimodal Driving Dataset for Joint Importance Ranking and Reasoning</sub> | WACV 2024 | `Ranking` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2309.06597-b31b1b?style=flat-square)](https://arxiv.org/abs/2309.06597) | [Dataset](https://usa.honda-ri.com/rank2tell) | — |
+| **MAPLM**<br><sub>A Real-World Large-Scale Vision-Language Dataset for Map and Traffic Scene</sub> | CVPR 2024 | `Map` · `Traffic` | [Paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Cao_MAPLM_A_Real-World_Large-Scale_Vision-Language_Benchmark_for_Map_and_Traffic_CVPR_2024_paper.pdf) | [Dataset](https://drive.google.com/drive/folders/1cqFjBH8MLeP6nKFM0l7oV-Srfke-Mx1R) | [Project](https://github.com/LLVM-AD/MAPLM) |
+| **NuInstruct**<br><sub>Holistic Autonomous Driving Understanding by BEV Injected Multi-Modal Large Models</sub> | CVPR 2024 | `Instruction` · `BEV` | [![arXiv](https://img.shields.io/badge/arXiv-2401.00988-b31b1b?style=flat-square)](https://arxiv.org/pdf/2401.00988) | [Dataset](https://drive.google.com/file/d/1ybwvgnPFRVwmEAJudWwnGQ8wLitzQ82O/view?usp=sharing) | [Project](https://github.com/xmed-lab/NuInstruct) |
+| **DriveVLM**<br><sub>SUP-AD Dataset: The Convergence of Autonomous Driving and VLMs</sub> | CoRL 2024 | `Scene Understanding` · `Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2402.12289-b31b1b?style=flat-square)](https://arxiv.org/abs/2402.12289) | — | [Project](https://tsinghua-mars-lab.github.io/DriveVLM/) |
+| **SURDS**<br><sub>Benchmarking Spatial Understanding and Reasoning in Driving Scenarios</sub> | 2024 | `Spatial` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2411.13112-b31b1b?style=flat-square)](https://arxiv.org/abs/2411.13112) | [Dataset](https://huggingface.co/datasets/bonbon-rj/SURDS/tree/main) | [Project](https://github.com/XiandaGuo/Drive-MLLM) |
 
-    Summary: DriveLM proposed a task, Graph VQA, which is more similar to the human reasoning process. And instantiate datasets (DriveLM-Data) built upon nuScenes and CARLA, and propose a VLM-based baseline approach (DriveLM-Agent) for jointly performing Graph VQA and end-to-end driving.
-
-- ​**LMDrive**​: Closed-Loop End-to-End Driving with Large Language Models [[Link](https://hao-shao.com/projects/lmdrive.html)][[Paper](https://arxiv.org/abs/2312.07488)][[Project](https://github.com/opendilab/LMDrive)][[Dataset](https://huggingface.co/datasets/OpenDILabCommunity/LMDrive)]
-
-    Summary: LMDrive uniquely processes and integrates multi-modal sensor data with natural language instructions, enabling interaction with humans and navigation software in realistic instructional settings. To facilitate further research in language-based closed-loop autonomous driving, the author also publicly release the corresponding dataset which includes approximately 64K instruction-following data clips, and the LangAuto benchmark that tests the system's ability to handle complex instructions and challenging driving scenarios.
-
-- ​**DriveCoT**​: Integrating Chain-of-Thought Reasoning  with End-to-End Driving [[Link](https://drivecot.github.io/index.html)][[Paper](https://arxiv.org/abs/2403.16996)][[Project](https://drivecot.github.io/index.html)][[Dataset](https://drivecot.github.io/download.html)]
-
-    Summary: The author collect a comprehensive end-to-end driving dataset named DriveCoT, leveraging the CARLA simulator. It contains sensor data, control decisions, and chain-of-thought labels to indicate the reasoning process.
-
-- **NuScenes-QA: ​**A Multi-Modal Visual Question Answering Benchmark for Autonomous Driving Scenario, AAAI 2024. [[Paper](https://arxiv.org/pdf/2305.14836)][[Project](https://github.com/qiantianwen/NuScenes-QA)][[Dataset](https://drive.google.com/drive/folders/1jIkICT23wZWZYPrWCa0x-ubjpClSzOuU)]
-
-    Summary: NuScenes-QA is the first benchmark for VQA in the autonomous driving scenario, encompassing 34K visual scenes and 460K question-answer pairs.
-
-- **NuScenes-MQA: ​**Integrated Evaluation of Captions and QA for Autonomous  Driving Datasets using Markup Annotations, WACV2024. [[Paper](https://arxiv.org/abs/2312.06352)][[Project](https://github.com/turingmotors/NuScenes-MQA)][[Dataset](https://drive.google.com/drive/u/0/folders/1PQy0qhTtbdueIVlVnn4jC6xvANZUynRZ)]
-
-    Summary:  NuScenes-MQA dataset is annotated by a novel annotation technique Markup-QA,  in which QAs are enclosed within markups.
-
-- ​**Talk2BEV**​:Language-enhanced Bird’s-eye View Maps for Autonomous Driving, ICRA 2024. [[Paper](https://arxiv.org/abs/2310.02251)][[Project](https://github.com/llmbev/talk2bev)][[Dataset](https://drive.google.com/file/d/1B5Uong8xYGRDkufR33T9sCNyNdRzPxc4/view?usp=sharing)]
-
-    Summary: Talk2BEV-Bench, a benchmark for evaluating LVLMs for AD applications with human-annotated ground-truth for object attributes, semantics, visual reasoning, spatial understanding, and decision-making.
-
-- ​**DriveGPT4**​: Interpretable End-to-end Autonomous Driving via Large Language Model, RA-L 2024. [[Paper](https://arxiv.org/abs/2310.01412)][[Project](https://drive.google.com/drive/folders/1PsGL7ZxMMz1ZPDS5dZSjzjfPjuPHxVL5)][[Dataset](https://drive.google.com/drive/folders/1PsGL7ZxMMz1ZPDS5dZSjzjfPjuPHxVL5)]
-
-    Summary: DriveGPT4 develop a new visual instruction tuning dataset for interpretable autonomous driving with the assistance of ChatGPT.
-
-- ​**ContextVLM**​: Zero-Shot and Few-Shot Context Understanding for Autonomous Driving using Vision Language Models, ITSC 2024. [[Paper](https://arxiv.org/abs/2409.00301)][[Project](https://github.com/ssuralcmu/ContextVLM)][[Dataset](https://drive.google.com/drive/folders/1bUNDIlhgTjcxt0WaOGVRRuI0e5_cWJDG)]
-
-    Summary: A large dataset named  DrivingContexts with a combination of hand-annotated  and machine annnotated labels to improve VLMs for  better context recognition.Its images are from muti-data sources.
-
-- ​**LingoQA**​: Visual Question Answering for Autonomous Driving, ECCV 2024. [[Paper](https://arxiv.org/abs/2312.14115)][[Project](https://github.com/wayveai/LingoQA)][[Dataset](https://github.com/wayveai/LingoQA)]
-
-    Summary: LingoQA Datasets with 419.9k QA pair stands out with its freeform questions and answers, covering not just perception but also driving reasoning from the drivers directly, broadening the scope of autonomousdriving datasets.
-
-- ​**Rank2Tell**​: A Multimodal Driving Dataset for Joint Importance Ranking and Reasoning, WACV2024. [[Paper](https://arxiv.org/abs/2309.06597)][[Dataset](https://usa.honda-ri.com/rank2tell)]
-
-    Summary: Rank2Tell, a multi-modal ego-centric dataset for Ranking the importance level and Telling the reason for the importance.Using various close and open-ended visual question answering, the dataset provides dense annotations of various semantic, spatial, temporal, and relational attributes of various important objects in complex traffic scenarios.
-
-- ​**MAPLM**​: A Real-World Large-Scale Vision-Language Dataset for Map and Traffic Scene Understanding, CVPR2024. [[Paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Cao_MAPLM_A_Real-World_Large-Scale_Vision-Language_Benchmark_for_Map_and_Traffic_CVPR_2024_paper.pdf)][[Project](https://github.com/LLVM-AD/MAPLM?tab=readme-ov-file#official-open-source-datasets-of-1st-workshop-on-large-language-vision-models-for-autonomous-driving-llvm-ad-in-wacv-2024)][[Dataset](https://drive.google.com/drive/folders/1cqFjBH8MLeP6nKFM0l7oV-Srfke-Mx1R)]
-
-    Summary: A new vision-language benchmark that can be used to finetune traffic and HD map domain-specific foundation models.
-
-- ​**NuInstruct**​: Holistic Autonomous Driving Understanding by Bird’s-Eye-View Injected Multi-Modal Large Models, CVPR2024. [[Paper](https://arxiv.org/pdf/2401.00988)][[Project](https://github.com/xmed-lab/NuInstruct)][[Dataset](https://drive.google.com/file/d/1ybwvgnPFRVwmEAJudWwnGQ8wLitzQ82O/view?usp=sharing)]
-
-    Summary: NuInstruct, a novel dataset with 91K multi-view video-QA pairs across 17 subtasks, where each task demands holistic information ( e.g., temporal, multi-view, and spatial), significantly elevating the challenge level.
-
-- **DriveVLM（SUP-AD dataset）**: The Convergence of Autonomous Driving and Large Vision-Language Models, CoRL 2024. [[paper](https://arxiv.org/abs/2402.12289)][[Project](https://tsinghua-mars-lab.github.io/DriveVLM/)]
-
-    Summary: carry out a comprehensive data mining and annotation pipeline to construct an in-house SUP-AD dataset for the scene understanding and planning task.
-
-- ​**SURDS**​: Benchmarking Spatial Understanding and Reasoning in Driving Scenarios with Vision Language Models [[Paper](https://arxiv.org/abs/2411.13112)][[Project](https://github.com/XiandaGuo/Drive-MLLM)][[Dataset](https://huggingface.co/datasets/bonbon-rj/SURDS/tree/main)]
-
-    Summary: SURDS, a large-scale benchmark designed to systematically evaluate the spatial reasoning capabilities of vision language models (VLMs). Built on the nuScenes dataset, SURDS comprises 41,080 vision-question-answer training instances and 9,250 evaluation samples, spanning six spatial categories: orientation, depth estimation, pixel-level localization, pairwise distance, lateral ordering, and front-behind relations.
 </details>
 
 <details open>
 <summary>2023</summary>
 
-- ​**DriveMLM**​: Aligning Multi-Modal Large Language Models with  Behavioral Planning States for Autonomous Driving [[Paper](https://arxiv.org/abs/2312.09245)][[Project](https://github.com/OpenGVLab/DriveMLM)]
-
-    Summary: The author design an effective data engine to collect a dataset that includes decision state and corresponding explanation annotation for model training and evaluation.。
-
-- ​**Reason2Drive**​: Towards Interpretable and Chain-based Reasoning for Autonomous Driving [[Paper](https://arxiv.org/abs/2312.03661)][[Project](https://github.com/fudan-zvg/reason2drive)][[Dataset\_mini](https://drive.google.com/file/d/16IInbGqEzg4UcNhTlxVA9tS6tOTi4wet/view?usp=sharing)]
-
-    Summary: Reason2Drive, a benchmark dataset with over 600K video-text pairs, aimed at facilitating the study of interpretable reasoning in complex driving environments.
-
-- **Refer-KITTI dataset**: Referring Multi-Object Tracking. CVPR2023. [[Paper](https://arxiv.org/abs/2303.03366)][[Project](https://github.com/wudongming97/RMOT)][[Dataset](https://github.com/wudongming97/RMOT)]
-
-    Summary: The author proposes a new and general referring understanding task, termed referring multi-object tracking (RMOT).To push forward RMOT, they construct one benchmark with scalable expressions based on KITTI, named Refer-KITTI, which provides 18 videos with 818 expressions, and each expression in a video is annotated with an average of 10.7 objects.
-
-- ​**DRAMA**​: Joint Risk Localization and Captioning in Driving, WACV2023. [[Paper](https://arxiv.org/abs/2209.10767)][[Project](https://usa.honda-ri.com/drama)][[Dataset](https://usa.honda-ri.com/drama)]
-
-    Summary: DRAMA (Driving Risk Assessment Mechanism with A captioning module), which consists of 17,785 interactive driving scenarios collected in Tokyo, Japan. Our DRAMA dataset accommodates video- and object-level questions on driving risks with associated important objects to achieve the goal of visual captioning as a free-form language description utilizing closed and open-ended responses for multi-level questions, which can be used to evaluate a range of visual captioning capabilities in driving scenarios.
+| 📦 **Dataset** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💾 **Dataset / Code** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **DriveMLM**<br><sub>Aligning Multi-Modal Large Language Models with Behavioral Planning States</sub> | 2023 | `Planning` · `Explanation` | [![arXiv](https://img.shields.io/badge/arXiv-2312.09245-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.09245) | [![Stars](https://img.shields.io/github/stars/OpenGVLab/DriveMLM?style=social)](https://github.com/OpenGVLab/DriveMLM) | — |
+| **Reason2Drive**<br><sub>Towards Interpretable and Chain-based Reasoning for Autonomous Driving</sub> | 2023 | `Reasoning` · `Chain-based` | [![arXiv](https://img.shields.io/badge/arXiv-2312.03661-b31b1b?style=flat-square)](https://arxiv.org/abs/2312.03661) | [Dataset](https://drive.google.com/file/d/16IInbGqEzg4UcNhTlxVA9tS6tOTi4wet/view?usp=sharing) | [Project](https://github.com/fudan-zvg/reason2drive) |
+| **Refer-KITTI**<br><sub>Referring Multi-Object Tracking</sub> | CVPR 2023 | `Tracking` · `Referring` | [![arXiv](https://img.shields.io/badge/arXiv-2303.03366-b31b1b?style=flat-square)](https://arxiv.org/abs/2303.03366) | [Dataset](https://github.com/wudongming97/RMOT) | [Project](https://github.com/wudongming97/RMOT) |
+| **DRAMA**<br><sub>Joint Risk Localization and Captioning in Driving</sub> | WACV 2023 | `Risk` · `Captioning` | [![arXiv](https://img.shields.io/badge/arXiv-2209.10767-b31b1b?style=flat-square)](https://arxiv.org/abs/2209.10767) | [Dataset](https://usa.honda-ri.com/drama) | [Project](https://usa.honda-ri.com/drama) |
 
 </details>
 
 <details open>
 <summary>Before 2023</summary>
 
-- ​**SUTD-TrafficQA**​: A Question Answering Benchmark and an Efficient Network for Video Reasoning over Traffic Events, CVPR 2021.[[Paper](https://arxiv.org/abs/2103.15538)][[Project](https://github.com/SUTDCV/SUTD-TrafficQA)][[Dataset](https://sutdcv.github.io/SUTD-TrafficQA/#/download)]
-
-    Summary: SUTD-TrafficQA takes the form of video QA based on the collected 10,080 in-the-wild videos and annotated 62,535 QA pairs, for benchmarking the cognitive capability of causal inference and event understanding models in complex traffic scenarios.
-
-- **BDD-OIA dataset**: Explainable Object-induced Action Decision for Autonomous Vehicles, CVPR 2020. [[Paper](https://arxiv.org/pdf/2003.09405)][[Project](https://github.com/Twizwei/bddoia_project)][[Dataset](https://drive.google.com/file/d/1WFiwRi_sMA_McZnkbEjh8Rnl-Im7_9Mk/view)]
-
-    Summary: A large dataset annotated for both driving commands and explanations.
-
-- **HAD**: Grounding Human-to-Vehicle Advice for Self-driving Vehicles, CVPR 2019. [[Paper](https://arxiv.org/abs/1911.06978)][[Dataset](https://usa.honda-ri.com/HAD#Downloadthedataset)]
-
-    Summary: The Honda Research Institute-Advice Dataset (HAD) is driving data with natural language advices. The driving videos are gathered from HDD dataset, a large-scale naturalistic driving dataset collected in San Francisco Bay Area.
-
-- **BDD-X dataset**: Textual Explanations for Self-Driving Vehicles, ECCV 2018.[[Paper](https://arxiv.org/abs/1807.11546)][[Project](https://github.com/JinkyuKimUCB/explainable-deep-driving)][[Dataset](https://github.com/JinkyuKimUCB/BDD-X-dataset)]
-
-    Summary: Berkeley DeepDrive eXplanation (BDD-X) dataset is a large-scale dataset with over 6,984 video clips annotated with driving descriptions.
-
-- ​**Talk2Car**​:**​ ​**Taking Control of Your Self-Driving Car, EMNLP 2019. [[Paper](https://arxiv.org/abs/1909.10838)][[Project](https://github.com/talk2car/Talk2Car)]
-
-    Summary: The first object referral dataset that contains commands written in natural language for self-driving cars, provides a detailed comparison with related datasets such as ReferIt, RefCOCO, RefCOCO+, RefCOCOg, Cityscape-Ref and CLEVR-Ref.
+| 📦 **Dataset** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💾 **Dataset / Code** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **SUTD-TrafficQA**<br><sub>A Question Answering Benchmark and an Efficient Network for Video Reasoning</sub> | CVPR 2021 | `Video QA` · `Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2103.15538-b31b1b?style=flat-square)](https://arxiv.org/abs/2103.15538) | [Dataset](https://sutdcv.github.io/SUTD-TrafficQA/#/download) | [Project](https://github.com/SUTDCV/SUTD-TrafficQA) |
+| **BDD-OIA**<br><sub>Explainable Object-induced Action Decision for Autonomous Vehicles</sub> | CVPR 2020 | `Explainable` · `Decision` | [![arXiv](https://img.shields.io/badge/arXiv-2003.09405-b31b1b?style=flat-square)](https://arxiv.org/pdf/2003.09405) | [Dataset](https://drive.google.com/file/d/1WFiwRi_sMA_McZnkbEjh8Rnl-Im7_9Mk/view) | [Project](https://github.com/Twizwei/bddoia_project) |
+| **HAD**<br><sub>Grounding Human-to-Vehicle Advice for Self-driving Vehicles</sub> | CVPR 2019 | `Advice` · `Grounding` | [![arXiv](https://img.shields.io/badge/arXiv-1911.06978-b31b1b?style=flat-square)](https://arxiv.org/abs/1911.06978) | [Dataset](https://usa.honda-ri.com/HAD#Downloadthedataset) | — |
+| **BDD-X**<br><sub>Textual Explanations for Self-Driving Vehicles</sub> | ECCV 2018 | `Explanation` · `Captioning` | [![arXiv](https://img.shields.io/badge/arXiv-1807.11546-b31b1b?style=flat-square)](https://arxiv.org/abs/1807.11546) | [Dataset](https://github.com/JinkyuKimUCB/BDD-X-dataset) | [Project](https://github.com/JinkyuKimUCB/explainable-deep-driving) |
+| **Talk2Car**<br><sub>Taking Control of Your Self-Driving Car</sub> | EMNLP 2019 | `Commands` · `Referral` | [![arXiv](https://img.shields.io/badge/arXiv-1909.10838-b31b1b?style=flat-square)](https://arxiv.org/abs/1909.10838) | [![Stars](https://img.shields.io/github/stars/talk2car/Talk2Car?style=social)](https://github.com/talk2car/Talk2Car) | [Project](https://github.com/talk2car/Talk2Car) |
 
 </details>
 
@@ -1315,6 +510,8 @@ If you find this project useful in your research, please consider citing:
 
 The GE2EAD resources is released under the Apache 2.0 license.
 <p align="right">(<a href="#top">back to top</a>)</p>    
+
+
 
 
 
