@@ -4,11 +4,13 @@
 
 <!-- PROJECT SHIELDS -->
 [![Awesome Logo](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+[![TechRxiv](https://img.shields.io/badge/TechRxiv-Paper-00629B?logo=ieee&logoColor=white)](https://www.techrxiv.org/doi/full/10.36227/techrxiv.176523315.56439138/v2)
+[![Project](https://img.shields.io/badge/Project-Website-blue?logo=google-chrome&logoColor=white)](https://autolab-sai-sjtu.github.io/GE2EAD/)
 [![GitHub forks](https://img.shields.io/github/forks/AutoLab-SAI-SJTU/GE2EAD?style=social)](https://github.com/AutoLab-SAI-SJTU/GE2EAD/network/members)
 ![GitHub stars](https://img.shields.io/github/stars/AutoLab-SAI-SJTU/GE2EAD?style=social)
 
 
-This is the official repository for **"Survey of General End-to-End Autonomous Driving: A Unified Perspective"** (📄 paper link).
+This is the official repository for **"Survey of General End-to-End Autonomous Driving: A Unified Perspective"**.
 
 This project aims to provide a unified roadmap for the field by:
 
