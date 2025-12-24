@@ -46,94 +46,24 @@
                 <div class="overview-card">
                     <embed src="images/coggle.pdf" type="application/pdf" class="overview-pdf">
                     <h3>Research Mindmap</h3>
-                    <p>Comprehensive visualization of the GE2EAD research landscape and methodology taxonomy</p>
+                    <p>Comprehensive visualization of the GE2EAD research landscape</p>
                     <a href="images/coggle.pdf" target="_blank" class="view-fullscreen">🔍 View Fullscreen</a>
                 </div>
-                <!-- Uncomment when top_methods image is ready
-                <div class="overview-card">
-                    <img src="images/top_methods.png" alt="Top Methods" class="overview-image">
-                    <h3>Top Methods</h3>
-                    <p>Leading approaches and state-of-the-art methods in end-to-end autonomous driving</p>
-                </div>
-                -->
             </div>
         </section>
-
-        <!-- Search and Filter Section -->
-        <section class="search-section">
-            <div class="search-container">
-                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search papers by title, author, or keyword...">
-            </div>
-            <div class="filter-container">
-                <button class="filter-btn active" data-category="all">All Papers</button>
-                <button class="filter-btn" data-category="conventional">🚗 Conventional</button>
-                <button class="filter-btn" data-category="vlm">🤖 VLM-Centric</button>
-                <button class="filter-btn" data-category="hybrid">🔄 Hybrid</button>
-            </div>
-            <div class="year-filter">
-                <label>Filter by Year:</label>
-                <select id="yearFilter">
-                    <option value="all">All Years</option>
-                    <option value="2025">2025</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                </select>
-            </div>
-        </section>
-
-        <!-- Navigation Cards -->
-        <nav class="toc">
-            <h2>Explore Research Areas</h2>
-            <p class="toc-subtitle">Browse our comprehensive collection of end-to-end autonomous driving methods and datasets</p>
-            <div class="toc-grid">
-                <a href="#conventional" class="toc-card" data-aos="fade-up">
-                    <div class="toc-icon">🚗</div>
-                    <h3>Conventional Methods</h3>
-                    <p>Classical end-to-end approaches including diffusion models, trajectory planning, and reinforcement learning</p>
-                    <span class="toc-count">47+ Papers</span>
-                    <div class="card-shine"></div>
-                </a>
-                <a href="#vlm-centric" class="toc-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="toc-icon">🤖</div>
-                    <h3>VLM-Centric Methods</h3>
-                    <p>Vision-language models for autonomous driving with reasoning and natural language understanding</p>
-                    <span class="toc-count">65+ Papers</span>
-                    <div class="card-shine"></div>
-                </a>
-                <a href="#hybrid" class="toc-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="toc-icon">🔄</div>
-                    <h3>Hybrid Methods</h3>
-                    <p>Combining traditional approaches with large language models for enhanced decision-making</p>
-                    <span class="toc-count">12+ Papers</span>
-                    <div class="card-shine"></div>
-                </a>
-                <a href="#datasets" class="toc-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="toc-icon">📊</div>
-                    <h3>Datasets</h3>
-                    <p>Comprehensive collection of normal and vision-language datasets for autonomous driving</p>
-                    <span class="toc-count">25+ Datasets</span>
-                    <div class="card-shine"></div>
-                </a>
-            </div>
-        </nav>
 
         <!-- Featured Papers Section -->
         <section class="featured-section">
             <h2 class="section-title">🌟 Featured Papers</h2>
             <div class="featured-carousel">
                 <div class="featured-card">
-                    <div class="featured-image-placeholder">
-                        <span>📊 Architecture Diagram</span>
-                        <small>Coming Soon: DiffusionDriveV2</small>
-                    </div>
                     <div class="featured-content">
                         <div class="featured-badge">NeurIPS 2025</div>
                         <h3>DiffusionDriveV2</h3>
-                        <p class="featured-desc">Reinforcement Learning-Constrained Truncated Diffusion Modeling in End-to-End Autonomous Driving. Combines truncated diffusion with RL for multimodal trajectory planning.</p>
+                        <p class="featured-desc">Reinforcement Learning-Constrained Truncated Diffusion Modeling in End-to-End Autonomous Driving.</p>
                         <div class="featured-tags">
                             <span class="tag">Diffusion</span>
                             <span class="tag">RL</span>
-                            <span class="tag">Planning</span>
                         </div>
                         <div class="featured-links">
                             <a href="https://arxiv.org/abs/2512.07745" target="_blank">📄 Paper</a>
@@ -142,18 +72,13 @@
                     </div>
                 </div>
                 <div class="featured-card">
-                    <div class="featured-image-placeholder">
-                        <span>🤖 VLM Pipeline</span>
-                        <small>Coming Soon: CoT4AD</small>
-                    </div>
                     <div class="featured-content">
                         <div class="featured-badge">2025</div>
                         <h3>CoT4AD</h3>
-                        <p class="featured-desc">Vision-Language-Action Model with Explicit Chain-of-Thought Reasoning. Integrates explicit reasoning trajectories for improved decision-making in complex scenes.</p>
+                        <p class="featured-desc">Vision-Language-Action Model with Explicit Chain-of-Thought Reasoning for Autonomous Driving.</p>
                         <div class="featured-tags">
                             <span class="tag">VLA</span>
                             <span class="tag">CoT</span>
-                            <span class="tag">Reasoning</span>
                         </div>
                         <div class="featured-links">
                             <a href="https://www.arxiv.org/pdf/2511.22532" target="_blank">📄 Paper</a>
@@ -161,18 +86,13 @@
                     </div>
                 </div>
                 <div class="featured-card">
-                    <div class="featured-image-placeholder">
-                        <span>🔄 Hybrid Framework</span>
-                        <small>Coming Soon: AdaDrive</small>
-                    </div>
                     <div class="featured-content">
                         <div class="featured-badge">ICCV 2025</div>
                         <h3>AdaDrive</h3>
-                        <p class="featured-desc">Self-Adaptive Slow-Fast System for Language-Grounded Autonomous Driving. Dynamically balances LLM reasoning with real-time planning efficiency.</p>
+                        <p class="featured-desc">Self-Adaptive Slow-Fast System for Language-Grounded Autonomous Driving.</p>
                         <div class="featured-tags">
                             <span class="tag">LLM</span>
                             <span class="tag">Adaptive</span>
-                            <span class="tag">Hybrid</span>
                         </div>
                         <div class="featured-links">
                             <a href="https://arxiv.org/pdf/2511.06253" target="_blank">📄 Paper</a>
@@ -183,324 +103,187 @@
             </div>
         </section>
 
-        <!-- Papers Sections -->
-        <section id="conventional" class="papers-section" data-category="conventional">
-            <h2 class="section-title">🚗 Conventional End-to-End Methods</h2>
-
-            <div class="year-group">
-                <h3 class="year-header">2025</h3>
-                <div class="papers-grid">
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>DiffusionDriveV2</h4>
-                            <div class="paper-venue">2025</div>
-                        </div>
-                        <p class="paper-description">Reinforcement Learning-Constrained Truncated Diffusion Modeling in End-to-End Autonomous Driving</p>
-                        <div class="paper-tags">
-                            <span class="tag">Diffusion</span>
-                            <span class="tag">RL</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://arxiv.org/abs/2512.07745" target="_blank" class="paper-link">📄 Paper</a>
-                            <a href="https://github.com/hustvl/DiffusionDriveV2" target="_blank" class="paper-link">💻 Code</a>
-                        </div>
+        <!-- Conventional Section -->
+        <section id="conventional" class="papers-section">
+            <h2 class="section-title">🚗 Conventional Methods</h2>
+            <div class="papers-grid">
+                <!-- Paper 1 -->
+                <div class="paper-card" data-year="2025">
+                    <div class="paper-header">
+                        <h4>DiffusionDriveV2</h4>
+                        <div class="paper-venue">NeurIPS 2025</div>
                     </div>
-
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>SIMSCALE</h4>
-                            <div class="paper-venue">2025</div>
-                        </div>
-                        <p class="paper-description">SimScale: Learning to Drive via Real-World Simulation at Scale</p>
-                        <div class="paper-tags">
-                            <span class="tag">Simulation</span>
-                            <span class="tag">Scalable</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://www.arxiv.org/pdf/2511.23369" target="_blank" class="paper-link">📄 Paper</a>
-                            <a href="https://github.com/OpenDriveLab/SimScale" target="_blank" class="paper-link">💻 Code</a>
-                        </div>
-                    </div>
-
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>LAP</h4>
-                            <div class="paper-venue">2025</div>
-                        </div>
-                        <p class="paper-description">Fast Latent Diffusion Planner with Fine-Grained Feature Distillation for Autonomous Driving</p>
-                        <div class="paper-tags">
-                            <span class="tag">Latent Diffusion</span>
-                            <span class="tag">Planning</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://arxiv.org/pdf/2512.00470" target="_blank" class="paper-link">📄 Paper</a>
-                            <a href="https://github.com/jhz1192/Latent-Planner" target="_blank" class="paper-link">💻 Code</a>
-                        </div>
-                    </div>
-
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>SeerDrive</h4>
-                            <div class="paper-venue">NeurIPS 2025</div>
-                        </div>
-                        <p class="paper-description">Future-Aware End-to-End Driving: Bidirectional Modeling of Trajectory Planning and Scene Evolution</p>
-                        <div class="paper-tags">
-                            <span class="tag">Future Prediction</span>
-                            <span class="tag">BEV</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://arxiv.org/pdf/2510.11092" target="_blank" class="paper-link">📄 Paper</a>
-                            <a href="https://github.com/LogosRoboticsGroup/SeerDrive" target="_blank" class="paper-link">💻 Code</a>
-                        </div>
+                    <p class="paper-description">Reinforcement Learning-Constrained Truncated Diffusion Modeling</p>
+                    <div class="paper-tags"><span class="tag">Diffusion</span><span class="tag">RL</span></div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2512.07745" target="_blank" class="paper-link">📄 Paper</a>
+                        <a href="https://github.com/hustvl/DiffusionDriveV2" target="_blank" class="paper-link">💻 Code</a>
                     </div>
                 </div>
-                <p class="show-more"><a href="#" onclick="alert('More papers available in the full repository'); return false;">View all Conventional papers →</a></p>
+                <!-- Paper 2 -->
+                <div class="paper-card" data-year="2025">
+                    <div class="paper-header">
+                        <h4>SIMSCALE</h4>
+                        <div class="paper-venue">2025</div>
+                    </div>
+                    <p class="paper-description">SimScale: Learning to Drive via Real-World Simulation at Scale</p>
+                    <div class="paper-tags"><span class="tag">Simulation</span><span class="tag">Data Gen</span></div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2511.23369" target="_blank" class="paper-link">📄 Paper</a>
+                        <a href="https://github.com/OpenDriveLab/SimScale" target="_blank" class="paper-link">💻 Code</a>
+                    </div>
+                </div>
+                <!-- Paper 3 -->
+                <div class="paper-card" data-year="2025">
+                    <div class="paper-header">
+                        <h4>SeerDrive</h4>
+                        <div class="paper-venue">NeurIPS 2025</div>
+                    </div>
+                    <p class="paper-description">Future-Aware End-to-End Driving: Bidirectional Modeling</p>
+                    <div class="paper-tags"><span class="tag">World Model</span><span class="tag">Planning</span></div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2510.11092" target="_blank" class="paper-link">📄 Paper</a>
+                        <a href="https://github.com/LogosRoboticsGroup/SeerDrive" target="_blank" class="paper-link">💻 Code</a>
+                    </div>
+                </div>
             </div>
+            <p class="show-more">
+                <a href="https://github.com/AutoLab-SAI-SJTU/GE2EAD#conventional-end-to-end-methods" target="_blank">
+                    View all Conventional papers on GitHub →
+                </a>
+            </p>
         </section>
 
-        <section id="vlm-centric" class="papers-section" data-category="vlm">
-            <h2 class="section-title">🤖 VLM-Centric End-to-End Methods</h2>
-
-            <div class="year-group">
-                <h3 class="year-header">2025</h3>
-                <div class="papers-grid">
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>CoT4AD</h4>
-                            <div class="paper-venue">2025</div>
-                        </div>
-                        <p class="paper-description">Vision-Language-Action Model with Explicit Chain-of-Thought Reasoning for Autonomous Driving</p>
-                        <div class="paper-tags">
-                            <span class="tag">VLA</span>
-                            <span class="tag">CoT</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://www.arxiv.org/pdf/2511.22532" target="_blank" class="paper-link">📄 Paper</a>
-                        </div>
+        <!-- VLM Section -->
+        <section id="vlm-centric" class="papers-section">
+            <h2 class="section-title">🤖 VLM-Centric Methods</h2>
+            <div class="papers-grid">
+                <!-- Paper 1 -->
+                <div class="paper-card" data-year="2025">
+                    <div class="paper-header">
+                        <h4>CoT4AD</h4>
+                        <div class="paper-venue">2025</div>
                     </div>
-
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>MPA</h4>
-                            <div class="paper-venue">NeurIPS 2025</div>
-                        </div>
-                        <p class="paper-description">Model-Based Policy Adaptation for Closed-Loop End-to-End Autonomous Driving</p>
-                        <div class="paper-tags">
-                            <span class="tag">Diffusion</span>
-                            <span class="tag">Adaptation</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://arxiv.org/pdf/2511.21584" target="_blank" class="paper-link">📄 Paper</a>
-                            <a href="https://mpa-drive.github.io/" target="_blank" class="paper-link">🌐 Project</a>
-                        </div>
-                    </div>
-
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>Alpamayo-R1</h4>
-                            <div class="paper-venue">2025</div>
-                        </div>
-                        <p class="paper-description">Bridging Reasoning and Action Prediction for Generalizable Autonomous Driving in the Long Tail</p>
-                        <div class="paper-tags">
-                            <span class="tag">VLA</span>
-                            <span class="tag">Reasoning</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://arxiv.org/pdf/2511.00088" target="_blank" class="paper-link">📄 Paper</a>
-                            <a href="https://github.com/NVlabs/alpamayo" target="_blank" class="paper-link">💻 Code</a>
-                        </div>
-                    </div>
-
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>DriveVLA-W0</h4>
-                            <div class="paper-venue">2025</div>
-                        </div>
-                        <p class="paper-description">World Models Amplify Data Scaling Law in Autonomous Driving</p>
-                        <div class="paper-tags">
-                            <span class="tag">VLA</span>
-                            <span class="tag">World Model</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://arxiv.org/pdf/2510.12796" target="_blank" class="paper-link">📄 Paper</a>
-                            <a href="https://github.com/BraveGroup/DriveVLA-W0" target="_blank" class="paper-link">💻 Code</a>
-                        </div>
+                    <p class="paper-description">Vision-Language-Action Model with Explicit Chain-of-Thought Reasoning</p>
+                    <div class="paper-tags"><span class="tag">VLA</span><span class="tag">CoT</span></div>
+                    <div class="paper-links">
+                        <a href="https://www.arxiv.org/pdf/2511.22532" target="_blank" class="paper-link">📄 Paper</a>
                     </div>
                 </div>
-                <p class="show-more"><a href="#" onclick="alert('More papers available in the full repository'); return false;">View all VLM-centric papers →</a></p>
+                <!-- Paper 2 -->
+                <div class="paper-card" data-year="2025">
+                    <div class="paper-header">
+                        <h4>MPA</h4>
+                        <div class="paper-venue">NeurIPS 2025</div>
+                    </div>
+                    <p class="paper-description">Model-Based Policy Adaptation for Closed-Loop End-to-End Autonomous Driving</p>
+                    <div class="paper-tags"><span class="tag">Model-Based</span><span class="tag">Sim</span></div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2511.21584" target="_blank" class="paper-link">📄 Paper</a>
+                    </div>
+                </div>
+                <!-- Paper 3 -->
+                <div class="paper-card" data-year="2025">
+                    <div class="paper-header">
+                        <h4>Alpamayo-R1</h4>
+                        <div class="paper-venue">2025</div>
+                    </div>
+                    <p class="paper-description">Bridging Reasoning and Action Prediction for Generalizable Autonomous Driving</p>
+                    <div class="paper-tags"><span class="tag">VLA</span><span class="tag">Reasoning</span></div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2511.00088" target="_blank" class="paper-link">📄 Paper</a>
+                        <a href="https://github.com/NVlabs/alpamayo" target="_blank" class="paper-link">💻 Code</a>
+                    </div>
+                </div>
             </div>
+            <p class="show-more">
+                <a href="https://github.com/AutoLab-SAI-SJTU/GE2EAD#vlm-centric-end-to-end-methods" target="_blank">
+                    View all VLM-centric papers on GitHub →
+                </a>
+            </p>
         </section>
 
-        <section id="hybrid" class="papers-section" data-category="hybrid">
-            <h2 class="section-title">🔄 Hybrid End-to-End Methods</h2>
-
-            <div class="year-group">
-                <h3 class="year-header">2025</h3>
-                <div class="papers-grid">
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>AdaDrive</h4>
-                            <div class="paper-venue">ICCV 2025</div>
-                        </div>
-                        <p class="paper-description">Self-Adaptive Slow-Fast System for Language-Grounded Autonomous Driving</p>
-                        <div class="paper-tags">
-                            <span class="tag">LLM</span>
-                            <span class="tag">Adaptive</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://arxiv.org/pdf/2511.06253" target="_blank" class="paper-link">📄 Paper</a>
-                            <a href="https://github.com/ReaFly/AdaDrive" target="_blank" class="paper-link">💻 Code</a>
-                        </div>
+        <!-- Hybrid Section -->
+        <section id="hybrid" class="papers-section">
+            <h2 class="section-title">🔄 Hybrid Methods</h2>
+            <div class="papers-grid">
+                <!-- Paper 1 -->
+                <div class="paper-card" data-year="2025">
+                    <div class="paper-header">
+                        <h4>AdaDrive</h4>
+                        <div class="paper-venue">ICCV 2025</div>
                     </div>
-
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>ReAL-AD</h4>
-                            <div class="paper-venue">2025</div>
-                        </div>
-                        <p class="paper-description">Towards Human-Like Reasoning in End-to-End Autonomous Driving</p>
-                        <div class="paper-tags">
-                            <span class="tag">VLM</span>
-                            <span class="tag">Reasoning</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://arxiv.org/pdf/2507.12499" target="_blank" class="paper-link">📄 Paper</a>
-                            <a href="https://4dvlab.github.io/project_page/realad" target="_blank" class="paper-link">🌐 Project</a>
-                        </div>
-                    </div>
-
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>SOLVE</h4>
-                            <div class="paper-venue">CVPR 2025</div>
-                        </div>
-                        <p class="paper-description">Synergy of Language-Vision and End-to-End Networks for Autonomous Driving</p>
-                        <div class="paper-tags">
-                            <span class="tag">VLM</span>
-                            <span class="tag">Synergy</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://arxiv.org/pdf/2505.16805" target="_blank" class="paper-link">📄 Paper</a>
-                        </div>
-                    </div>
-
-                    <div class="paper-card" data-year="2025">
-                        <div class="paper-header">
-                            <h4>DIMA</h4>
-                            <div class="paper-venue">CVPR 2025</div>
-                        </div>
-                        <p class="paper-description">Distilling Multi-modal Large Language Models for Autonomous Driving</p>
-                        <div class="paper-tags">
-                            <span class="tag">Distillation</span>
-                            <span class="tag">MLLM</span>
-                        </div>
-                        <div class="paper-links">
-                            <a href="https://arxiv.org/pdf/2501.09757" target="_blank" class="paper-link">📄 Paper</a>
-                        </div>
+                    <p class="paper-description">Self-Adaptive Slow-Fast System for Language-Grounded Autonomous Driving</p>
+                    <div class="paper-tags"><span class="tag">Slow-Fast</span><span class="tag">LLM</span></div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2511.06253" target="_blank" class="paper-link">📄 Paper</a>
+                        <a href="https://github.com/ReaFly/AdaDrive" target="_blank" class="paper-link">💻 Code</a>
                     </div>
                 </div>
-                <p class="show-more"><a href="#" onclick="alert('More papers available in the full repository'); return false;">View all Hybrid papers →</a></p>
+                <!-- Paper 2 -->
+                <div class="paper-card" data-year="2025">
+                    <div class="paper-header">
+                        <h4>ReAL-AD</h4>
+                        <div class="paper-venue">2025</div>
+                    </div>
+                    <p class="paper-description">Towards Human-Like Reasoning in End-to-End Autonomous Driving</p>
+                    <div class="paper-tags"><span class="tag">Reasoning</span><span class="tag">VLM</span></div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2507.12499" target="_blank" class="paper-link">📄 Paper</a>
+                        <a href="https://4dvlab.github.io/project_page/realad" target="_blank" class="paper-link">🌐 Project</a>
+                    </div>
+                </div>
             </div>
+            <p class="show-more">
+                <a href="https://github.com/AutoLab-SAI-SJTU/GE2EAD#hybrid-end-to-end-methods" target="_blank">
+                    View all Hybrid papers on GitHub →
+                </a>
+            </p>
         </section>
 
         <!-- Datasets Section -->
         <section id="datasets" class="datasets-section">
             <h2 class="section-title">📊 Datasets</h2>
-
-            <div class="dataset-category">
-                <h3>Normal Datasets</h3>
-                <div class="dataset-grid">
-                    <div class="dataset-card">
-                        <div class="dataset-icon">🎯</div>
-                        <h4>KITTI</h4>
-                        <p class="dataset-year">CVPR 2012</p>
-                        <p class="dataset-desc">The KITTI Vision Benchmark Suite for autonomous driving</p>
-                        <div class="dataset-links">
-                            <a href="https://ieeexplore.ieee.org/document/6248074" target="_blank">Paper</a>
-                            <a href="https://www.cvlibs.net/datasets/kitti/" target="_blank">Dataset</a>
-                        </div>
+            <div class="dataset-grid">
+                <div class="dataset-card">
+                    <div class="dataset-icon">🎯</div>
+                    <h4>OmniDrive</h4>
+                    <p class="dataset-year">CVPR 2025</p>
+                    <p class="dataset-desc">Holistic Vision-Language Dataset with Counterfactual Reasoning</p>
+                    <div class="dataset-links">
+                        <a href="https://arxiv.org/abs/2405.01533" target="_blank">Paper</a>
+                        <a href="https://github.com/NVlabs/OmniDrive" target="_blank">Dataset</a>
                     </div>
-                    <div class="dataset-card">
-                        <div class="dataset-icon">🌐</div>
-                        <h4>nuScenes</h4>
-                        <p class="dataset-year">CVPR 2020</p>
-                        <p class="dataset-desc">A Multimodal Dataset for Autonomous Driving</p>
-                        <div class="dataset-links">
-                            <a href="https://arxiv.org/abs/1903.11027" target="_blank">Paper</a>
-                            <a href="https://www.nuscenes.org/" target="_blank">Dataset</a>
-                        </div>
+                </div>
+                <div class="dataset-card">
+                    <div class="dataset-icon">🎬</div>
+                    <h4>CoVLA</h4>
+                    <p class="dataset-year">WACV 2025</p>
+                    <p class="dataset-desc">Comprehensive Vision-Language-Action Dataset</p>
+                    <div class="dataset-links">
+                        <a href="https://arxiv.org/abs/2408.10845" target="_blank">Paper</a>
+                        <a href="https://huggingface.co/datasets/turing-motors/CoVLA-Dataset" target="_blank">Dataset</a>
                     </div>
-                    <div class="dataset-card">
-                        <div class="dataset-icon">🚙</div>
-                        <h4>Waymo Open</h4>
-                        <p class="dataset-year">CVPR 2020</p>
-                        <p class="dataset-desc">Scalability in Perception for Autonomous Driving</p>
-                        <div class="dataset-links">
-                            <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Sun_Scalability_in_Perception_for_Autonomous_Driving_Waymo_Open_Dataset_CVPR_2020_paper.pdf" target="_blank">Paper</a>
-                            <a href="https://waymo.com/intl/zh-cn/research/" target="_blank">Dataset</a>
-                        </div>
-                    </div>
-                    <div class="dataset-card">
-                        <div class="dataset-icon">🎥</div>
-                        <h4>BDD100K</h4>
-                        <p class="dataset-year">CVPR 2020</p>
-                        <p class="dataset-desc">A Diverse Driving Dataset for Heterogeneous Multitask Learning</p>
-                        <div class="dataset-links">
-                            <a href="https://arxiv.org/abs/1805.04687" target="_blank">Paper</a>
-                            <a href="https://github.com/bdd100k/bdd100k" target="_blank">Dataset</a>
-                        </div>
+                </div>
+                <div class="dataset-card">
+                    <div class="dataset-icon">🌐</div>
+                    <h4>nuScenes</h4>
+                    <p class="dataset-year">CVPR 2020</p>
+                    <p class="dataset-desc">A Multimodal Dataset for Autonomous Driving</p>
+                    <div class="dataset-links">
+                        <a href="https://arxiv.org/abs/1903.11027" target="_blank">Paper</a>
+                        <a href="https://www.nuscenes.org/" target="_blank">Dataset</a>
                     </div>
                 </div>
             </div>
-
-            <div class="dataset-category">
-                <h3>Vision-Language Datasets</h3>
-                <div class="dataset-grid">
-                    <div class="dataset-card highlight">
-                        <div class="dataset-icon">💬</div>
-                        <h4>DriveLM</h4>
-                        <p class="dataset-year">ECCV 2024</p>
-                        <p class="dataset-desc">Driving with Graph Visual Question Answering</p>
-                        <div class="dataset-links">
-                            <a href="https://arxiv.org/abs/2312.14150" target="_blank">Paper</a>
-                            <a href="https://huggingface.co/datasets/OpenDriveLab/DriveLM" target="_blank">Dataset</a>
-                        </div>
-                    </div>
-                    <div class="dataset-card highlight">
-                        <div class="dataset-icon">🔮</div>
-                        <h4>OmniDrive</h4>
-                        <p class="dataset-year">CVPR 2025</p>
-                        <p class="dataset-desc">A Holistic Vision-Language Dataset with Counterfactual Reasoning</p>
-                        <div class="dataset-links">
-                            <a href="https://arxiv.org/abs/2405.01533" target="_blank">Paper</a>
-                            <a href="https://github.com/NVlabs/OmniDrive" target="_blank">Dataset</a>
-                        </div>
-                    </div>
-                    <div class="dataset-card highlight">
-                        <div class="dataset-icon">🎬</div>
-                        <h4>CoVLA</h4>
-                        <p class="dataset-year">WACV 2025</p>
-                        <p class="dataset-desc">Comprehensive Vision-Language-Action Dataset</p>
-                        <div class="dataset-links">
-                            <a href="https://arxiv.org/abs/2408.10845" target="_blank">Paper</a>
-                            <a href="https://huggingface.co/datasets/turing-motors/CoVLA-Dataset" target="_blank">Dataset</a>
-                        </div>
-                    </div>
-                    <div class="dataset-card highlight">
-                        <div class="dataset-icon">📚</div>
-                        <h4>NuInstruct</h4>
-                        <p class="dataset-year">CVPR 2024</p>
-                        <p class="dataset-desc">Holistic Understanding with BEV-Injected Multi-Modal Models</p>
-                        <div class="dataset-links">
-                            <a href="https://arxiv.org/pdf/2401.00988" target="_blank">Paper</a>
-                            <a href="https://github.com/xmed-lab/NuInstruct" target="_blank">Dataset</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <p class="show-more">
+                <a href="https://github.com/AutoLab-SAI-SJTU/GE2EAD#dataset" target="_blank">
+                    View all Datasets on GitHub →
+                </a>
+            </p>
         </section>
 
-        <!-- Citation Section -->
+        <!-- Footer -->
         <footer>
             <div class="citation">
                 <h3>📖 Citation</h3>
