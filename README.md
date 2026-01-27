@@ -97,10 +97,24 @@ If you find this project useful in your research, please consider citing:
 ### Conventional End-to-End Methods
 
 <details open>
+<summary>2026</summary>
+
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **PlannerRFT**<br><sub>Reinforcing Diffusion Planners through Closed-Loop and Sample-Efficient Fine-Tuning</sub> | 2026 | `Diffusion Planner` · `Reinforcement Fine-Tuning` | [![arXiv](https://img.shields.io/badge/arXiv-2601.12901-b31b1b?style=flat-square)](https://arxiv.org/abs/2601.12901) | — | [Project](https://opendrivelab.com/PlannerRFT/) |
+| **AlignDrive**<br><sub>Aligned Lateral-Longitudinal Planning for End-to-End Autonomous Driving</sub> | 2026 | `Lateral-Longitudinal` · `Path-Conditioned` | [![arXiv](https://img.shields.io/badge/arXiv-2601.01762-b31b1b?style=flat-square)](https://arxiv.org/abs/2601.01762) | [![Stars](https://img.shields.io/github/stars/YanhaoWu/AlignDrive?style=social)](https://github.com/YanhaoWu/AlignDrive) | [Project](https://yanhaowu.github.io/AlignDrive/) |
+
+</details>
+
+
+
+<details open>
 <summary>2025</summary>
 
 | 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
 |---|---|---|---|---|---|
+| **DriveLaW**<br><sub>Unifying Planning and Video Generation in a Latent Driving World</sub> | 2025 | `World Model` · `Video Generation` | [![arXiv](https://img.shields.io/badge/arXiv-2512.23421-b31b1b?style=flat-square)](https://arxiv.org/abs/2512.23421) | [![Stars](https://img.shields.io/github/stars/wm-research/DriveLaW?style=social)](https://github.com/wm-research/DriveLaW) | [Project](https://wm-research.github.io/DriveLaW/) |
+| **SimScale**<br><sub>Learning to Drive via Real-World Simulation at Scale</sub> | 2025 | `Scalable Simulation` · `Neural Rendering` | [![arXiv](https://img.shields.io/badge/arXiv-2511.23369-b31b1b?style=flat-square)](https://arxiv.org/abs/2511.23369) | [![Stars](https://img.shields.io/github/stars/OpenDriveLab/SimScale?style=social)](https://github.com/OpenDriveLab/SimScale) | [Project](https://opendrivelab.com/SimScale/) |
 | **FutureX**<br><sub>FutureX: Enhance End-to-End Autonomous Driving via Latent Chain-of-Thought World Model</sub> | 2025 | `World Model` · `Latent CoT` | [![arXiv](https://img.shields.io/badge/arXiv-2512.11226-b31b1b?style=flat-square)](https://arxiv.org/abs/2512.11226) | — | — |
 | **Spatial Retrieval AD**<br><sub>Spatial Retrieval Augmented Autonomous Driving</sub> | 2025 | `Retrieval` · `Geo Images` | [![arXiv](https://img.shields.io/badge/arXiv-2512.06865-b31b1b?style=flat-square)](https://arxiv.org/abs/2512.06865v1) | [![Stars](https://img.shields.io/github/stars/SpatialRetrievalAD/SpatialRetrievalAD-Dataset-Devkit?style=social)](https://github.com/SpatialRetrievalAD/SpatialRetrievalAD-Dataset-Devkit) | [Project](https://spatialretrievalad.github.io/) |
 | **UniMM-V2X**<br><sub>UniMM-V2X: MoE-Enhanced Multi-Level Fusion for End-to-End Cooperative Autonomous Driving</sub> | 2025 | `MoE` · `Multi-Agent`| [![arXiv](https://img.shields.io/badge/arXiv-2511.09013-b31b1b?style=flat-square)](https://www.arxiv.org/abs/2511.09013) | [![Stars](https://img.shields.io/github/stars/Souig/UniMM-V2X?style=social)](https://github.com/Souig/UniMM-V2X) | — |
@@ -228,10 +242,22 @@ If you find this project useful in your research, please consider citing:
 ### VLM-Centric End-to-End Methods
 
 <details open>
+<summary>2026</summary>
+
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **SparseOccVLA**<br><sub>Bridging Occupancy and Vision-Language Models via Sparse Queries</sub> | 2026 | `Sparse Occupancy` · `Unified 4D Understanding` | [![arXiv](https://img.shields.io/badge/arXiv-2601.06474-b31b1b?style=flat-square)](https://arxiv.org/abs/2601.06474) | [![Stars](https://img.shields.io/github/stars/MSunDYY/SparseOccVLA?style=social)](https://github.com/MSunDYY/SparseOccVLA) | [Project](https://msundyy.github.io/SparseOccVLA/) |
+| **SGDrive**<br><sub>Scene-to-Goal Hierarchical World Cognition for Autonomous Driving</sub> | 2026 | `Hierarchical Cognition` · `Scene-Agent-Goal` | [![arXiv](https://img.shields.io/badge/arXiv-2601.05640-b31b1b?style=flat-square)](https://arxiv.org/abs/2601.05640) | [![Stars](https://img.shields.io/github/stars/LogosRoboticsGroup/SGDrive?style=social)](https://github.com/LogosRoboticsGroup/SGDrive) | — |
+
+</details>
+
+<details open>
 <summary>2025</summary>
 
 | 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
 |---|---|---|---|---|---|
+| **Counterfactual VLA**<br><sub>Self-Reflective Vision-Language-Action Model with Adaptive Reasoning</sub> | 2025 | `Self-Reflective` · `Counterfactual Reasoning` | [![arXiv](https://img.shields.io/badge/arXiv-2512.24426-b31b1b?style=flat-square)](https://arxiv.org/abs/2512.24426) | — | — |
+| **ColaVLA**<br><sub>Leveraging Cognitive Latent Reasoning for Hierarchical Parallel Trajectory Planning</sub> | 2025 | `Cognitive Latent Reasoning` · `Parallel Planning` | [![arXiv](https://img.shields.io/badge/arXiv-2512.22939-b31b1b?style=flat-square)](https://arxiv.org/abs/2512.22939) | [![Stars](https://img.shields.io/github/stars/pqh22/ColaVLA?style=social)](https://github.com/pqh22/ColaVLA) | [Project](https://pqh22.github.io/projects/ColaVLA/index.html) |
 | **DrivePI**<br><sub>DrivePI: Spatial-aware 4D MLLM for Unified Autonomous Driving Understanding, Perception, Prediction and Planning</sub> | 2025 | `4D Spatial` · `Occupancy`  | [![arXiv](https://img.shields.io/badge/arXiv-2512.12799-b31b1b?style=flat-square)](https://arxiv.org/abs/2512.12799) | [![Stars](https://img.shields.io/github/stars/happinesslz/DrivePI?style=social)](https://github.com/happinesslz/DrivePI) | — |
 | **WAM-Diff**<br><sub>WAM-Diff: A Masked Diffusion VLA Framework with MoE and Online Reinforcement Learning for Autonomous Driving</sub> | 2025 | `Masked Diffusion` · `MoE` · `Online RL` | [![arXiv](https://img.shields.io/badge/arXiv-2512.11872-b31b1b?style=flat-square)](https://arxiv.org/abs/2512.11872) | [![Stars](https://img.shields.io/github/stars/fudan-generative-vision/WAM-Diff?style=social)](https://github.com/fudan-generative-vision/WAM-Diff) | — |
 | **SpaceDrive**<br><sub>SpaceDrive: Infusing Spatial Awareness into VLM-based Autonomous Driving</sub> | 2025 | `Spatial Encoding` | [![arXiv](https://img.shields.io/badge/arXiv-2512.10719-b31b1b?style=flat-square)](https://arxiv.org/abs/2512.10719) | [![Stars](https://img.shields.io/github/stars/zhenghao2519/SpaceDrive?style=social)](https://github.com/zhenghao2519/SpaceDrive) | [Project](https://zhenghao2519.github.io/SpaceDrive_Page/) |
@@ -375,6 +401,15 @@ If you find this project useful in your research, please consider citing:
 <summary> Hybrid End-to-End Methods </summary>
 
 ### Hybrid End-to-End Methods
+
+<details open>
+<summary>2026</summary>
+
+| 🧠 **Method** | 🗓️ **Year / Venue** | 🏷️ **Tags** | 📄 **Paper** | 💻 **GitHub** | 🌐 **Project** |
+|---|---|---|---|---|---|
+| **LatentVLA**<br><sub>Efficient Vision-Language Models for Autonomous Driving via Latent Action Prediction</sub> | 2026 | `Latent Action` · `Knowledge Distillation` | [![arXiv](https://img.shields.io/badge/arXiv-2601.05611-b31b1b?style=flat-square)](https://arxiv.org/abs/2601.05611) | — | — |
+
+</details>
 
 <details open>
 <summary>2025</summary>
